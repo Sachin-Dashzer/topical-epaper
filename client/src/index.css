@@ -1,0 +1,265 @@
+@media only screen and (max-width: 767px) {
+    p {
+      font-size: 15px;
+    }
+  
+    .containerFull {
+      padding: 0 15px;
+    }
+  
+    .header {
+      padding: 0px 0;
+    }
+  
+  
+    .large_heading {
+      font-size: 32px;
+      line-height: 35px;
+    }
+  
+    .small_heading {
+      font-size: 20px;
+    }
+  
+    section {
+      overflow: inherit;
+      padding: 35px 0;
+    }
+  
+    .heading {
+      font-size: 28px;
+      line-height: normal;
+    }
+  
+    .sub_heading {
+      font-size: 24px;
+      line-height: normal;
+    }
+  
+    .title {
+      font-size: 17px;
+    }
+  
+    .text {
+      font-size: 15px;
+    }
+  
+    .stricky-fixed .btnMenu {
+      color: #000;
+    }
+  
+    .offcanvas {
+      visibility: unset;
+    }
+  
+    .offcanvas-end {
+      width: 320px;
+    }
+  
+    .offcanvas-body {
+      overflow-x: hidden;
+      padding: 0rem 1rem;
+    }
+  
+    .footerlogo {
+      width: 140px;
+      padding: 10px 20px;
+    }
+  
+    .btnMenu {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 23px;
+      margin-right: 10px;
+    }
+  
+    .title {
+      font-size: 17px;
+    }
+  
+    .stricky-fixed .btnMenu {
+      color: #000;
+    }
+  
+    .offcanvas-end {
+      width: 320px;
+    }
+  
+    .offcanvas-body {
+      overflow-x: hidden;
+      padding: 0rem 1rem;
+    }
+  
+    .offcanvas-header {
+      background-color: var(--primary-color);
+      margin-bottom: 30px;
+    }
+  
+  
+    .innerMenu ul li a {
+      color: #222;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      font-size: 20px;
+      padding: 11px 10px;
+      font-weight: 600;
+    }
+  
+  
+    .innerMenu ul li a:hover {
+      color: var(--primary-color);
+    }
+}
+
+
+
+
+
+@media (min-width: 768px) and (max-width: 990px) {
+    p {
+      font-size: 16px;
+    }
+    section {
+      padding: 40px 0 40px;
+    }
+    .containerFull {
+      padding: 0 15px;
+    }
+    .large_heading {
+      font-size: 33px;
+      line-height: 50px;
+    }
+    .heading {
+      font-size: 28px;
+    }
+    .sub_heading {
+      font-size: 23px;
+    }
+    .small_heading {
+      font-size: 20px;
+    }
+    .title {
+      font-size: 17px;
+    }
+    .text {
+      font-size: 15px;
+    }
+  
+    .btnTheme,
+    .btnSecondary {
+      font-size: 14px;
+      padding: 11px 20px;
+    }
+  
+    .leftLogo {
+      width: 160px;
+      margin-bottom: 6px;
+    }
+    .stricky-fixed .leftLogo {
+      width: 122px;
+    }
+  
+    .inlineHeader {
+      padding: 0 20px;
+    }
+  
+  
+    .offcanvas {
+      visibility: unset;
+    }
+  
+    .offcanvas-end {
+      width: 320px;
+    }
+  
+    .offcanvas-body {
+      overflow-x: hidden;
+      padding: 0rem 1rem;
+    }
+  
+    .footerlogo {
+      width: 140px;
+      padding: 10px 20px;
+    }
+  
+    .btnMenu {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 23px;
+      margin-right: 10px;
+    }
+  
+    .title {
+      font-size: 17px;
+    }
+  
+    .stricky-fixed .btnMenu {
+      color: #000;
+    }
+  
+    .offcanvas-end {
+      width: 320px;
+    }
+  
+    .offcanvas-body {
+      overflow-x: hidden;
+      padding: 0rem 1rem;
+    }
+  
+    .offcanvas-header {
+      background-color: var(--primary-color);
+      margin-bottom: 30px;
+    }
+  
+    .innerMenu ul li a {
+      color: #222;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      font-size: 18px;
+      padding: 8px 10px;
+      font-weight: 600;
+    }
+  
+  
+    .innerMenu ul li a:hover {
+      color: var(--primary-color);
+    }
+  
+}  
+
+
+
+
+
+@media (min-width: 990px) and (max-width: 1024px) {
+  }
+  
+  @media (min-width: 1024px) {
+  
+  }
+  
+  @media (min-width: 1280px) {
+    .containerFull {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+  }
+  
+  @media (min-width: 1600px) {
+    .containerFull {
+      max-width: 1366px;
+      margin: 0 auto;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1080px;
+    }
+  }
