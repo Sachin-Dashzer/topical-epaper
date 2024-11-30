@@ -2,6 +2,7 @@ import React from 'react'
 import HeroBanner from './HeroBanner'
 import LatestUploads from './LatestUploads.jsx'
 import AboutDetails from './AboutDetails'
+import CallToAction from './CallToAction.jsx'
 
 const Home = () => {
     return (
@@ -9,6 +10,7 @@ const Home = () => {
             <HeroBanner/>
             <LatestUploads />
             <AboutDetails />
+            <CallToAction />
             
 
         </>
