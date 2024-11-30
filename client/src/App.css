@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
   box-sizing: border-box;
@@ -71,7 +72,7 @@ a:hover {
   text-decoration: none;
 }
 
-.font-heading{
+.font-heading {
   font-family: "Noto Serif", serif;
 
 }
@@ -125,7 +126,7 @@ section {
 }
 
 .bg-light {
-  background-color: #f8f8f8;
+  background-color: #f9f9f9;
 }
 
 .text-secondary {
@@ -259,7 +260,7 @@ section {
 
 .heroBox {
   width: 100%;
-  height: 600px;
+  height: 580px;
   overflow: hidden;
 
 
@@ -268,7 +269,7 @@ section {
 }
 
 .heroContent {
-  margin-top: 100px;
+  margin-top: 90px;
 }
 
 .heroContent .large_heading {
@@ -278,10 +279,13 @@ section {
 
 .heroContent h3 {
   font-size: 30px;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   word-spacing: 5px;
 }
 
+.bannerBtns {
+  margin-top: 30px;
+}
 
 
 
@@ -289,7 +293,7 @@ section {
 
 .heroVideo {
   width: 100%;
-  height: 600px;
+  height: 100%;
   position: absolute;
   left: 0;
   top: 0;
@@ -379,6 +383,7 @@ section {
   transition: all 0.4s ease-in-out;
   cursor: pointer;
 }
+
 .uploadsDate {
   position: absolute;
   bottom: 0px;
@@ -396,7 +401,7 @@ section {
   transition: all 0.4s ease-in-out;
 }
 
-.uploadsDate a{
+.uploadsDate a {
   color: var(--secondary-color);
   font-size: 16px;
   /* display: none; */
@@ -410,31 +415,35 @@ section {
   height: 100%;
   transition: all 0.4s ease-in-out;
 }
-.uploadImg img{
+
+.uploadImg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.sliderItems:hover .uploadImg{
+
+.sliderItems:hover .uploadImg {
   opacity: 0.8;
   filter: blur(1px);
 }
-.sliderItems:hover .uploadsDate{
+
+.sliderItems:hover .uploadsDate {
 
   transform: translateY(0);
 
 }
 
-.callBg{
+.callBg {
   width: 100%;
   height: 460px;
   /* background: rgba(0, 0, 0, 0.278); */
-  background: linear-gradient(rgba(0, 0, 0, 0.804) , rgba(0, 0, 0, 0.822)) ,  url('./assets/call-to-aciton.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.804), rgba(0, 0, 0, 0.822)), url('./assets/call-to-aciton.jpg');
   background-size: cover;
   background-attachment: fixed;
-  
+
 }
-.callContainer{
+
+.callContainer {
   width: 100%;
   height: 100%;
   display: grid;
@@ -443,33 +452,116 @@ section {
   color: white;
   padding: 20px 100px;
 }
-.callContainer .large-heading{
+
+.callContainer .large-heading {
   font-size: 50px;
   letter-spacing: 3px;
 }
-.callContainer img{
+
+.callContainer img {
   width: 400px;
   height: 430px;
 }
 
+.logo h1,
+.footerlogo h1 {
+  font-family: "Dancing Script", cursive;
+
+}
 
 
+header {
+  color: white;
+}
+
+.topHeader {
+  height: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.444);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  padding-right: 80px;
+}
+
+.topHeader h6 {
+  letter-spacing: 2px;
+  word-spacing: 4px;
+  /* color: var(--secondary-color); */
+}
+
+nav {
+  padding: 10px 50px;
+}
+
+nav h1 {
+  font-size: 50px;
+}
+
+.navLinks ul {
+  padding-right: 30px;
+}
+
+.navLinks ul li a {
+  color: white;
+  font-size: 18px;
+  transition: all 0.4s ease-in-out;
+
+}
+
+.navLinks ul li .active {
+
+  /* text-decoration: underline; */
+  border-bottom: 1px solid white;
+  /* font-weight: 800; */
+
+}
 
 
+.testimonial-btns {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.testimonial-btns button {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  text-align: center;
+  border: none;
+}
+
+.testimonial-btns button.active {
+  background: var(--primary-color);
+}
 
 
+.carousel-inner .btnTheme {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: pink;
+  position: absolute;
+  left: 5%;
+  top: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-weight: bolder;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+}
+.carousel-inner .btnTheme:last-child{
+  right: 5%;
+  left: unset;
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.contact-section{
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  
+}

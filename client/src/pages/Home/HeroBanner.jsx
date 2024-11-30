@@ -21,7 +21,7 @@ const HeroBanner = () => {
           </h1>
           <h3 className="fontWeight400 mt-2 mb-2">Simplifying your daily news reading experience.</h3>
 
-          <div className="bannerBtns d-flex align-items-center justify-content-center mt-4">
+          <div className="bannerBtns d-flex align-items-center justify-content-center ">
           <button className="btnTheme mx-3 "><span className='text fontWeight400'>Read News</span></button>
           <button className="btnTheme mx-3 "><span className='text fontWeight400'>Download Newspapers</span></button>
         </div>
