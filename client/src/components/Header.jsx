@@ -38,7 +38,7 @@ const Header = () => {
     return (
         <div>
 
-            <header className={`stricky ${isSticky ? "stricky-fixed" : ""}`}    data-aos="fade-down">
+            <header className={`stricky ${isSticky ? "stricky-fixed" : ""}`}>
                 <div className="topHeader py-1 w-100">
 
                     <p className="font-heading text-center">Get Exclusive News papers. just in time</p>
