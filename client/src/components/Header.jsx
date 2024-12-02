@@ -5,6 +5,7 @@ import "aos/dist/aos.css";
 
 const Header = () => {
     const [isSticky, setIsSticky] = useState(false);
+    const [menuBox, setMenuBox] = useState(false);
     const [showScrollTop, setShowScrollTop] = useState(false);
 
     useEffect(() => {
@@ -37,7 +38,7 @@ const Header = () => {
     return (
         <div>
 
-            <header className={`stricky ${isSticky ? "stricky-fixed" : ""}`}>
+            <header className={`stricky ${isSticky ? "stricky-fixed" : ""}`}    data-aos="fade-down">
                 <div className="topHeader py-1 w-100">
 
                     <p className="font-heading text-center">Get Exclusive News papers. just in time</p>
@@ -62,7 +63,7 @@ const Header = () => {
                 <nav className='d-flex justify-content-between align-items-center'>
 
                     <div className="logo">
-                        <h1 className="large-heading font-heading fontWeight800">Topical Epapers</h1>
+                        <h1 className="large-heading font-heading fontWeight800"> <a href="#" className="text-white">Topical Epapers</a></h1>
                     </div>
                     <div className="navLinks">
 
@@ -84,6 +85,10 @@ const Header = () => {
                             </li>
                         </ul>
 
+                        <div onClick={()=>{setMenuBox(true)}} className="small_heading d-md-none">
+                        <i className="fa-solid fa-bars"></i>
+                        </div>
+
                     </div>
 
                 </nav>
@@ -92,7 +97,7 @@ const Header = () => {
 
 
 
-            {/* Scroll to Top Button */}
+
             {showScrollTop && (
                 <button
                     className="scroll-to-top"
@@ -108,6 +113,61 @@ const Header = () => {
                 </button>
             )}
 
+
+
+
+            
+
+            <div className={`${menuBox ? '' : 'active'} offCanvasBox bg-light shadow`} >
+
+                <div className="offcanvas-header">
+                    <div className=" w-100 d-flex px-3 py-4 justify-content-between">
+                        <h1 className="heading font-heading "> <a href="#" className="text-light fontWeight800">Topical Epapers</a></h1>
+
+                        <div className="sub_heading text-light pe-2" onClick={()=>{setMenuBox(false)}}>
+                            <i className="fa-solid fa-xmark"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div className="offcanvas-body">
+                    <ul className=' py-4 px-4'>
+                        <li>
+                            <NavLink to="/" className={'text-dark small_heading fontWeight700 mt-3'}>Home</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/about" className={'text-dark small_heading fontWeight700 mt-3'}>About</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/news" className={'text-dark small_heading fontWeight700 mt-3'}>Latest News</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/course" className={'text-dark small_heading fontWeight700 mt-3'}>Updates</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/contact" className={'text-dark small_heading fontWeight700 mt-3'}>Contact us</NavLink>
+                        </li>
+                    </ul>
+
+                </div>
+                <div className="offcavas-footer bg-primary py-4 position-absolute w-100 bottom-0">
+                    <ul className='d-flex gap-4 ps-4 pb-1 '>
+                        <li>
+                            <a href="#" className='small_heading text-white'><i className="fa-brands fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" className='small_heading text-white'><i className="fa-brands fa-whatsapp"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" className='small_heading text-white'><i className="fa-brands fa-x-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" className='small_heading text-white'><i className="fa-brands fa-telegram"></i></a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
 
         </div>
     );

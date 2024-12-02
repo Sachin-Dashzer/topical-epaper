@@ -464,7 +464,7 @@ section {
 }
 
 .logo h1,
-.footerlogo h1 {
+.footerlogo h1 , .offcanvas-header h1 {
   font-family: "Dancing Script", cursive;
 
 }
@@ -601,7 +601,7 @@ footer {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 98;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -620,3 +620,25 @@ footer {
 .scroll-to-top:hover {
   background: #0056b3;
 }
+.stricky-fixed .logo h1 a{
+  color: #000 !important;
+}
+
+.offCanvasBox{
+  height: 600px;
+  width: 80%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  transition: all 0.4s ease-in-out;
+}
+.offcanvas-header{
+  background: var(--primary-color);
+}
+
+.offCanvasBox.active{
+  right: -80%;
+}
+
+
