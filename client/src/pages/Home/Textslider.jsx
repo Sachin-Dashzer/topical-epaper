@@ -25,7 +25,7 @@ const Textslider = () => {
   return (
     <section className="bg-light">
       <div className="container">
-        <h1 className="text-center mb-5 font-heading fontWeight700 text-primary ">Testimonials</h1>
+        <h1 className="text-center mb-md-5 mb-4 font-heading fontWeight700 text-primary ">Testimonials</h1>
         <h4 className="text-center mb-4 text-decoration-underline">Google</h4>
 
         <div id="testimonialCarousel" className="carousel slide" data-bs-ride="carousel">
@@ -52,7 +52,7 @@ const Textslider = () => {
               data-bs-target="#testimonialCarousel"
               data-bs-slide="prev"
             >
-              <span><i class="fa-solid fa-angle-left"></i></span>
+              <span><i className="fa-solid fa-angle-left"></i></span>
             </button>
             <button
               className="btnTheme ms-2"
@@ -60,7 +60,7 @@ const Textslider = () => {
               data-bs-target="#testimonialCarousel"
               data-bs-slide="next"
             >
-              <span><i class="fa-solid fa-angle-right"></i></span>
+              <span><i className="fa-solid fa-angle-right"></i></span>
             </button>
 
 

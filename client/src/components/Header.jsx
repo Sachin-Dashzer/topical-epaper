@@ -1,10 +1,43 @@
-import React from 'react'
-import {NavLink , Link} from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Header = () => {
-    return (
+    const [isSticky, setIsSticky] = useState(false);
+    const [showScrollTop, setShowScrollTop] = useState(false);
 
-        <header className='w-100'>
+    useEffect(() => {
+
+        AOS.init();
+        window.addEventListener("load", () => AOS.refresh());
+
+
+        const handleScroll = () => {
+            const scrollPos = 100;
+            const scrollTop = window.scrollY;
+
+            if (scrollTop > scrollPos) {
+                setIsSticky(true);
+                setShowScrollTop(true);
+            } else {
+                setIsSticky(false);
+                setShowScrollTop(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+    return (
+        <div>
+
+            <header className={`stricky ${isSticky ? "stricky-fixed" : ""}`}>
                 <div className="topHeader py-1 w-100">
 
                     <p className="font-heading text-center">Get Exclusive News papers. just in time</p>
@@ -22,7 +55,7 @@ const Header = () => {
                             <li>
                                 <a href="#" className='title text-white'><i className="fa-brands fa-telegram"></i></a>
                             </li>
-                          
+
                         </ul>
                     </div>
                 </div>
@@ -33,7 +66,7 @@ const Header = () => {
                     </div>
                     <div className="navLinks">
 
-                        <ul className='d-flex gap-5'>
+                        <ul className='d-md-flex d-none gap-5'>
                             <li>
                                 <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>Home</NavLink>
                             </li>
@@ -54,10 +87,30 @@ const Header = () => {
                     </div>
 
                 </nav>
-        </header>
+            </header>
 
 
-    )
-}
 
-export default Header
+
+            {/* Scroll to Top Button */}
+            {showScrollTop && (
+                <button
+                    className="scroll-to-top"
+                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                    style={{
+                        position: "fixed",
+                        bottom: "40px",
+                        right: "20px",
+                        display: "block",
+                    }}
+                >
+                    <i className="fa-solid fa-arrow-up"></i>
+                </button>
+            )}
+
+
+        </div>
+    );
+};
+
+export default Header;

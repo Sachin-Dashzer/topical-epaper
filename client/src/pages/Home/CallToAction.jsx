@@ -14,7 +14,7 @@ const CallToAction = () => {
                 <p className='title mt-3'>Love news? So do 3 million others! Join our Telegram channel for quick access to the latest updates and daily newspapers.</p>
                 <a href="#" className="btnTheme text mt-3 py-2 "> <span> Join now</span></a>
               </div>
-              <div>
+              <div className='mt-2 mt-md-0'>
                 <figure>
                   <img src={Telegram} alt="" />
                 </figure>

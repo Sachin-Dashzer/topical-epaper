@@ -365,17 +365,17 @@ section {
 .sliderBox {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   position: absolute;
   top: 10px;
-  left: 20px;
+  left: 10px;
 }
 
 .sliderItems {
   width: calc(25% - 40px);
   height: 330px;
   flex-shrink: 0;
-  margin-right: 40px;
+  margin-right: 43px;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.332);
   overflow: hidden;
@@ -554,23 +554,69 @@ nav h1 {
   font-size: 20px;
   color: rgb(255, 255, 255);
 }
-.carousel-inner .btnTheme:last-child{
+
+.carousel-inner .btnTheme:last-child {
   right: 5%;
   left: unset;
 
 }
 
-.contact-section{
+.contact-section {
   width: 100%;
   height: 500px;
   overflow: hidden;
-  
+
 }
-.carousel-item{
+
+.carousel-item {
   height: 200px;
 }
 
 
-footer{
+footer {
   background: #e8e5e5f1;
+}
+
+
+
+.stricky {
+  position: relative;
+  /* padding: 10px; */
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stricky-fixed .topHeader {
+  display: none;
+}
+
+.stricky-fixed .navLinks a {
+  color: #000;
+}
+
+.stricky-fixed {
+  position: fixed;
+  background-color: #f9f9f9;
+  color: #000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-to-top {
+  display: none;
+  background: var(--primary-color);
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+}
+
+.scroll-to-top:hover {
+  background: #0056b3;
 }

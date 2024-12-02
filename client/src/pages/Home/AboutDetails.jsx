@@ -7,12 +7,12 @@ const AboutDetails = () => {
   return (
     <>
 
-      <section className='bg-light pt-5'>
+      <section className='bg-light pt-md-5 AboutContainer'>
         <div className="containerFull">
           <div className="row align-items-center">
 
             <div className="col-lg-6">
-              <div className="mb-3 py-5 pe-5">
+              <div className="mb-3 py-md-5 pe-md-5">
                 <h2 className="mb-2 font-heading heading fontWeight700">
                   Welcome to ,{' '}
                   <span className="text-primary">Topical Newspapers</span> <br /> your one-stop destination for{' '}
@@ -30,7 +30,7 @@ const AboutDetails = () => {
             </div>
 
 
-            <div className="col-lg-6">
+            <div className="col-lg-6 mt-3 mt-md-0">
 
               <div className=" aboutImg w-100 h-100">
                 <div>
@@ -41,7 +41,7 @@ const AboutDetails = () => {
                       className="img-fluid rounded-3 shadow"
                     />
                   </figure>
-                  <figure className='pt-0'>
+                  <figure className='pt-md-0'>
                     <img
                       src={About3}
                       alt="events"
@@ -74,10 +74,10 @@ const AboutDetails = () => {
 
         <div className='mt-4'>
           <div className="containerFull">
-            <div className="row border-top border-bottom border-danger">
-              <div className="col-md-4 p-5 border-end border-danger">
+            <div className="row border-top border-bottom border-danger AboutSections">
+              <div className="col-md-4 p-md-5 px-4 border-end border-danger">
                 <div className="text-center p-4">
-                  <div className="mb-4">
+                  <div className="mb-md-4 mb-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="50"
@@ -93,9 +93,9 @@ const AboutDetails = () => {
                   <p className="mb-0 mt-2">Vivamus eget neque lacus. Pellentesque egauris ex.</p>
                 </div>
               </div>
-              <div className="col-md-4 p-5 border-end border-danger">
+              <div className="col-md-4 p-md-5 px-4 border-end border-danger">
                 <div className="text-center p-4">
-                  <div className="mb-4">
+                  <div className="mb-md-4 mb-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="50"
@@ -111,9 +111,9 @@ const AboutDetails = () => {
                   <p className="mb-0 mt-2">Lorem ipsum, dolor sit amet consectetur elitorceat.</p>
                 </div>
               </div>
-              <div className="col-md-4 p-5">
+              <div className="col-md-4 p-md-5 px-4">
                 <div className="text-center p-4">
-                  <div className="mb-4">
+                  <div className="mb-md-4 mb-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="50"
