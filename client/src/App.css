@@ -625,7 +625,7 @@ footer {
 }
 
 .offCanvasBox{
-  height: 600px;
+  height: 100vh;
   width: 80%;
   position: fixed;
   top: 0;
