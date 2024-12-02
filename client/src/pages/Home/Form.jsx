@@ -1,33 +1,112 @@
 import React from 'react';
-import Newpaper from '../../assets/call-to-aciton.jpg'
 
 const Form = () => {
     return (
-        <div className='contact-section'>
-            <div className="row">
-                <div className="col-lg-6">
-                    <h2 style={{ color: "#f21616" }} className='text-center  mt-5 mb-5'>Forms</h2>
-                    <input className='w-75 mb-3 p-1' type="text" name="" placeholder='Enter-name' id="" /><br />
-                    <input className='m-2 p-1' type="text" name="" placeholder='Enter-name' id="" />
-                    <input className='m-2 p-1' type="text" name="" placeholder='Enter-name' id="" /><br />
-                    <input className='m-2 p-1' type="checkbox" />
-                    <label htmlFor="">check these all</label>
-                    <br />
+        <div className='overflow-hidden'>
+            <div className="row ">
+                <div className="col-md-6 d-flex align-items-center justify-content-center">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.897969945!2d77.04417211070437!3d28.527554409214392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1733112562826!5m2!1sen!2sin"
+                        style={{ border: 0, width: "100%", height: "550px" }}
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
 
-                    <input style={{ backgroundColor: "#f21616" }} type="button" value='Submit' className='btn  mt-4   w-25' />
-                    <p className='mt-4'>-----------------------------------Or------------------------------------</p>
-                    <div className="icons mt-4">
-
-                        <i style={{ marginRight: "20px", fontSize: "220%", color: "#f21616" }} class="fa-brands fa-twitter"></i>
-                        <i style={{ marginRight: "20px", fontSize: "220%", color: "#f21616" }} class="fa-brands fa-facebook-f"></i>
-                        <i style={{ marginRight: "20px", fontSize: "220%", color: "#f21616" }} class="fa-brands fa-instagram "></i>
-                    </div>
                 </div>
-                <div className="col-lg-6">
-                    <img src={Newpaper} alt="newspaper" className='w-100 h-100' />
+
+                <div className="col-md-6 d-flex flex-column justify-content-center px-5">
+                    <div className="container px-5">
+                        <div>
+                                <h3 className="heading fontWeight700 text-primary font-heading mb-5 text-center">Get a Quote</h3>
+                            
+                            <div>
+                                <form>
+                                    <div className="row">
+                                        <div className="mb-3 col-lg-6">
+                                            <label htmlFor="name" className="form-label">
+                                                Name
+                                            </label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                id="name"
+                                                placeholder="Enter your name"
+                                                required
+                                            />
+                                        </div>
+
+
+                                        <div className="mb-3 col-lg-6">
+                                            <label htmlFor="phone" className="form-label">
+                                                Phone Number
+                                            </label>
+                                            <input
+                                                type="tel"
+                                                className="form-control"
+                                                id="phone"
+                                                placeholder="Enter your phone number"
+                                                required
+                                            />
+                                        </div>
+
+
+                                        <div className="mb-3 col-lg-6">
+                                            <label htmlFor="email" className="form-label">
+                                                Email
+                                            </label>
+                                            <input
+                                                type="email"
+                                                className="form-control"
+                                                id="email"
+                                                placeholder="Enter your email address"
+                                                required
+                                            />
+                                        </div>
+
+
+                                        <div className="mb-3 col-lg-6">
+                                            <label htmlFor="date" className="form-label">
+                                                Date
+                                            </label>
+                                            <input
+                                                type="date"
+                                                className="form-control"
+                                                id="date"
+                                                required
+                                            />
+                                        </div>
+
+
+                                        <div className="mb-3 col-lg-12">
+                                            <label htmlFor="message" className="form-label">
+                                                Message
+                                            </label>
+                                            <textarea
+                                                className="form-control"
+                                                id="message"
+                                                rows="4"
+                                                placeholder="Write your message here..."
+                                                required
+                                            ></textarea>
+                                        </div>
+
+
+                                        <div className="d-grid">
+                                            <button type="submit" className="btnTheme w-100 btn-primary">
+                                                <span>Send Message</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div >
+        </div>
+
     );
 };
 

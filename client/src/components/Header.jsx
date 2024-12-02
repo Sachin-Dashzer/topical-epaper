@@ -7,7 +7,7 @@ const Header = () => {
         <header className='w-100'>
                 <div className="topHeader py-1 w-100">
 
-                    <h6 className="font-heading text-center">Get Exclusive News papers. just in time</h6>
+                    <p className="font-heading text-center">Get Exclusive News papers. just in time</p>
                     <div className="navSocialLinks">
                         <ul className='d-flex gap-4'>
                             <li>
