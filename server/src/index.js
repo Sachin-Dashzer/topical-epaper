@@ -11,6 +11,10 @@ dotenv.config({
 const PORT = process.env.PORT || 5000
 
 
+app.use("/" , (req ,res)=>{
+    res.json({message : "hello from dashzer"})
+})
+
 app.get('/api' , (req , res)=>{
 
     res.send("jhdkhk")
