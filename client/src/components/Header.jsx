@@ -78,7 +78,7 @@ const Header = () => {
                                 <NavLink to="/news" className={({ isActive }) => (isActive ? 'active' : '')}>Latest News</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/course" className={({ isActive }) => (isActive ? 'active' : '')}>Updates</NavLink>
+                                <NavLink to="/updates" className={({ isActive }) => (isActive ? 'active' : '')}>Updates</NavLink>
                             </li>
                             <li>
                                 <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')}>Contact us</NavLink>

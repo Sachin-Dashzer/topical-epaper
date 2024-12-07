@@ -260,7 +260,7 @@ section {
 
 .heroBox {
   width: 100%;
-  height: 580px;
+  height: 700px;
   overflow: hidden;
 
 
@@ -269,7 +269,7 @@ section {
 }
 
 .heroContent {
-  margin-top: 90px;
+  margin-top: 230px;
 }
 
 .heroContent .large_heading {
@@ -580,10 +580,13 @@ footer {
 
 
 .stricky {
-  position: relative;
-  /* padding: 10px; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   text-align: center;
   transition: all 0.3s ease;
+  z-index: 99;
 }
 
 .stricky-fixed .topHeader {
@@ -640,5 +643,87 @@ footer {
 .offCanvasBox.active{
   right: -80%;
 }
+
+
+.shortBanner{
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+
+
+.shortBannerBox{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(rgba(0, 0, 0, 0.804), rgba(0, 0, 0, 0.922)), url('./assets/call-to-aciton.jpg');
+
+  z-index: -1;
+
+}
+
+.shortBanner-Content{
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  align-content: center;
+  backdrop-filter: blur(3px);
+}
+.card-icon i{
+
+    font-size: 30px;
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    padding-top: 5px;
+    padding: 18px;
+    border-radius: 100%;
+
+}
+
+.updateBox:nth-child(2n) .row
+{
+  flex-direction: row-reverse;
+  
+}
+.updateContent{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  
+}
+.updateImg{
+  width: 100%;
+  height: 500px;
+}
+
+.updateImg img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid #f9f9f9;
+  border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
