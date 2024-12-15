@@ -710,8 +710,29 @@ footer {
   border-radius: 10px;
 }
 
-
-
+.adminLayout{
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+}
+.adminLinks a{
+  width: 100%;
+  display: inline-block !important;
+  color: white;
+  font-size: 20px;
+  padding-left: 5px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.adminLinks a span{
+  padding-left: 5px;
+}
+.adminLinks a.active{
+  
+  background: #000;
+  font-size: 18px;
+}
 
 
 
