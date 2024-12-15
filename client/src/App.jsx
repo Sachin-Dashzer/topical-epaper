@@ -17,6 +17,16 @@ import AdminDashboard from './pages/Admin/Dashboard';
 import AdminNewspapers from './pages/Admin/Newspapers';
 import AdminUsers from './pages/Admin/AdminUsers';
 
+
+
+import Login from './pages/Auth/Login';
+
+
+
+
+
+
+
 const App = () => {
   useEffect(() => {
     AOS.init({
@@ -29,7 +39,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        
+
         <Route path="/" element={<PagesLayout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
@@ -37,13 +47,18 @@ const App = () => {
           <Route path="contact" element={<Contact />} />
         </Route>
 
-        
+
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="adminusers" element={<AdminUsers />} />
           <Route path="newspapers" element={<AdminNewspapers />} />
         </Route>
       </Routes>
+
+      <Routes>
+        <Route path="/login" element={<Login />} />
+      </Routes>
+
     </Router>
   );
 };

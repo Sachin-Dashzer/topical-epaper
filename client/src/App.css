@@ -734,8 +734,12 @@ footer {
   font-size: 18px;
 }
 
-
-
+.loginForm input{
+  padding: 12px;
+}
+.loginForm button{
+  padding: 12px;
+}
 
 
 
