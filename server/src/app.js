@@ -17,6 +17,9 @@ app.use(express.json({limit: "14kb"}))
 app.use(express.static("public"))
 
 
+import authRouter from './routes/authRoutes.js'
+app.use('/auth' , authRouter)
+
 
 
 export {app}
