@@ -1,6 +1,6 @@
 
 
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk , createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 
@@ -15,23 +15,28 @@ const initialState = {
 
 
 
-
-const LoginUser = createAsyncThunk('./auth/login', () => {
-
-    async (FormData) => {
-
-        const response = await axios.post('http://localhost:9000/login', FormData, { withCredentials: true });
-        return response.data;
+const loginUser = createAsyncThunk(
+    "/auth/login",
+  
+    async (formData) => {
+      const response = await axios.post(
+        "http://localhost:9000/auth/login",
+        formData,
+        {
+          withCredentials: true,
+        }
+      );
+  
+      return response.data;
     }
-})
+  );
+  
 
+const ResgisterUser = createAsyncThunk('/auth/register', () => {
 
+    async (formData) => {
 
-const ResgisterUser = createAsyncThunk('./auth/register', () => {
-
-    async (FormData) => {
-
-        const response = await axios.post('http://localhost:9000/admin/register', FormData, { withCredentials: true });
+        const response = await axios.post('http://localhost:9000/admin/register', formData, { withCredentials: true });
         return response.data;
     }
 })
@@ -62,19 +67,19 @@ const authSlice = createSlice({
             
             state.isloading = true;
 
-        }).addCase(LoginUser.fulfilled, (state, action) => {
+        }).addCase(loginUser.fulfilled, (state, action) => {
 
             state.user = action.payload;
             state.isAuthenticated = true;
             state.isloading = false;
 
-        }).addCase(LoginUser.rejected, (state, action) => {
+        }).addCase(loginUser.rejected, (state, action) => {
 
             state.user = null;
             state.isAuthenticated = false;
             state.isloading = false;
 
-        }).addCase(LoginUser.pending, (state, action) => {
+        }).addCase(loginUser.pending, (state, action) => {
 
             state.user = null;
             state.isAuthenticated = false;
@@ -88,7 +93,7 @@ const authSlice = createSlice({
 
 
 export default authSlice.reducer;
-export { LoginUser, ResgisterUser };
-export const { setUser } = action.payload;
+export { loginUser, ResgisterUser };
+// export const { setUser } = action.payload;
 
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch } from 'react-redux'
-import { LoginUser } from '../../store/authStore/index.js'
+import { loginUser } from '../../store/authStore/index.js'
 
 
 const SignIn = () => {
@@ -18,7 +18,7 @@ const SignIn = () => {
 
     event.preventDefault()
 
-    dispatch(LoginUser(formdata)).then((data) => {
+    dispatch(loginUser(formdata)).then((data) => {
       console.log(data)
     })
   }
