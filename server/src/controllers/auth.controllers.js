@@ -100,7 +100,7 @@ export const loginUser = asyncHandler(async (req, res) => {
 
 
 export const logoutUser = asyncHandler(async (req, res) => {
-    res.clearCookie('accessToken', { path: '/', httpOnly: true, secure: false }).status(200).send({
+    res.clearCookie('accessToken', { path: '/', httpOnly: true, secure: true }).status(200).send({
         success: true,
         message: "User logged out successfully",
     });
