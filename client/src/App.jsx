@@ -17,17 +17,29 @@ import AdminDashboard from './pages/Admin/Dashboard';
 import AdminNewspapers from './pages/Admin/Newspapers';
 import AdminUsers from './pages/Admin/AdminUsers';
 
+import { checkAuthentication } from './store/authStore';
 
+import CheckAuth from './components/CheckAuth';
 
 import Login from './pages/Auth/Login';
-
-
-
-
-
-
+import { useDispatch, useSelector } from 'react-redux';
 
 const App = () => {
+
+
+  const {isAuthenticated , isLoading} = useSelector( (state) => state.auth)
+
+  const dispatch = useDispatch()
+
+
+  useEffect(() => {
+    dispatch(checkAuthentication());
+  }, [dispatch]);
+
+
+  if (isLoading) return console.log("loading")
+
+
   useEffect(() => {
     AOS.init({
       duration: 2000,
@@ -35,6 +47,11 @@ const App = () => {
     });
     AOS.refresh();
   }, []);
+
+
+
+
+
 
   return (
     <Router>
@@ -48,17 +65,21 @@ const App = () => {
         </Route>
 
 
-        <Route path="/admin" element={<AdminLayout />}>
+        <Route path="/admin" element={
+          <CheckAuth isAuthenticated={isAuthenticated} >
+            <AdminLayout />
+          </CheckAuth>}>
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="adminusers" element={<AdminUsers />} />
           <Route path="newspapers" element={<AdminNewspapers />} />
+          <Route path="logout" element={"hello"} />
         </Route>
-      </Routes>
 
-      <Routes>
-        <Route path="/login" element={<Login />} />
-      </Routes>
 
+        <Route path="/login" element={<CheckAuth isAuthenticated={isAuthenticated} >
+            <Login />
+          </CheckAuth>} />
+      </Routes>
     </Router>
   );
 };

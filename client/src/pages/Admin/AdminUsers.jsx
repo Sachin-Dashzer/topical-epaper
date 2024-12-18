@@ -1,9 +1,88 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button } from "react-bootstrap";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { deleteUser } from "../../store/authStore/index.js";
 
-const AdminUsers = () => {
+function AdminUsers() {
+  const [users, setUsers] = useState([]);
+
+  const dispatch = useDispatch();
+  
+
+  const getdata = async ()=>{
+
+    try{
+
+      const response = await axios.get('http://localhost:9000/auth/all-users', { withCredentials: true });
+      setUsers(response.data.data)
+    }
+    catch(error){
+      console.log(error)
+    }
+
+  }
+
+  useEffect(() => {
+    
+    getdata()
+  
+   
+  }, [])
+  
+
+
+
+
+  // const [activeUser , setActiveUser] = useState('');
+
+useEffect(() => {
+  
+  const deleteUser = (user) => {
+      dispatch(deleteUser(user));
+  }
+}, [dispatch])
+
+
+
+
   return (
-    <div>AdminUsers</div>
-  )
+
+    <div className="containerFull">
+      <div className="adminBox">
+        <div className="row">
+          {
+            users.map((user, index) => {
+              return (
+                <div className="col-lg-4 p-3 " key={index}>
+                  <div className="card shadow">
+                    <div className="card-body">
+                      <h5 className="card-title fontWeight700 small_heading">{user.userName}</h5>
+                      <p className="card-text"><span className="fontWeight700">Email : </span>{user.email}</p>
+                      <p className="card-text mb-1 "><span className="fontWeight700">Password : </span>*********</p>
+                      <Button className="me-3 mt-2">Update</Button>
+                      <Button onClick={()=>deleteUser(user)} className="me-2 mt-2">Remove</Button>
+                    </div>
+                  </div>
+                </div>
+              )
+            })
+          }
+          <div className="col-lg-4 p-3">
+            <div className="card shadow">
+              <div className="card-body d-flex align-items-center addCard">
+                <h1>+</h1>
+                <h2 className="title fontWeigh300">Add User</h2>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  );
 }
 
-export default AdminUsers
+export default AdminUsers;

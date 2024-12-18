@@ -47,4 +47,7 @@ const newspaper = mongoose.Schema({
 )
 
 
-export const Newspaper = mongoose.model("Newspaper", newspaper);
+const Newspaper = mongoose.model("Newspaper", newspaper);
+
+
+export default Newspaper;

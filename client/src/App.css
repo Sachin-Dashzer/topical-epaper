@@ -710,9 +710,15 @@ footer {
   border-radius: 10px;
 }
 
+.admin-sidebar{
+  height: 100vh;
+  position: fixed;
+  left: 0 ;
+  top: 0;
+  width: 360px
+}
 .adminLayout{
-  width: 100dvw;
-  height: 100dvh;
+  width: 100%;
   overflow: hidden;
 }
 .adminLinks a{
@@ -741,13 +747,24 @@ footer {
   padding: 12px;
 }
 
+.adminBox .card{
+  height: 190px;
+  padding: 10px;
+  cursor: pointer;
+  
+}
+.adminBox .card button{
+  font-size: 14px;
+}
 
+.addCard{
+  flex-direction: column;
+  opacity: 0.3;
+}
 
-
-
-
-
-
+.addCard h1{
+  font-size: 70px;
+}
 
 
 

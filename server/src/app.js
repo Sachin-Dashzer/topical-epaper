@@ -6,21 +6,24 @@ import cors from 'cors'
 const app = express()
 
 app.use(cors({
-    origin: 'http://localhost:5173', // Allow requests from this origin
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-    credentials: true, // Allow cookies and authentication headers
+    origin: 'http://localhost:5173', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    credentials: true, 
   }));
   
 
 
 
 app.use(urlencoded({extended: true , limit : "14kb"}))
-app.use(express.json({limit: "14kb"}))
+app.use(express.json())
 app.use(express.static("public"))
 
 
 import authRouter from './routes/authRoutes.js'
+import fileRouter from './routes/fileRoutes.js'
+
 app.use('/auth' , authRouter)
+app.use('/admin', fileRouter)
 
 
   

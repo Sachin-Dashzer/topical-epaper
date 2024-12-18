@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch } from 'react-redux'
+
 import { loginUser } from '../../store/authStore/index.js'
 
 
@@ -13,13 +15,20 @@ const SignIn = () => {
 
   const [formdata, setFormdata] = useState(initialState)
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onsubmit = (event) => {
 
     event.preventDefault()
 
     dispatch(loginUser(formdata)).then((data) => {
-      console.log(data)
+
+      if (data.payload.success) {
+        navigate('/admin/dashboard')
+      }
+      else{
+        console.log(data)
+      }
     })
   }
 
@@ -35,7 +44,7 @@ const SignIn = () => {
 
   return (
     <div
-      className="d-flex justify-content-center pt-5 vh-100"
+      className="d-flex justify-content-center pt-5 min-vh-100"
       style={{
         backgroundColor: "#121212",
         color: "#ffffff",
