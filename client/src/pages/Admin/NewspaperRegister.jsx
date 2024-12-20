@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import {registerFile} from '../../store/fileStore/index.js'
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const [file, setFile] = useState(null);
@@ -12,8 +15,11 @@ const Dashboard = () => {
     title: '',
     description: '',
     fileUrl: '',
-    type: '',
+    date: '',
   }
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [fileData, setfileData] = useState(newsData)
 
@@ -27,8 +33,6 @@ const Dashboard = () => {
     })
 
   }
-  console.log(fileData)
-
 
   const handleFile = (selectedFile) => {
     setFile(selectedFile);
@@ -84,10 +88,26 @@ const Dashboard = () => {
     }
   }
 
+
+  const submitDetails = (event)=>{
+    event.preventDefault();
+
+    dispatch(registerFile(fileData)).then((res)=>{
+      if(res.payload.success === true){
+        navigate('/admin/newspapers')
+      }
+    }).catch((err)=>{
+      console.log(err,"err")
+    })
+  }
+
+
+
+
   return (
     <>
 
-      <div className="newspaperForm w-100 h-100 bg-light mt-4">
+      <div className="newspaperForm w-100 h-100 bg-light mt-5">
 
 
         <div className="container row">
@@ -95,25 +115,31 @@ const Dashboard = () => {
 
 
           <div className=" col-lg-10 mx-auto  bg-white p-5 pt-4 shadow rounded-3">
-            <h2 className="sub_heading font-heading text-primary text-center mb-5">Add Newpaper</h2>
+            <h2 className="heading fontWeight700 font-heading text-primary text-center mb-5" style={{ textDecoration: "underline" }}>Add Newpaper</h2>
 
-            <form>
+            <form onSubmit={submitDetails}>
 
+              <div className="row">
 
-              <div className="mb-3">
-                <label htmlFor="title" className="form-label">Title</label>
-                <input type="text" className="form-control" id="title" name="title" value={fileData.title} onChange={handleChange} required />
+                <div className="mb-3 col-lg-6">
+                  <label htmlFor="title" className="form-label ps-1 fontWeight700">Title</label>
+                  <input type="text" className="form-control" id="title" name="title" value={fileData.title} onChange={handleChange} required placeholder="Add Title " />
+                </div>
+                <div className="mb-3 col-lg-6">
+                  <label htmlFor="date" className="form-label ps-1 fontWeight700">Date</label>
+                  <input type="date" className="form-control" id="date" name="date" value={fileData.date} onChange={handleChange} required />
+                </div>
               </div>
 
               <div className="mb-3">
-                <label htmlFor="description" className="form-label">Description</label>
-                <textarea className="form-control" id="description" name="description" value={fileData.description} onChange={handleChange} required />
+                <label htmlFor="description" className="form-label ps-1 fontWeight700">Description</label>
+                <textarea className="form-control" id="description" name="description" value={fileData.description} onChange={handleChange} required  placeholder="Write the discription here..."/>
               </div>
 
 
 
 
-              <p className="text mt-3 mb-2">Upload File</p>
+              <p className="text mt-3 mb-2 ps-1 fontWeight700">Upload File</p>
 
               <div
                 style={{
@@ -139,14 +165,14 @@ const Dashboard = () => {
                     borderRadius: "5px",
                     cursor: "pointer",
                     fontSize: "15px",
-                    textAlign : "center"
+                    textAlign: "center"
                   }}
                 >
                   Browse
                   <input
                     type="file"
-                    name = "file"
-                    style={{ opacity : "0" , width : "10px" }}
+                    name="file"
+                    style={{ opacity: "0", width: "10px" }}
                     onChange={handleBrowse}
                     required
                   />
@@ -167,7 +193,7 @@ const Dashboard = () => {
                   </div>
                 )}
               </div>
-              <Button type="submit" className="bg-dark px-3 py-2 mt-4 ">Submit file</Button>
+              <Button type="submit"  className="bg-dark px-3 py-2 mt-4 ">Submit file</Button>
 
             </form>
 

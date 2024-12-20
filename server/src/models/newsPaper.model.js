@@ -8,43 +8,20 @@ const newspaper = mongoose.Schema({
     title: {
         type: String,
         required: true,
-        unique: true,
-        lowercase: true,
         trim: true,
-        index: true
+        unique: true
     },
     description: {
         type: String,
 
     },
-    file: {
+    fileUrl: {
         type: String,
-        required: true,
-        unique: true,
-        lowercase: true,
-        trim: true,
-        index: true
-    },
-    category: {
-        type: String,
-        required: true,
-        index: true
-    },
-    author: {
-        type: String,
-        required: true,
-        index: true
     },
     date: {
-        type: Date,
-        default: Date.now
+        type: String,
     }
-},
-    {
-        timestaps: true
-    }
-
-)
+})
 
 
 const Newspaper = mongoose.model("Newspaper", newspaper);

@@ -5,7 +5,7 @@ import {
     fetchAllProducts,
     editProduct,
     deleteProduct,
-} from "../controllers/file.controller.js";
+} from "../controllers/file.controllers.js";
 
 import { upload } from '../utils/claudinary.js'
 
@@ -28,7 +28,7 @@ router.post('/upload', upload.single('file'), (req, res) => {
 router.post("/add-product", addProduct);
 router.post("/edit-product", editProduct);
 router.get("/get-products", fetchAllProducts);
-router.post("/delete-product", deleteProduct);
+router.delete("/delete/:id", deleteProduct);
 
 
 export default router;

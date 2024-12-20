@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { NavLink, Outlet } from 'react-router-dom'
-
+import { logoutUser } from '../store/authStore/index.js'
 import {useDispatch} from 'react-redux'
 
 const layout = () => {
 
     const dispatch = useDispatch()
+
+
 
     const logoutAdmin = () => {
         dispatch(logoutUser())
@@ -36,7 +38,7 @@ const layout = () => {
 
                                     <div className="adminLinks d-flex align-items-center cursor-pointer">
 
-                                        <NavLink to="/admin/dashboard" className={({ isActive }) => (isActive ? 'active' : '')}>
+                                        <NavLink to="/admin" className={({ isActive }) => (isActive ? 'active' : '')}>
                                             <i className="fas fa-tachometer-alt me-2"></i>
                                             <span>Dashboard</span>
                                         </NavLink>
@@ -81,10 +83,10 @@ const layout = () => {
                     <div className='col-lg-9'>
                         <div className="d-flex align-items-center flex-column min-vh-100">
 
-                            <div className="adminHeader text-center py-4">
+                            {/* <div className="adminHeader text-center py-4">
                                 <h3 className="large_heading fontWeight700 font-heading" style={{textDecoration : "underline" , letterSpacing : "2px"}}>Admin Pages</h3>
 
-                            </div>
+                            </div> */}
 
                             <div className='w-100'>
                                 <Outlet />

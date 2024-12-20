@@ -13,7 +13,7 @@ import Updates from './pages/Updates/Updates';
 import Contact from './pages/Contact/Contact';
 
 import AdminLayout from './components/AdminLayout';
-import AdminDashboard from './pages/Admin/Dashboard';
+import NewspaperRegister from './pages/Admin/NewspaperRegister';
 import AdminNewspapers from './pages/Admin/Newspapers';
 import AdminUsers from './pages/Admin/AdminUsers';
 
@@ -29,12 +29,12 @@ const App = () => {
 
   const {isAuthenticated , isLoading} = useSelector( (state) => state.auth)
 
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
 
-  useEffect(() => {
-    dispatch(checkAuthentication());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(checkAuthentication());
+  // }, [dispatch]);
 
 
   if (isLoading) return console.log("loading")
@@ -69,7 +69,7 @@ const App = () => {
           <CheckAuth isAuthenticated={isAuthenticated} >
             <AdminLayout />
           </CheckAuth>}>
-          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="" element={<NewspaperRegister />} />
           <Route path="adminusers" element={<AdminUsers />} />
           <Route path="newspapers" element={<AdminNewspapers />} />
           <Route path="logout" element={"hello"} />

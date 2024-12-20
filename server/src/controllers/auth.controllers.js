@@ -1,7 +1,7 @@
 
 import { User } from "../models/users.model.js";
 import { asyncHandler } from '../utils/asyncHandler.js'
-import * as jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 
 
 export const registerUser = asyncHandler(async (req, res) => {
@@ -70,65 +70,66 @@ export const loginUser = asyncHandler(async (req, res) => {
     if (!isPasswordCorrect) {
         res.send({
             success: false,
-            massage: "Invalid user credentials"
+            massage: "Invalid userf credentials"
         })
     }
 
-    const { accessToken } = await user.generateAccessToken(user._id);
+    const token = jwt.sign(
+        {
+            id: user._id,
+            email: user.email,
+            userName: user.userName,
+        },
+        process.env.ACCESS_TOKEN_SECRET,
+        { expiresIn: "60m" }
+    );
 
-    const loggedInUser = await User.findById(user._id).select("-password");
-
-    const options = {
-        httpOnly: true,
-        secure: false
-    };
-
-    return res
-        .cookie("accessToken", accessToken, options)
-        .json(
-            {
-                success: true,
-                massage: "User logged In Successfully",
-                data: loggedInUser,
-                accessToken,
-
-            }
-        )
-
-});
-
-
-
-export const logoutUser = asyncHandler(async (req, res) => {
-    res.clearCookie('accessToken', { path: '/', httpOnly: true, secure: true }).status(200).send({
+    res.cookie("token", token, { httpOnly: true, secure: false }).json({
         success: true,
-        message: "User logged out successfully",
+        message: "Logged in successfully",
+        user: {
+            email: user.email,
+            id: user._id,
+            userName: user.userName,
+        },
     });
+
 });
 
 
-export const authMiddleware = asyncHandler(async (req, res, next) => {
-    const token = req.cookies?.accessToken;
 
+
+
+
+
+export const logoutUser = (req, res) => {
+    res.clearCookie("token").json({
+        success: true,
+        message: "Logged out successfully!",
+    });
+};
+
+//auth middleware
+export const authMiddleware = async (req, res, next) => {
+    const token = req.cookies?.token;
     if (!token) {
-        return res.status(401).send({
+        return res.status(401).json({
             success: false,
-            message: "Unauthorized request",
+            message: "Unauthorized user!",
         });
     }
 
     try {
-        const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-        req.user = decoded; 
-        next(); 
-    } catch (err) {
-        return res.status(403).send({
+        const decoded = jwt.verify(token, "CLIENT_SECRET_KEY");
+        req.user = decoded;
+        next();
+    } catch (error) {
+        res.status(401).json({
             success: false,
-            message: "Invalid or expired access token",
+            message: "Unauthorized user!",
         });
     }
-});
-
+};
 
 export const allUsers = asyncHandler(async (req, res) => {
     const users = await User.find();
@@ -140,24 +141,32 @@ export const allUsers = asyncHandler(async (req, res) => {
 })
 
 
-export const deleteUser = asyncHandler(async (req, res) => {
-    const { email } = req.body;
+export const deleteUser = async (req, res) => {
+    try {
+        const { id } = req.params;
 
-    if (!email) {
-        res.send({
+        const newuser = await User.findByIdAndDelete(id);
+
+        if (!newuser) {
+            return res.status(404).json({
+                success: false,
+                message: "user not found",
+                id
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "user deleted successfully",
+        });
+    } catch (e) {
+        console.log(e);
+        res.status(500).json({
             success: false,
-            massage: "email is required"
-        })
+            message: "Error occurred",
+        });
     }
-
-    await User.deleteOne({ email });
-
-    res.send({
-        success: true,
-        massage: "User deleted successfully"
-    })
-})
-
+};
 
 
 

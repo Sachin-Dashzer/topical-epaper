@@ -768,4 +768,6 @@ footer {
 
 
 
-
+.newspaperForm textarea{
+  height: 100px;
+}

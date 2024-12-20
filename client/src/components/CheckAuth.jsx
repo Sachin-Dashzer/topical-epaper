@@ -16,7 +16,7 @@ function CheckAuth({ isAuthenticated, user, children }) {
     isAuthenticated &&
     location.pathname.includes("/login")
   ) {
-    return <Navigate to="/admin/dashboard" />;
+    return <Navigate to="/admin" />;
 
   }
 
