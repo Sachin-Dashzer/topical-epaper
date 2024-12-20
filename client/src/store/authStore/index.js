@@ -18,7 +18,7 @@ const loginUser = createAsyncThunk("/auth/login", async (formData) => {
 // Register User
 const ResgisterUser = createAsyncThunk("/auth/register", async (formData) => {
     const response = await axios.post(
-        "http://localhost:9000/admin/register",
+        "http://localhost:9000/auth/register",
         formData,
         { withCredentials: true }
     );
@@ -67,7 +67,7 @@ const authSlice = createSlice({
         builder
             // Register User
             .addCase(ResgisterUser.fulfilled, (state) => {
-                state.isAuthenticated = false; // Registration doesn't log in the user
+                state.isAuthenticated = true; // Registration doesn't log in the user
                 state.isloading = false;
             })
             .addCase(ResgisterUser.rejected, (state) => {

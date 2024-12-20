@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import { NavLink, Outlet } from 'react-router-dom'
 import { logoutUser } from '../store/authStore/index.js'
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 const layout = () => {
 
@@ -36,13 +36,6 @@ const layout = () => {
 
                                 <div className="flex-grow-1 mt-2 p-4">
 
-                                    <div className="adminLinks d-flex align-items-center cursor-pointer">
-
-                                        <NavLink to="/admin" className={({ isActive }) => (isActive ? 'active' : '')}>
-                                            <i className="fas fa-tachometer-alt me-2"></i>
-                                            <span>Dashboard</span>
-                                        </NavLink>
-                                    </div>
 
 
                                     <div className="adminLinks d-flex align-items-center cursor-pointer">
@@ -52,20 +45,34 @@ const layout = () => {
                                             <span>Newspapers</span>
                                         </NavLink>
                                     </div>
-
-
                                     <div className="adminLinks d-flex align-items-center cursor-pointer">
 
-                                        <NavLink to="/admin/adminusers" className={({ isActive }) => (isActive ? 'active' : '')}>
+                                        <NavLink to="/admin/add-newspaper" className={({ isActive }) => (isActive ? 'active' : '')}>
+                                            
                                             <i className="fas fa-tasks me-2"></i>
-                                            <span>AdminUser</span>
+                                            <span>Add Newspapers</span>
                                         </NavLink>
                                     </div>
 
 
                                     <div className="adminLinks d-flex align-items-center cursor-pointer">
 
-                                        <NavLink to="/admin/logout" className={({ isActive }) => (isActive ? 'active' : '')} onClick={logoutAdmin}>
+                                        <NavLink to="/admin/adminusers" className={({ isActive }) => (isActive ? 'active' : '')}>
+                                        <i className="fa-solid fa-user"></i>                                            <span>AdminUser</span>
+                                        </NavLink>
+                                    </div>
+                                    <div className="adminLinks d-flex align-items-center cursor-pointer">
+
+                                        <NavLink to="/admin/add-adminusers" className={({ isActive }) => (isActive ? 'active' : '')}>
+                                        <i className="fa-solid fa-user-plus"></i>
+                                            <span>Add Adminusers</span>
+                                        </NavLink>
+                                    </div>
+
+
+                                    <div className="adminLinks d-flex align-items-center cursor-pointer">
+
+                                        <NavLink to="/admin" className='bg-transparent' onClick={logoutAdmin}>
                                             <i className="fas fa-briefcase me-2"></i>
                                             <span>LogOut</span>
                                         </NavLink>

@@ -24,7 +24,7 @@ const SignIn = () => {
     dispatch(loginUser(formdata)).then((data) => {
 
       if (data.payload.success) {
-        navigate('/admin/dashboard')
+        navigate('/admin/')
       }
       else{
         console.log(data)

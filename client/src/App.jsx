@@ -5,6 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 import PagesLayout from './components/PagesLayout';
 import Home from './pages/Home/Home';
@@ -15,6 +16,7 @@ import Contact from './pages/Contact/Contact';
 import AdminLayout from './components/AdminLayout';
 import NewspaperRegister from './pages/Admin/NewspaperRegister';
 import AdminNewspapers from './pages/Admin/Newspapers';
+import AddadminUsers from './pages/Admin/AddadminUsers';
 import AdminUsers from './pages/Admin/AdminUsers';
 
 import { checkAuthentication } from './store/authStore';
@@ -27,7 +29,7 @@ import { useDispatch, useSelector } from 'react-redux';
 const App = () => {
 
 
-  const {isAuthenticated , isLoading} = useSelector( (state) => state.auth)
+  const { isAuthenticated, isLoading } = useSelector((state) => state.auth)
 
   // const dispatch = useDispatch()
 
@@ -51,8 +53,6 @@ const App = () => {
 
 
 
-
-
   return (
     <Router>
       <Routes>
@@ -64,21 +64,25 @@ const App = () => {
           <Route path="contact" element={<Contact />} />
         </Route>
 
+        <Route path="/admin" element={<Navigate to="/admin/adminusers" replace />} />
 
         <Route path="/admin" element={
-          <CheckAuth isAuthenticated={isAuthenticated} >
+          <CheckAuth isAuthenticated={isAuthenticated}>
             <AdminLayout />
-          </CheckAuth>}>
-          <Route path="" element={<NewspaperRegister />} />
+          </CheckAuth>
+        }>
+          <Route index element={<Navigate to="add-newspaper" replace />} />
+
           <Route path="adminusers" element={<AdminUsers />} />
+          <Route path="add-adminusers" element={<AddadminUsers />} />
+          <Route path="add-newspaper" element={<NewspaperRegister />} />
           <Route path="newspapers" element={<AdminNewspapers />} />
-          <Route path="logout" element={"hello"} />
         </Route>
 
 
         <Route path="/login" element={<CheckAuth isAuthenticated={isAuthenticated} >
-            <Login />
-          </CheckAuth>} />
+          <Login />
+        </CheckAuth>} />
       </Routes>
     </Router>
   );

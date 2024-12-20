@@ -8,16 +8,16 @@ export const registerUser = asyncHandler(async (req, res) => {
     const { userName, email, password } = req.body;
 
     if ([userName, email, password].some((field) => field?.trim() === "")) {
-        res.send({
+       return res.send({
             success: false,
             massage: "All fields are required"
         })
     }
 
-    const existedUser = await User.findOne({ email });
+    const existedUser = await User.findOne({email});
 
     if (existedUser) {
-        res.send({
+       return res.send({
             success: false,
             massage: "User already exists"
         })
@@ -32,7 +32,7 @@ export const registerUser = asyncHandler(async (req, res) => {
     const createdUser = await User.findById(user._id).select("-password");
 
     if (!createdUser) {
-        res.send({
+       return res.send({
             success: false,
             massage: "Something went wrong while registering the user"
         })

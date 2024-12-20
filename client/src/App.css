@@ -771,3 +771,29 @@ footer {
 .newspaperForm textarea{
   height: 100px;
 }
+.registrationForm{
+  /* background: #00000035; */
+  backdrop-filter: blur(10px);
+  background: white;
+  border-radius: 10px;
+}
+
+
+.viewBtn{
+  border: none;
+  border: 1px solid #ead7d7;
+  border-left: none;
+  background: white;
+  border-radius: 0 5px 5px 0;
+}
+
+.toast-container {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.toast-container.show {
+  transform: translateX(0%);
+  opacity: 1;
+}
