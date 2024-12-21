@@ -372,10 +372,10 @@ section {
 }
 
 .sliderItems {
-  width: calc(25% - 40px);
-  height: 330px;
+  width: 100%;
+  height: 320px;
   flex-shrink: 0;
-  margin-right: 43px;
+  /* margin-right: 43px; */
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.332);
   overflow: hidden;
@@ -797,3 +797,14 @@ footer {
   transform: translateX(0%);
   opacity: 1;
 }
+
+
+
+
+
+
+
+
+
+
+
