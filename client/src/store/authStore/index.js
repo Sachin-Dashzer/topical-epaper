@@ -4,7 +4,7 @@ import axios from "axios";
 const initialState = {
     isloading: true,
     user: null, 
-    isAuthenticated: true,
+    isAuthenticated: false,
 };
 
 // Login User
@@ -109,7 +109,7 @@ const authSlice = createSlice({
 
             // Check Authentication
             .addCase(checkAuthentication.fulfilled, (state, action) => {
-                state.isAuthenticated = true;
+                state.isAuthenticated = action.payload.success;
                 state.user = action.payload.user;
                 state.isloading = false;
             })

@@ -15,16 +15,15 @@ const addProduct = async (req, res) => {
         });
 
         await newProduct.save();
-        res.status(201).json({
+        res.send({
             success: true,
-            message: "Product added successfully",
-            data: newProduct,
+            massage: "Product added successfully !",
         });
     } catch (e) {
         console.log(e);
-        res.status(500).json({
+        res.send({
             success: false,
-            message: "Error occurred",
+            massage: "Error occurred !",
         });
     }
 };
@@ -33,51 +32,19 @@ const addProduct = async (req, res) => {
 const fetchAllProducts = async (req, res) => {
     try {
         const products = await Product.find({});
-        res.status(200).json({
+        res.send({
             success: true,
             data: products,
         });
     } catch (e) {
         console.log(e);
-        res.status(500).json({
+        res.send({
             success: false,
-            message: "Error occurred",
+            massage: "Error occurred !",
         });
     }
 };
 
-
-const editProduct = async (req, res) => {
-    try {
-        const { id } = req.params;
-        const { title, description, date, fileUrl } = req.body;
-
-        let product = await Product.findById(id);
-        if (!product) {
-            return res.status(404).json({
-                success: false,
-                message: "Product not found",
-            });
-        }
-
-        product.title = title || product.title;
-        product.description = description || product.description;
-        product.date = date || product.date;
-        product.fileUrl = fileUrl || product.fileUrl;
-
-        await product.save();
-        res.status(200).json({
-            success: true,
-            data: product,
-        });
-    } catch (e) {
-        console.log(e);
-        res.status(500).json({
-            success: false,
-            message: "Error occurred",
-        });
-    }
-};
 
 
 const deleteProduct = async (req, res) => {
@@ -87,22 +54,22 @@ const deleteProduct = async (req, res) => {
         const product = await Product.findByIdAndDelete(id);
 
         if (!product) {
-            return res.status(404).json({
+            return res.send({
                 success: false,
-                message: "Product not found",
+                massage: "Product not found !",
                 id
             });
         }
 
-        res.status(200).json({
+        res.send({
             success: true,
-            message: "Product deleted successfully",
+            massage: "Product deleted successfully !",
         });
     } catch (e) {
         console.log(e);
-        res.status(500).json({
+        res.send({
             success: false,
-            message: "Error occurred",
+            massage: "Error occurred !",
         });
     }
 };
@@ -110,7 +77,5 @@ const deleteProduct = async (req, res) => {
 export {
     addProduct,
     fetchAllProducts,
-    editProduct,
     deleteProduct,
 };
- 

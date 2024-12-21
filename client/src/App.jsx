@@ -31,12 +31,12 @@ const App = () => {
 
   const { isAuthenticated, isLoading } = useSelector((state) => state.auth)
 
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
 
-  // useEffect(() => {
-  //   dispatch(checkAuthentication());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(checkAuthentication());
+  }, [dispatch]);
 
 
   if (isLoading) return console.log("loading")

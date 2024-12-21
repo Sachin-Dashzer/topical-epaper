@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import {registerFile} from '../../store/fileStore/index.js'
+import { registerFile } from '../../store/fileStore/index.js'
 import { useNavigate } from "react-router-dom";
+import Toaster from "../../components/ToasterMassage";
+
+
+
+
 
 const Dashboard = () => {
   const [file, setFile] = useState(null);
@@ -22,6 +27,35 @@ const Dashboard = () => {
   const navigate = useNavigate()
 
   const [fileData, setfileData] = useState(newsData)
+
+
+
+
+
+  const [toasterData, setToasterData] = useState({
+    show: false,
+    success: false,
+    message: "",
+  });
+
+  const showToaster = (success, message) => {
+    setToasterData({ show: true, success, message });
+
+    setTimeout(() => {
+      setToasterData({ success: success, message: message, show: false });
+    }, 2000);
+  };
+
+
+
+
+
+
+
+
+
+
+
 
   const handleChange = (event) => {
 
@@ -89,15 +123,21 @@ const Dashboard = () => {
   }
 
 
-  const submitDetails = (event)=>{
+  const submitDetails = (event) => {
     event.preventDefault();
 
-    dispatch(registerFile(fileData)).then((res)=>{
-      if(res.payload.success === true){
-        navigate('/admin/newspapers')
+    dispatch(registerFile(fileData)).then((res) => {
+
+      if (res.payload.success) {
+        showToaster(true, res.payload.massage);
+        setTimeout(() => {
+          navigate("/admin/newspapers");
+        }, 1000);
       }
-    }).catch((err)=>{
-      console.log(err,"err")
+      else {
+        showToaster(false, res.payload.massage || "Something went wrong");
+      }
+
     })
   }
 
@@ -106,6 +146,14 @@ const Dashboard = () => {
 
   return (
     <>
+
+      <Toaster
+        success={toasterData.success}
+        message={toasterData.message}
+        show={toasterData.show}
+        onClose={() => setToasterData({ ...toasterData, show: false })}
+      />
+
 
       <div className="newspaperForm w-100 h-100 bg-light mt-5">
 
@@ -133,7 +181,7 @@ const Dashboard = () => {
 
               <div className="mb-3">
                 <label htmlFor="description" className="form-label ps-1 fontWeight700">Description</label>
-                <textarea className="form-control" id="description" name="description" value={fileData.description} onChange={handleChange} required  placeholder="Write the discription here..."/>
+                <textarea className="form-control" id="description" name="description" value={fileData.description} onChange={handleChange} required placeholder="Write the discription here..." />
               </div>
 
 
@@ -193,7 +241,7 @@ const Dashboard = () => {
                   </div>
                 )}
               </div>
-              <Button type="submit"  className="bg-dark px-3 py-2 mt-4 ">Submit file</Button>
+              <Button type="submit" className="bg-dark px-3 py-2 mt-4 ">Submit file</Button>
 
             </form>
 

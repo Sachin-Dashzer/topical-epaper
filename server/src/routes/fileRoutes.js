@@ -3,7 +3,6 @@ import express from "express";
 import {
     addProduct,
     fetchAllProducts,
-    editProduct,
     deleteProduct,
 } from "../controllers/file.controllers.js";
 
@@ -26,7 +25,6 @@ router.post('/upload', upload.single('file'), (req, res) => {
 });
 
 router.post("/add-product", addProduct);
-router.post("/edit-product", editProduct);
 router.get("/get-products", fetchAllProducts);
 router.delete("/delete/:id", deleteProduct);
 
