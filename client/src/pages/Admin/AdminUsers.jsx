@@ -3,12 +3,21 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { deleteUser } from "../../store/authStore/index.js";
+import { deleteUser, updateUser } from "../../store/authStore/index.js";
 import { useNavigate } from "react-router-dom";
 
 function AdminUsers() {
+
+
+  const password = {
+    id: '',
+    password: ''
+  }
+
+
   const [users, setUsers] = useState([]);
-  const [Active, setActive] = useState(true);
+  const [Active, setActive] = useState('');
+  const [pass, setPass] = useState(password);
   const navigate = useNavigate()
 
   const dispatch = useDispatch();
@@ -45,7 +54,34 @@ function AdminUsers() {
     navigate(`/admin/add-adminusers`)
   }
 
+  const handleChange = (event) => {
 
+    event.preventDefault()
+
+
+    setPass({
+      id: Active,
+      password: event.target.value
+    })
+
+
+  }
+
+  const changePassword = (event) => {
+    event.preventDefault()
+    dispatch(updateUser(pass)).then((res) => {
+      if (res.payload.success === true) {
+        setActive('')
+        setPass({
+          id: '',
+          password: '',
+        });
+
+      }
+      console.log(res)
+    })
+
+  }
 
 
   return (
@@ -67,14 +103,14 @@ function AdminUsers() {
                     <div className="card-body">
                       <h5 className="card-title fontWeight700 small_heading">{user.userName}</h5>
                       <p className="card-text"><span className="fontWeight700">Email : </span>{user.email}</p>
-                      <div className={`${(!Active) ? "d-none" : "d-block"}`}>
-                        <p className="card-text mb-1 mt-2"><span className="fontWeight700">Password : </span><span className={`${(Active) ? 'd-none' : "d-inline-block"}`}><input type="text" /></span><span className={`${(Active) ? 'd-inline-block' : "d-none"}`}>*********</span></p>
-                        <Button onClick={(Active) => setActive(!Active)} className="me-3 mt-2">Update Password</Button>
+                      <div className={`${(Active != user._id) ? "d-block" : "d-none"}`}>
+                        <p className="card-text mb-1 mt-2"><span className="fontWeight700">Password : </span>*********</p>
+                        <Button onClick={(Active) => setActive(user._id)} className="me-3 mt-2">Update Password</Button>
                         <Button onClick={() => removeUser(user._id)} className="me-2 mt-2">Remove</Button>
                       </div>
-                      <form className={`${(Active) ? "d-none" : "d-block"}`}>
-                        <p className="card-text mb-1 mt-2"><span className="fontWeight700">Password : </span><input type="text" /></p>
-                        <Button type="submit" className="me-3 mt-2">Submit Password</Button>
+                      <form onSubmit={changePassword} className={`${(Active == user._id) ? "d-block" : "d-none"}`}>
+                        <p className="card-text mb-1 mt-2"><span className="fontWeight700">Password : </span><input type="text" name="password" value={pass.password} onChange={handleChange} /></p>
+                        <Button type="submit" onClick={() => setActive(user._id)} className="me-3 mt-2" >Submit Password</Button>
                         <Button onClick={() => removeUser(user._id)} className="me-2 mt-2">Remove</Button>
 
                       </form>

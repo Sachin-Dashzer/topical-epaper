@@ -37,6 +37,21 @@ const logoutUser = createAsyncThunk("/auth/logout", async () => {
     return response.data;
 });
 
+
+
+const updateUser = createAsyncThunk("/auth/update", async (formData) => {
+    const response = await axios.put(
+        "http://localhost:9000/auth/update",
+        formData,
+        {
+            withCredentials: true,
+        }
+    );
+    return response.data;
+});
+
+
+
 // Check Authentication
 const checkAuthentication = createAsyncThunk("/auth/check-auth", async () => {
     const response = await axios.get("http://localhost:9000/auth/check-auth", {
@@ -126,9 +141,20 @@ const authSlice = createSlice({
             })
             .addCase(deleteUser.pending, (state) => {
                 state.isloading = true;
+            })
+            .addCase(updateUser.fulfilled, (state, action) => {
+                state.isAuthenticated = true;
+                state.user = action.payload.user;
+                state.isloading = false;
+            }).addCase(updateUser.rejected, (state) => {
+                state.isAuthenticated = true;
+                state.isloading = false;
+            })
+            .addCase(updateUser.pending, (state) => {
+                state.isloading = true;
             });
     },
 });
 
 export default authSlice.reducer;
-export { loginUser, ResgisterUser, logoutUser, checkAuthentication, deleteUser };
+export { loginUser, ResgisterUser, logoutUser,updateUser , checkAuthentication, deleteUser };

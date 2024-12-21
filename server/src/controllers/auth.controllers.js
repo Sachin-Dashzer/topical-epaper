@@ -1,6 +1,7 @@
 
 import { User } from "../models/users.model.js";
 import { asyncHandler } from '../utils/asyncHandler.js'
+import bcrypt from "bcryptjs"
 import jwt from 'jsonwebtoken';
 
 
@@ -8,35 +9,40 @@ export const registerUser = asyncHandler(async (req, res) => {
     const { userName, email, password } = req.body;
 
     if ([userName, email, password].some((field) => field?.trim() === "")) {
-       return res.send({
+        return res.send({
             success: false,
             massage: "All fields are required"
         })
     }
 
-    const existedUser = await User.findOne({email});
+    const existedUser = await User.findOne({ email });
 
     if (existedUser) {
-       return res.send({
+        return res.send({
             success: false,
             massage: "User already exists"
         })
     }
 
-    const user = await User.create({
+    const hashPassword = await bcrypt.hash(password, 12);
+
+
+    const newUser = new User({
         userName,
         email,
-        password
+        password: hashPassword,
     });
 
-    const createdUser = await User.findById(user._id).select("-password");
+    await newUser.save();
 
-    if (!createdUser) {
-       return res.send({
-            success: false,
-            massage: "Something went wrong while registering the user"
-        })
-    }
+    // const createdUser = await User.findById(user._id).select("-password");
+
+    // if (!createdUser) {
+    //     return res.send({
+    //         success: false,
+    //         massage: "Something went wrong while registering the user"
+    //     })
+    // }
 
     return res.send({
         success: true,
@@ -65,12 +71,15 @@ export const loginUser = asyncHandler(async (req, res) => {
         })
     }
 
-    const isPasswordCorrect = await user.isCorrectPassword(password);
+    const isPasswordCorrect = await bcrypt.compare(
+        password,
+        user.password
+    );
 
     if (!isPasswordCorrect) {
         res.send({
             success: false,
-            massage: "Invalid userf credentials"
+            massage: "Invalid user credentials"
         })
     }
 
@@ -170,7 +179,40 @@ export const deleteUser = async (req, res) => {
 
 
 
+export const updatePassword = asyncHandler(async (req, res) => {
+
+    const { id, password } = req.body;
+
+    if (password === "") {
+        return res.send({
+            success: false,
+            message: "Password is required"
+        })
+    }
+
+    const findUser = await User.findOne({ _id: id });
+
+    if (!findUser) {
+        return res.send({
+            success: false,
+            message: "User not found"
+        })
+    }
 
 
+    const hashPassword = await bcrypt.hash(password, 12);
+
+
+
+    findUser.password = hashPassword;
+    await findUser.save({ validateBeforeSave: false })
+
+    res.send({
+        success: true,
+        message: "Password updated successfully",
+        findUser
+    })
+
+})
 
 

@@ -39,6 +39,7 @@ const SignIn = () => {
       ...formdata,
       [name]: value
     });
+    console.log(formdata)
   };
 
 
