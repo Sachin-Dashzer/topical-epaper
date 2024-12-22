@@ -87,7 +87,7 @@ const SignIn = () => {
           color: "#ffffff",
         }}
       >
-        <div className="w-100 pt-5" style={{ maxWidth: "380px" }}>
+        <div className="w-100 pt-md-5 pt-4 loginContainer" >
 
           <div className="text-center mb-4">
             <div

@@ -683,6 +683,9 @@ footer {
   flex-direction: row-reverse;
 
 }
+.loginContainer{
+  max-width: 380px;
+}
 
 .updateContent {
   width: 100%;
@@ -838,9 +841,13 @@ footer {
 
 .newsImgBox {
   min-height: 400px;
+  border-radius: 10px;
+  overflow: hidden;
 
 }
-
+.updateContent{
+  padding: 0;
+}
 .blockContainer {
   position: sticky;
   position: -webkit-sticky;

@@ -48,7 +48,7 @@ const Updates = () => {
                             return (
 
 
-                                <div className="updateBox mb-5">
+                                <div key={index} className="updateBox mb-5">
                                     <div className="row">
                                         <div className="col-lg-6">
                                             <div className="updateImg">
@@ -56,7 +56,7 @@ const Updates = () => {
                                             </div>
                                         </div>
                                         <div className="col-lg-6">
-                                            <div className="updateContent">
+                                            <div className="updateContent mt-3 mt-md-0">
                                                 <h3 className="large_heading text-capital fontWeight700">{item.title}</h3>
                                                 <p className='text text-center mt-3 fontWeight400'>{item.description}</p>
                                                 <a href='#' className='btnTheme text-white py-2 px-4 text px-1 mt-4 mx-auto'><span>Download Now</span></a>

@@ -16,7 +16,7 @@ const HeroBanner = () => {
           </div>
         </div>
 
-        <div className='heroContent' data-aos-delay="300" data-aos="fade-up">
+        <div className='heroContent pt-4 pt-md-0 px-3' data-aos-delay="300" data-aos="fade-up">
           <h1 className='large_heading fontWeight800'>"Breaking News, Fresh Perspectives – <br />  All in One Place!"
           </h1>
           <h3 className="fontWeight400 mt-2 mb-2">Simplifying your daily news reading experience.</h3>

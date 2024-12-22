@@ -56,7 +56,7 @@ const LatestUploads = () => {
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 2,
                     slidesToScroll: 1
                 }
             }
@@ -70,18 +70,18 @@ const LatestUploads = () => {
     return (
         <>
 
-            <section>
+            <section className='overflow-hidden'>
 
                 <div className="containerFull">
                     <h1 style={{ textDecoration: "underline" }} className="heading font-heading text-primary ms-3 fontWeight700">Recently uploaded</h1>
 
-                    <div className="slider-container mt-5">
+                    <div className="slider-container mt-4 mt-md-5">
                         <Slider {...settings}>
                             {newspaper.filter((data) => data.category === 'newspaper')
                                 .map((item, index) => {
                                     return (
 
-                                        <div key={index} className="w-100 px-3 pb-4">
+                                        <div key={index} className="w-100 px-3 pb-md-4 pb-3">
                                             <div className="sliderItems shadow">
                                                 <div className="uploadsBox">
                                                     <div className="uploadImg">

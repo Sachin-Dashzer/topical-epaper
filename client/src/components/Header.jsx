@@ -85,8 +85,8 @@ const Header = () => {
                             </li>
                         </ul>
 
-                        <div onClick={()=>{setMenuBox(true)}} className="small_heading d-md-none">
-                        <i className="fa-solid fa-bars"></i>
+                        <div onClick={() => { setMenuBox(true) }} className="small_heading d-md-none">
+                            <i className="fa-solid fa-bars"></i>
                         </div>
 
                     </div>
@@ -116,7 +116,7 @@ const Header = () => {
 
 
 
-            
+
 
             <div className={`${menuBox ? '' : 'active'} offCanvasBox bg-light shadow`} >
 
@@ -124,7 +124,7 @@ const Header = () => {
                     <div className=" w-100 d-flex px-3 py-4 justify-content-between">
                         <h1 className="heading font-heading "> <a href="#" className="text-light fontWeight800">Topical Epapers</a></h1>
 
-                        <div className="sub_heading text-light pe-2" onClick={()=>{setMenuBox(false)}}>
+                        <div className="sub_heading text-light pe-2" onClick={() => { setMenuBox(false) }}>
                             <i className="fa-solid fa-xmark"></i>
                         </div>
                     </div>
@@ -133,19 +133,19 @@ const Header = () => {
                 <div className="offcanvas-body">
                     <ul className=' py-4 px-4'>
                         <li>
-                            <NavLink to="/" className={'text-dark small_heading fontWeight700 mt-3'}>Home</NavLink>
+                            <NavLink onClick={() => { setMenuBox(false) }} to="/" className={'text-dark small_heading fontWeight700 mt-3'}>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/about" className={'text-dark small_heading fontWeight700 mt-3'}>About</NavLink>
+                            <NavLink onClick={() => { setMenuBox(false) }} to="/about" className={'text-dark small_heading fontWeight700 mt-3'}>About</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/news" className={'text-dark small_heading fontWeight700 mt-3'}>Latest News</NavLink>
+                            <NavLink onClick={() => { setMenuBox(false) }} to="/news" className={'text-dark small_heading fontWeight700 mt-3'}>Latest News</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/course" className={'text-dark small_heading fontWeight700 mt-3'}>Updates</NavLink>
+                            <NavLink onClick={() => { setMenuBox(false) }} to="/updates" className={'text-dark small_heading fontWeight700 mt-3'}>Updates</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/contact" className={'text-dark small_heading fontWeight700 mt-3'}>Contact us</NavLink>
+                            <NavLink onClick={() => { setMenuBox(false) }} to="/contact" className={'text-dark small_heading fontWeight700 mt-3'}>Contact us</NavLink>
                         </li>
                     </ul>
 

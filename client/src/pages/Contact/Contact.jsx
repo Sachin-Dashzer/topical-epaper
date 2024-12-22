@@ -12,8 +12,8 @@ const Contact = () => {
 
             <section className="contact-icons bg-light">
                 <div className="container">
-                    <div className="row ps-5">
-                        <div className="col-md-4">
+                    <div className="row ps-md-5">
+                        <div className="col-md-4 my-2 my-md-0">
                             <div className="border-0 gap-3 justify-content-center d-flex">
                                 <div className="card-icon" >
                                     <i className="fas fa-map-marker-alt"></i>
@@ -24,7 +24,7 @@ const Contact = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-4">
+                        <div className="col-md-4 my-2 my-md-0">
                             <div className="border-0 gap-3 justify-content-center d-flex">
                                 <div className="card-icon" >
                                     <i className="fas fa-phone"></i>
@@ -35,7 +35,7 @@ const Contact = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-4">
+                        <div className="col-md-4 my-2 my-md-0">
                             <div className="border-0 gap-3 justify-content-center d-flex">
                                 <div className="card-icon">
                                     <i className="fas fa-envelope"></i>

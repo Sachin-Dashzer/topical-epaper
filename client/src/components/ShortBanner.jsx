@@ -9,7 +9,7 @@ const ShortBanner = (promps) => {
         <div className="shortBannerBox"></div>
 
         <div className="shortBanner-Content">
-            <h1 className='large_heading font-heading fontWeight800 text-center text-white pt-5'>{promps.name}</h1>
+            <h1 className='large_heading font-heading fontWeight800 text-center text-white pt-md-5 pt-3'>{promps.name}</h1>
         </div>
 
 

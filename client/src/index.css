@@ -1,8 +1,3 @@
-
-
-
-
-
 @media only screen and (max-width: 767px) {
   p {
     font-size: 15px;
@@ -62,7 +57,7 @@
   } */
 
 
-  .topHeader{
+  .topHeader {
     display: none;
   }
 
@@ -82,136 +77,193 @@
     padding: 0;
   }
 
-  .bannerBtns{
+  .bannerBtns {
     flex-direction: column-reverse;
-    gap: 15px;
+    gap: 10px;
     margin-top: 15px;
   }
 
-  header{
+  .btnTheme,
+  .btnTheme2 {
+    padding: 8px 14px;
+  }
+
+  header {
     width: 100%;
     overflow: hidden;
   }
-  footer{
+
+  footer {
     overflow: hidden;
   }
-  nav{
+
+  nav {
     padding: 10px 15px;
   }
-  nav h1{
+
+  nav h1 {
     font-size: 35px;
   }
 
   .heroBox {
     height: 450px;
   }
-.heroVideo{
-  height: 500px;
-}
-.heroContent{
-  margin-top: 60px;
-}
-.uploadsDate {
-  height: 107px;
-  bottom: 17px;
-}
-.sliderItems {
-  width: calc(50% - 10px);
-  height: 192px;
-  margin-right: 20px;
-  box-shadow: none !important;
-  
-}
 
-.sliderItems:hover .uploadsDate {
-  bottom: 0;
-}
-.uploadsDate a {
+  .heroVideo {
+    height: 500px;
+  }
 
-  font-size: 14px;
-}
-.sliderContainer {
-margin-top: 14px;
-}
-.AboutContainer .heading{
-  font-size: 26px;
-}
+  .heroContent {
+    margin-top: 60px;
+  }
 
-.sliderContainer {
+  .uploadsDate {
+    height: 137px;
+    bottom: 17px;
+  }
 
-  height: 225px;
-}
-figure{
-  margin: 0;
-}
+  .sliderItems {
+    width: 100%;
+    height: 220px;
+    margin-right: 20px;
+    box-shadow: none !important;
 
-.aboutImg figure {
+  }
 
-  padding: 5px;
-}
-.AboutSections{
-  border: none !important;
-}
-.AboutSections div{
+  .sliderItems:hover .uploadsDate {
+    bottom: 0;
+  }
+
+  .uploadsDate a {
+
+    font-size: 14px;
+  }
+
+  .sliderContainer {
+    margin-top: 14px;
+  }
+
+  .AboutContainer .heading {
+    font-size: 26px;
+  }
+
+  .sliderContainer {
+
+    height: 225px;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  .aboutImg figure {
+
+    padding: 5px;
+  }
+
+  .AboutSections {
+    border: none !important;
+  }
+
+  .AboutSections div {
     border: none !important;
 
-}
-.callContainer{
-  display: block;
-  padding: 35px 15px;
-}
-.callBg {
-  height: 620px;
-}
+  }
 
-.callContainer img {
-  width: 327px;
-  height: 336px;
-}
-.callContainer .large-heading {
-  font-size: 26px;
-  letter-spacing: 3px;
-}
+  .callContainer {
+    display: block;
+    padding: 35px 15px;
+  }
 
-.carousel-item .fs-5{
-  font-size: 14px !important;
-}
+  .callBg {
+    height: 620px;
+  }
 
-.carousel-inner .btnTheme {
-  width: 28px;
-  height: 28px;
-  left: 2%;
-  top: 26%;
-  display: flex;
- 
-  font-size: 14px;
-}
-.carousel-inner .btnTheme:last-child {
-  right: 2%;
-  left: unset;
-}
-.Contact-form{
-  flex-wrap: wrap-reverse;
+  .callContainer img {
+    width: 327px;
+    height: 336px;
+  }
+
+  .callContainer .large-heading {
+    font-size: 26px;
+    letter-spacing: 3px;
+  }
+
+  .carousel-item .fs-5 {
+    font-size: 14px !important;
+  }
+
+  .carousel-inner .btnTheme {
+    width: 28px;
+    height: 28px;
+    left: 2%;
+    top: 26%;
+    display: flex;
+
+    font-size: 14px;
+  }
+
+  .carousel-inner .btnTheme:last-child {
+    right: 2%;
+    left: unset;
+  }
+
+  .Contact-form {
+    flex-wrap: wrap-reverse;
+
+  }
+
+  .Contact-form .form-label {
+    margin-bottom: 2px;
+    font-size: 13px;
+    margin-left: 4px;
+  }
+
+  .Contact-form .form-control {
+    font-size: 13px;
+  }
+
+  .Contact-form iframe {
+    height: 400px !important;
+  }
+
+  .footerlogo h1 {
+    font-size: 38px;
+  }
+
+  .copyright-section h6 {
+    font-size: 13px;
+  }
+  .shortBanner , .shortBannerBox{
+    height: 230px;
+  }
+  .newspaperDetails h1{
+    letter-spacing: unset;
+  }
+  .newspaperDetails p{
+    font-size: 14px;
+  }
+  .updateBox:nth-child(2n) .row {
+    background: #f9f9f9;
+    padding: 40px 0;
   
-}
-.Contact-form .form-label {
-  margin-bottom: 2px;
-  font-size: 13px;
-  margin-left: 4px;
-}
-.Contact-form .form-control {
-font-size: 13px;
-}
-.Contact-form iframe{
-  height: 400px !important;
-}
-.footerlogo h1{
-  font-size: 38px;
-}
-.copyright-section h6{
-  font-size: 13px;
-}
+  }
   
+  .loginContainer{
+    max-width: 330px;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

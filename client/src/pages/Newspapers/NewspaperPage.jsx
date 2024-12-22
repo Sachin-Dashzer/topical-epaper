@@ -48,13 +48,13 @@ const NewspaperPage = () => {
             <div className="w-100 px-3">
                 <div className="newspaperBox">
                     <div className="row">
-                        <div className="col-lg-8 px-4 pe-0 pt-4">
+                        <div className="col-lg-8 px-md-4 pe-md-0 pt-4">
                             <div className="newspaperDetails text-capital p-4">
                                 <h1 className="large_heading fontWeight800 text-primary">
                                     {currentData ? currentData.title : 'Loading...'}
                                 </h1>
 
-                                <div className="d-flex gap-5">
+                                <div className="d-flex gap-md-5 gap-4">
                                     <p className="mt-3">
                                         <span className="fontWeight700 text-primary">Published on: </span>
                                         &nbsp; {currentData ? currentData.date : 'N/A'}
@@ -65,25 +65,25 @@ const NewspaperPage = () => {
                                     </p>
                                 </div>
 
-                                <div className="newsImgBox shadow w-100 mt-4">
+                                <div className="newsImgBox shadow w-100 mt-md-4 mt-2">
                                     {currentData && (
                                         <img src={currentData.imgUrl} alt="" />
                                     )}
                                 </div>
 
-                                <h3 className="small_heading fontWeight700 mt-5">Short Description</h3>
-                                <p className="mt-3 text">{currentData ? currentData.description : 'Loading...'}</p>
+                                <h3 className="small_heading fontWeight700 mt-md-5 mt-4">Short Description</h3>
+                                <p className="mt-md-3 mt-2 text">{currentData ? currentData.description : 'Loading...'}</p>
 
                                 <a
                                     href={currentData ? currentData.fileUrl : '#'}
-                                    className="btnTheme mt-4"
+                                    className="btnTheme mt-md-4 mt-3"
                                 >
                                     <span>Download Now</span>
                                 </a>
                             </div>
                         </div>
 
-                        <div className="col-lg-4 h-full p-5">
+                        <div className="col-lg-4 h-full p-md-5 py-5 px-4">
                             <div className="blockContainer w-full h-full">
                                 <h4
                                     className="sub_heading text-center fontWeight700 mb-4"
@@ -98,10 +98,10 @@ const NewspaperPage = () => {
                                         <a key={index} className="d-block" href={`/news/${data._id}`}>
                                             <div className="smallBlock bg-light w-100 p-2 mt-4 shadow">
                                                 <div className="row">
-                                                    <div className="col-lg-5 smallImgBlock">
+                                                    <div className="col-5 smallImgBlock">
                                                         <img src={data.imgUrl} alt="" className="object-fit-cover" />
                                                     </div>
-                                                    <div className="col-lg-7 py-2">
+                                                    <div className="col-7 py-2">
                                                         <h3 className="title text-capital text-dark fontWeight700">{data.title}</h3>
                                                         <div>
                                                             <p className="mt-2">
