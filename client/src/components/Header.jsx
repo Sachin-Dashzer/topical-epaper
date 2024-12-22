@@ -63,7 +63,7 @@ const Header = () => {
                 <nav className='d-flex justify-content-between align-items-center'>
 
                     <div className="logo">
-                        <h1 className="large-heading font-heading fontWeight800"> <a href="#" className="text-white">Topical Epapers</a></h1>
+                        <h1 className="large-heading font-heading fontWeight800"> <a href="/" className="text-white">Topical Epapers</a></h1>
                     </div>
                     <div className="navLinks">
 

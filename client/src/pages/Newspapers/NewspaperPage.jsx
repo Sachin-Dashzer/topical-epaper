@@ -1,136 +1,131 @@
-
-
-import React, { useState, useEffect } from 'react'
-import ShortBanner from '../../components/ShortBanner'
-import CallToAction from '../../assets/call-to-aciton.jpg'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react';
+import ShortBanner from '../../components/ShortBanner';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const NewspaperPage = () => {
+    const [newspaper, setNewspaper] = useState([]);
+    const [currentId, setCurrentId] = useState(null);
+    const [currentData, setCurrentData] = useState(null);
 
-    const [newspaper, setNewspaper] = useState([])
-
+    const { id } = useParams();
 
     const getdata = async () => {
-
         try {
-
             const response = await axios.get('http://localhost:9000/admin/get-products', { withCredentials: true });
-            setNewspaper(response?.data?.data)
-            console.log(newspaper)
-        }
-        catch (error) {
-            console.log(error)
-        }
+            const data = response?.data?.data || [];
 
-    }
+            setNewspaper(data);
+
+            // Determine currentId
+            const selectedId = id || (data.length > 0 ? data[0]._id : null);
+            setCurrentId(selectedId);
+
+            // Find the current data based on the ID
+            const selectedData = data.find(item => item._id === selectedId);
+            setCurrentData(selectedData);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     useEffect(() => {
-        getdata()
-    }, [])
+        getdata();
+    }, [id]); // Fetch data when `id` changes
 
-
-
-
-
-
-
-
-
-
+    useEffect(() => {
+        // Update `currentData` whenever `currentId` or `newspaper` changes
+        if (currentId && newspaper.length > 0) {
+            const selectedData = newspaper.find(item => item._id === currentId);
+            setCurrentData(selectedData);
+        }
+    }, [currentId, newspaper]);
 
     return (
         <>
-
             <ShortBanner name="Latest Newspaper" />
 
-
-            <div className='w-100  px-3'>
+            <div className="w-100 px-3">
                 <div className="newspaperBox">
                     <div className="row">
-                        <div className="col-lg-8 px-5 pt-4">
-
-
-                            <div className="newspaperDetails p-4">
-                                <h1 className="large_heading fontWeight800 text-primary">Topical Epaper</h1>
+                        <div className="col-lg-8 px-4 pe-0 pt-4">
+                            <div className="newspaperDetails text-capital p-4">
+                                <h1 className="large_heading fontWeight800 text-primary">
+                                    {currentData ? currentData.title : 'Loading...'}
+                                </h1>
 
                                 <div className="d-flex gap-5">
-                                    <p className='mt-3 '><span className='fontWeight700 text-primary'>Published on : </span> &nbsp; 25-12-2024 </p>
-                                    <p className='mt-3 '><span className='fontWeight700 text-primary'>Published by : </span> &nbsp; Admin</p>
+                                    <p className="mt-3">
+                                        <span className="fontWeight700 text-primary">Published on: </span>
+                                        &nbsp; {currentData ? currentData.date : 'N/A'}
+                                    </p>
+                                    <p className="mt-3">
+                                        <span className="fontWeight700 text-primary">Published by: </span>
+                                        &nbsp; {currentData ? currentData.author : 'N/A'}
+                                    </p>
                                 </div>
 
                                 <div className="newsImgBox shadow w-100 mt-4">
-                                    <img src={CallToAction} alt="" className='w-100 h-100 object-fit-cover' />
+                                    {currentData && (
+                                        <img src={currentData.imgUrl} alt="" />
+                                    )}
                                 </div>
 
-                                <h3 className="small_heading fontWeight700 mt-5">
-                                    Short Discription
-                                </h3>
+                                <h3 className="small_heading fontWeight700 mt-5">Short Description</h3>
+                                <p className="mt-3 text">{currentData ? currentData.description : 'Loading...'}</p>
 
-                                <p className='mt-3 text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut deleniti officia quos debitis consequatur iusto optio quia quo itaque porro dolorem nemo ab velit, vitae cupiditate tempore neque praesentium eos cum voluptate ea quas asperiores! Esse voluptatibus id rem velit eius accusantium voluptatem autem. Enim eius corporis aut dicta soluta recusandae earum veniam asperiores facere nihil blanditiis repellat, error amet doloremque? Quod temporibus natus placeat nulla unde repellat earum officiis?</p>
-                                <p className='mt-3 text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut deleniti officia quos debitis consequatur iusto optio quia quo itaque porro dolorem nemo ab velit, vitae cupiditate tempore neque praesentium eos cum voluptate ea quas asperiores! Esse voluptatibus id rem velit eius accusantium voluptatem autem. Enim eius corporis aut dicta soluta recusandae earum veniam asperiores facere nihil blanditiis repellat, error amet doloremque? Quod temporibus natus placeat nulla unde repellat earum officiis?</p>
-
-                                <a href="#" className="btnTheme mt-4"><span>Download Now</span></a>
-
-
-
-
+                                <a
+                                    href={currentData ? currentData.fileUrl : '#'}
+                                    className="btnTheme mt-4"
+                                >
+                                    <span>Download Now</span>
+                                </a>
                             </div>
-
-
-
                         </div>
+
                         <div className="col-lg-4 h-full p-5">
+                            <div className="blockContainer w-full h-full">
+                                <h4
+                                    className="sub_heading text-center fontWeight700 mb-4"
+                                    style={{ textDecoration: 'underline' }}
+                                >
+                                    Related Uploads
+                                </h4>
 
-                            <div className='blockContainer w-full h-full'>
-                                <h4 className="sub_heading text-center fontWeight700 mb-4" style={{ textDecoration: 'underline' }}>Related Uplaods</h4>
-
-                                {
-                                    newspaper.map((data, index) => {
-
-                                        return (
-
-
-                                            <a key={index} className='d-block' href="">
-
-                                                <div className="smallBlock bg-light w-100 p-2 mt-4 shadow">
-                                                    <div className="row">
-                                                        <div className="col-lg-5 smallImgBlock">
-                                                            <img src={data.fileUrl} alt="" className='object-fit-cover' />
-                                                        </div>
-                                                        <div className="col-lg-7 py-2 ">
-
-                                                            <h3 className="title text-dark fontWeight700">
-                                                                {data.title}
-                                                            </h3>
-                                                            <div>
-                                                                <p className='mt-2 '><span className='fontWeight700 text-primary'>Published on : </span> &nbsp; {data.date} </p>
-                                                                <p className=''><span className='fontWeight700 text-primary'>Published by : </span> &nbsp; Admin</p>
-                                                            </div>
-
-
+                                {newspaper
+                                    .filter((data) => data.category === 'newspaper') 
+                                    .map((data, index) => (
+                                        <a key={index} className="d-block" href={`/news/${data._id}`}>
+                                            <div className="smallBlock bg-light w-100 p-2 mt-4 shadow">
+                                                <div className="row">
+                                                    <div className="col-lg-5 smallImgBlock">
+                                                        <img src={data.imgUrl} alt="" className="object-fit-cover" />
+                                                    </div>
+                                                    <div className="col-lg-7 py-2">
+                                                        <h3 className="title text-capital text-dark fontWeight700">{data.title}</h3>
+                                                        <div>
+                                                            <p className="mt-2">
+                                                                <span className="fontWeight700 text-primary">Published on:</span>
+                                                                &nbsp; {data.date}
+                                                            </p>
+                                                            <p>
+                                                                <span className="fontWeight700 text-primary">Published by:</span>
+                                                                &nbsp; {data.author}
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </a>
-                                        )
-                                    })
-
-                                }
-
-
+                                            </div>
+                                        </a>
+                                    ))}
 
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
-
         </>
-    )
-}
+    );
+};
 
-export default NewspaperPage
+export default NewspaperPage;

@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import NewsImg from '../../assets/newspapers.jpg'
-import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import Slider from "react-slick";
 
@@ -75,29 +73,35 @@ const LatestUploads = () => {
             <section>
 
                 <div className="containerFull">
-                    <h1 style={{textDecoration : "underline"}} className="heading font-heading text-primary ms-3 fontWeight700">Recently uploaded</h1>
+                    <h1 style={{ textDecoration: "underline" }} className="heading font-heading text-primary ms-3 fontWeight700">Recently uploaded</h1>
 
                     <div className="slider-container mt-5">
                         <Slider {...settings}>
-                            {newspaper.map((item, index) => {
-                                return (
+                            {newspaper.filter((data) => data.category === 'newspaper')
+                                .map((item, index) => {
+                                    return (
 
-                                    <div key={index} className="w-100 px-3 pb-4">
-                                        <div className="sliderItems shadow">
-                                            <div className="uploadsBox">
-                                                <div className="uploadImg">
-                                                    <img src={NewsImg} alt="" />
-                                                </div>
-                                                <div className="uploadsDate">
-                                                    <h3 className='title fontWeight700 text-center'>{item.date}</h3>
-                                                    <a href="#" className="mt-md-3 mt-2">View <span><i className="fa-solid fa-eye"></i></span></a>
-                                                    <a href="#" className="mt-md-2 mt-1">Download <span><i className="fa-solid fa-download"></i></span></a>
+                                        <div key={index} className="w-100 px-3 pb-4">
+                                            <div className="sliderItems shadow">
+                                                <div className="uploadsBox">
+                                                    <div className="uploadImg">
+                                                        <img src={item.imgUrl} alt="" />
+                                                    </div>
+                                                    <div className="uploadsDate">
+                                                        <h3 className="title fontWeight700 text-capital text-center">{item.title}</h3>
+                                                        <p className="mt-2 text-secondary fontWeight700 text-center">( {item.date} )</p>
+                                                        <a href={`/news/${item._id}`} className="mt-md-3 mt-2">
+                                                            View <span><i className="fa-solid fa-eye"></i></span>
+                                                        </a>
+                                                        <a href={`/news/download/${item._id}`} className="mt-md-2 mt-1">
+                                                            Download <span><i className="fa-solid fa-download"></i></span>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                )
-                            })}
+                                    )
+                                })}
 
                         </Slider>
                     </div>

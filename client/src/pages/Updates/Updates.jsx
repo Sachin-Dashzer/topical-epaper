@@ -1,55 +1,84 @@
-import React from 'react'
+import React, { useState , useEffect } from 'react'
 import ShortBanner from '../../components/ShortBanner'
 import UpdateImg from '../../assets/newspapers.jpg'
+import axios from 'axios'
 
 const Updates = () => {
-  return (
-    <>
-    
-        <ShortBanner name="New Updates" />
 
 
-        <section className="updates">
-            <div className="containerFull">
-                <div className="updateBox">
-                    <div className="row">
-                        <div className="col-lg-6">
-                            <div className="updateImg">
-                                <img src={UpdateImg} alt="" />
-                            </div>
-                        </div>
-                        <div className="col-lg-6">
-                            <div className="updateContent">
-                                <h3 className="heading fontWeight700">Lorem, ipsum dolor.</h3>
-                                <p className='text text-center mt-3 fontWeight400'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque repellendus ullam voluptatibus quaerat quisquam cum? Quasi unde voluptate aspernatur eaque quaerat, natus quam! Aliquid sequi quae facilis quibusdam voluptate aspernatur eaque quaerat, natus quam! Aliquid sequi quae facilis quibusdam molestiae.adipisicing elit. Atque repellendus ullam voluptatibus quaerat quisquam cum? Quasi unde voluptate aspernatur eaque quaerat, natus quam! Aliquid sequi quae facilis quibusdam voluptate aspernatur eaque quaerat, natus quam! Aliquid sequi quae facilis quibusdam molestiae. Maiores!</p>
-                                <a href='#' className='btnTheme text-white py-1 text px-1 mt-3 mx-auto'><span>Download Now</span></a>
-                            </div>
-                        </div>
-                    </div>
+    const [newspaper, setNewspaper] = useState([])
+
+
+    const getdata = async () => {
+
+        try {
+
+            const response = await axios.get('http://localhost:9000/admin/get-products', { withCredentials: true });
+            setNewspaper(response?.data?.data)
+        }
+        catch (error) {
+            console.log("erroe")
+        }
+
+    }
+
+    useEffect(() => {
+        getdata()
+    }, [])
+
+
+
+
+
+
+
+
+
+    return (
+        <>
+
+            <ShortBanner name="New Updates" />
+
+
+            <section className="updates">
+                <div className="containerFull">
+
+                    {newspaper.filter((data) => data.category === 'others')
+                        .map((item, index) => {
+                            return (
+
+
+                                <div className="updateBox mb-5">
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <div className="updateImg">
+                                                <img src={item.imgUrl} alt="" />
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-6">
+                                            <div className="updateContent">
+                                                <h3 className="large_heading text-capital fontWeight700">{item.title}</h3>
+                                                <p className='text text-center mt-3 fontWeight400'>{item.description}</p>
+                                                <a href='#' className='btnTheme text-white py-2 px-4 text px-1 mt-4 mx-auto'><span>Download Now</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            )
+                        })
+                    }
+
+
                 </div>
-                <div className="updateBox">
-                    <div className="row">
-                        <div className="col-lg-6">
-                            <div className="updateImg">
-                                <img src={UpdateImg} alt="" />
-                            </div>
-                        </div>
-                        <div className="col-lg-6">
-                            <div className="updateContent">
-                                <h3 className="heading fontWeight700">Lorem, ipsum dolor.</h3>
-                                <p className='text text-center mt-3 fontWeight400'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque repellendus ullam voluptatibus quaerat quisquam cum? Quasi unde voluptate aspernatur eaque quaerat, natus quam! Aliquid sequi quae facilis quibusdam voluptate aspernatur eaque quaerat, natus quam! Aliquid sequi quae facilis quibusdam molestiae.adipisicing elit. Atque repellendus ullam voluptatibus quaerat quisquam cum? Quasi unde voluptate aspernatur eaque quaerat, natus quam! Aliquid sequi quae facilis quibusdam voluptate aspernatur eaque quaerat, natus quam! Aliquid sequi quae facilis quibusdam molestiae. Maiores!</p>
-                                <a href='#' className='btnTheme text-white py-1 text px-1 mt-3 mx-auto'><span>Download Now</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
 
-    
-    
-    </>
-  )
+
+
+        </>
+    )
 }
 
 export default Updates

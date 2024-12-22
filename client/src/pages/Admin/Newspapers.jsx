@@ -38,9 +38,10 @@ function Newspapers() {
 
       const response = await axios.get('http://localhost:9000/admin/get-products', { withCredentials: true });
       setNewspaper(response?.data?.data)
+
     }
     catch (error) {
-      console.log("erroe")
+      console.log("error")
     }
 
   }
@@ -111,8 +112,10 @@ function Newspapers() {
             <thead>
               <tr >
                 <th className="bg-primary py-3 text-white">S.No</th>
-                <th className="bg-primary py-3 text-white">Name</th>
-                <th className="bg-primary py-3 text-white">File No.</th>
+                <th className="bg-primary py-3 text-white">Title</th>
+                <th className="bg-primary py-3 text-white">Category</th>
+                <th className="bg-primary py-3 text-white">Author</th>
+                <th className="bg-primary py-3 text-white">Img Url</th>
                 <th className="bg-primary py-3 text-white">FIle url</th>
                 <th className="bg-primary py-3 text-white">Date</th>
                 <th className="bg-primary py-3 text-white">Action</th>
@@ -123,8 +126,10 @@ function Newspapers() {
                 <tr key={index}>
                   <td>{index + 1}</td>
                   <td>{newspaper.title}</td>
-                  <td>{newspaper._id}</td>
-                  <td><a href={newspaper.fileUrl} target='_blank'>{newspaper.fileUrl}</a></td>
+                  <td>{newspaper.category}</td>
+                  <td>{newspaper.author}</td>
+                  <td><a href={newspaper.imgUrl} target='_blank'>url</a></td>
+                  <td><a href={newspaper.fileUrl} target='_blank'>url</a></td>
 
                   <td>{newspaper.date}</td>
                   <td>

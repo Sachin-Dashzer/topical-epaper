@@ -9,14 +9,22 @@ const newspaper = mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        unique: true
     },
     description: {
         type: String,
-
     },
     fileUrl: {
         type: String,
+    },
+    imgUrl: {
+        type: String,
+    },
+    author: {
+        type: String,
+    },
+    category: {
+        type: String,
+        required: true
     },
     date: {
         type: String,
