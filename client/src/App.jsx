@@ -12,6 +12,7 @@ import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Updates from './pages/Updates/Updates';
 import Contact from './pages/Contact/Contact';
+import NewspaperPage from './pages/Newspapers/NewspaperPage';
 
 import AdminLayout from './components/AdminLayout';
 import NewspaperRegister from './pages/Admin/NewspaperRegister';
@@ -60,6 +61,7 @@ const App = () => {
         <Route path="/" element={<PagesLayout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
+          <Route path="news" element={<NewspaperPage />} />
           <Route path="updates" element={<Updates />} />
           <Route path="contact" element={<Contact />} />
         </Route>
