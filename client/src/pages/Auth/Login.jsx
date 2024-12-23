@@ -121,7 +121,7 @@ const SignIn = () => {
                 onChange={handleChange}
               />
             </div>
-            <div className="mb-4">
+            <div className="mb-md-4 mb-3">
               <input
                 name="password"
                 type="password"

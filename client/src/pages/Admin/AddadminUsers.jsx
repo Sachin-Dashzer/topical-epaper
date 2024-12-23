@@ -74,8 +74,8 @@ const AddadminUsers = () => {
       />
       <section className='bg-light'>
         <div className="container d-flex justify-content-center align-items-center pt-4">
-          <div className="registrationForm p-5 pt-4 shadow-lg" style={{ width: "500px" }}>
-            <h2 className="text-center fontWeight700 font-heading text-primary heading mb-4" style={{ textDecoration: "underline" }}>
+          <div className="registrationForm p-md-5 pt-md-4 px-4 shadow-lg" style={{ width: "500px" }}>
+            <h2 className="text-center newHeading fontWeight700 font-heading text-primary heading mb-4" style={{ textDecoration: "underline" }}>
               Register User
             </h2>
             <form onSubmit={handleSubmit}>

@@ -102,48 +102,72 @@ function Newspapers() {
 
 
 
-      <Container className="mt-2">
+      <Container>
         <div className="">
           <div className="d-flex justify-content-between align-items-center my-5 mb-4">
-            <h3 className="sub_heading fontWeight800 text-primary font-heading" style={{ textDecoration: "underline" }}>Newspapers Table</h3>
-            <Button onClick={navigateUser} variant="dark" className="py-2">+ Add Newspaper</Button>
+            <h3 className="sub_headingn newHeading fontWeight800 text-primary font-heading" style={{ textDecoration: "underline" }}>Newspapers Table</h3>
+            <Button onClick={navigateUser} variant="dark" className="py-2 newBtns">+ Add Newspaper</Button>
           </div>
-          <Table responsive bordered hover >
-            <thead>
-              <tr >
-                <th className="bg-primary py-3 text-white">S.No</th>
-                <th className="bg-primary py-3 text-white">Title</th>
-                <th className="bg-primary py-3 text-white">Category</th>
-                <th className="bg-primary py-3 text-white">Author</th>
-                <th className="bg-primary py-3 text-white">Img Url</th>
-                <th className="bg-primary py-3 text-white">FIle url</th>
-                <th className="bg-primary py-3 text-white">Date</th>
-                <th className="bg-primary py-3 text-white">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {newspaper.map((newspaper, index) => (
-                <tr key={index}>
-                  <td>{index + 1}</td>
-                  <td>{newspaper.title}</td>
-                  <td>{newspaper.category}</td>
-                  <td>{newspaper.author}</td>
-                  <td><a href={newspaper.imgUrl} target='_blank'>url</a></td>
-                  <td><a href={newspaper.fileUrl} target='_blank'>url</a></td>
 
-                  <td>{newspaper.date}</td>
-                  <td>
-                    <Button onClick={() => handleDownload(newspaper.fileUrl)} variant="outline-dark" size="sm" className="me-2">
-                      View
-                    </Button>
-                    <Button variant="outline-dark" size="sm" onClick={() => removeNewspaper(newspaper._id)}>
-                      Delete
-                    </Button>
-                  </td>
+          <div className="table-responsive">
+            <Table responsive bordered hover className="table-sm">
+              <thead>
+                <tr>
+                  <th className="bg-primary py-3 text-white text-center">S.No</th>
+                  <th className="bg-primary py-3 text-white">Title</th>
+                  <th className="bg-primary py-3 text-white">Category</th>
+                  <th className="bg-primary py-3 text-white">Author</th>
+                  <th className="bg-primary py-3 text-white">Img Url</th>
+                  <th className="bg-primary py-3 text-white">File Url</th>
+                  <th className="bg-primary py-3 text-white">Date</th>
+                  <th className="bg-primary py-3 text-white text-center">Action</th>
                 </tr>
-              ))}
-            </tbody>
-          </Table>
+              </thead>
+              <tbody>
+                {newspaper.map((newspaper, index) => (
+                  <tr key={index}>
+                    <td className="text-center">{index + 1}</td>
+                    <td>{newspaper.title}</td>
+                    <td>{newspaper.category}</td>
+                    <td>{newspaper.author}</td>
+                    <td>
+                      <a href={newspaper.imgUrl} target="_blank" rel="noopener noreferrer">
+                        View
+                      </a>
+                    </td>
+                    <td>
+                      <a href={newspaper.fileUrl} target="_blank" rel="noopener noreferrer">
+                        Download
+                      </a>
+                    </td>
+                    <td>{newspaper.date}</td>
+                    <td className="text-center">
+                      <div className="d-flex flex-column flex-sm-row justify-content-center">
+                        <Button
+                          onClick={() => handleDownload(newspaper.fileUrl)}
+                          variant="outline-dark"
+                          size="sm"
+                          className="mb-2 mb-sm-0 me-sm-2"
+                        >
+                          View
+                        </Button>
+                        <Button
+                          variant="outline-dark"
+                          size="sm"
+                          onClick={() => removeNewspaper(newspaper._id)}
+                        >
+                          Delete
+                        </Button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
+
+
+
         </div>
       </Container>
 

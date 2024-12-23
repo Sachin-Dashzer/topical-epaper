@@ -234,29 +234,94 @@
   .copyright-section h6 {
     font-size: 13px;
   }
-  .shortBanner , .shortBannerBox{
+
+  .shortBanner,
+  .shortBannerBox {
     height: 230px;
   }
-  .newspaperDetails h1{
+
+  .newspaperDetails h1 {
     letter-spacing: unset;
   }
-  .newspaperDetails p{
+
+  .newspaperDetails p {
     font-size: 14px;
   }
+
   .updateBox:nth-child(2n) .row {
     background: #f9f9f9;
     padding: 40px 0;
-  
+
   }
-  
-  .loginContainer{
-    max-width: 330px;
+
+  .loginContainer {
+    max-width: 100%;
+    padding: 0 50px;
   }
-  
+  .loginForm input , .loginForm button{
+    padding: 8px;
+  }
 
+  .admin-sidebar {
+    width: 320px;
+    z-index: 20;
+    transform: translateX(-100%);
+    background: var(--primary-color);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease-in-out;
 
+  }
 
+  .adminNavBar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 10;
+  }
 
+  .activeSidebar{
+    transform: translateX(0) !important;
+    transition: all 0.4s ease-in-out;
+  }
+  .cancelsidebar{
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    font-size: 25px;
+    color: white;
+  }
+  .registrationForm.shadow-lg , .newspaperNew.shadow{
+    box-shadow: unset !important;
+    background: transparent !important;
+
+  }
+
+  .newHeading{
+    font-size: 24px;
+  }
+  .form-label {
+    margin-bottom: 3px;
+  }
+
+  .form-control {
+  font-size: 14px;
+  }
+  .newBtns{
+    padding: 8px 12px;
+    font-size: 10px !important;
+  }
+
+  .uploadImgNew {
+    padding: 25px;
+  }
+  .uploadImgNew label{
+
+    padding: 6px 20px;
+    font-size: 13px;
+
+}
 
 
 

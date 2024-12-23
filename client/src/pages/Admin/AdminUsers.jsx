@@ -140,8 +140,8 @@ function AdminUsers() {
       <div className="containerFull">
 
         <div className="container d-flex align-items-center justify-content-between">
-          <h3 className="large_heading fontWeight700 mb-4 mt-5 font-heading text-primary" style={{ textDecoration: "underline" }}>Admin users</h3>
-          <Button onClick={navigateUser} className="bg-dark py-2 px-3 mt-5">+ Add Users</Button>
+          <h3 className="large_heading newHeading fontWeight700 mb-md-4 mt-5 font-heading text-primary" style={{ textDecoration: "underline" }}>Admin users</h3>
+          <Button onClick={navigateUser} className="bg-dark newBtns py-md-2 px-md-3 mt-5">+ Add Users</Button>
         </div>
 
         <div className="adminBox">

@@ -140,11 +140,11 @@ const Dashboard = () => {
         onClose={() => setToasterData({ ...toasterData, show: false })}
       />
 
-      <div className="newspaperForm w-100 h-100 bg-light mt-5">
+      <div className="newspaperForm w-100 h-100 bg-light mt-md-5 mt-4">
         <div className="container row">
-          <div className="col-lg-10 mx-auto bg-white p-5 pt-4 shadow rounded-3">
+          <div className="col-lg-10 newspaperNew mx-auto bg-white p-md-5 ps-4 pb-5 pt-4 shadow rounded-3">
             <h2
-              className="heading fontWeight700 font-heading text-primary text-center mb-5"
+              className="heading newHeading fontWeight700 font-heading text-primary text-center mb-md-5 mb-4"
               style={{ textDecoration: "underline" }}
             >
               Add Newspaper
@@ -152,7 +152,7 @@ const Dashboard = () => {
 
             <form onSubmit={submitDetails}>
               <div className="row">
-                <div className="mb-4 col-lg-6">
+                <div className="mb-md-4 mb-3 col-lg-6">
                   <label htmlFor="title" className="form-label ps-1 fontWeight700">Title</label>
                   <input
                     type="text"
@@ -165,7 +165,7 @@ const Dashboard = () => {
                     placeholder="Add Title"
                   />
                 </div>
-                <div className="mb-4 col-lg-6">
+                <div className="mb-md-4 mb-3 col-lg-6">
                   <label htmlFor="date" className="form-label ps-1 fontWeight700">Date</label>
                   <input
                     type="date"
@@ -179,7 +179,7 @@ const Dashboard = () => {
                 </div>
               </div>
 
-              <div className="mb-4">
+              <div className="mb-md-4 mb-3">
                 <label htmlFor="description" className="form-label ps-1 fontWeight700">Description</label>
                 <textarea
                   className="form-control"
@@ -227,32 +227,13 @@ const Dashboard = () => {
 
               <p className="text mt-2 mb-2 ps-1 fontWeight700">Upload Img</p>
               <div
-                style={{
-                  width: "100%",
-                  border: "2px dashed #ccc",
-                  borderRadius: "10px",
-                  padding: "60px",
-                  textAlign: "center",
-                  cursor: "pointer",
-                  backgroundColor: "#ffffff",
-                }}
+               className="uploadImgNew"
                 onDragOver={(event) => event.preventDefault()}
                 onDrop={handleImageDrop}
               >
                 <h4 className="small_heading fontWeight700">Drag & Drop Your Image Here</h4>
                 <p className="py-2 pt-1 title">or</p>
-                <label
-                  style={{
-                    display: "inline-block",
-                    padding: "8px 30px",
-                    backgroundColor: "black",
-                    color: "#fff",
-                    borderRadius: "5px",
-                    cursor: "pointer",
-                    fontSize: "15px",
-                    textAlign: "center",
-                  }}
-                >
+                <label>
                   Browse
                   <input
                     type="file"
@@ -270,32 +251,13 @@ const Dashboard = () => {
 
               <p className="text mt-4 mb-2 ps-1 fontWeight700">Upload File</p>
               <div
-                style={{
-                  width: "100%",
-                  border: "2px dashed #ccc",
-                  borderRadius: "10px",
-                  padding: "60px",
-                  textAlign: "center",
-                  cursor: "pointer",
-                  backgroundColor: "#ffffff",
-                }}
-                onDragOver={(event) => event.preventDefault()}
+               className="uploadImgNew"
+               onDragOver={(event) => event.preventDefault()}
                 onDrop={handleFileDrop}
               >
                 <h4 className="small_heading fontWeight700">Drag & Drop Your File Here</h4>
                 <p className="py-2 pt-1 title">or</p>
-                <label
-                  style={{
-                    display: "inline-block",
-                    padding: "8px 30px",
-                    backgroundColor: "black",
-                    color: "#fff",
-                    borderRadius: "5px",
-                    cursor: "pointer",
-                    fontSize: "15px",
-                    textAlign: "center",
-                  }}
-                >
+                <label>
                   Browse
                   <input
                     type="file"

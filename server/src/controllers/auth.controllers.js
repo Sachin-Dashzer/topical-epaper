@@ -110,6 +110,8 @@ export const logoutUser = (req, res) => {
     });
 };
 
+
+
 //auth middleware
 export const authMiddleware = async (req, res, next) => {
     const token = req.cookies?.token;
@@ -121,7 +123,7 @@ export const authMiddleware = async (req, res, next) => {
     }
 
     try {
-        const decoded = jwt.verify(token, "CLIENT_SECRET_KEY");
+        const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
         req.user = decoded;
         next();
     } catch (error) {
