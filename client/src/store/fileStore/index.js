@@ -12,6 +12,9 @@ const baseUrl = "https://topical-epaper-backend.onrender.com";
 
 
 
+
+
+
 export const registerFile = createAsyncThunk("/file/register", async (formData) => {
     const response = await axios.post(`${baseUrl}/admin/add-product`, formData, {
         withCredentials: true,
