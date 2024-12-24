@@ -16,7 +16,7 @@ router.post('/upload', upload.single('file'), (req, res) => {
         return res.status(400).send('No file uploaded');
     }
 
-    const fileUrl = `http://localhost:9000/files/${req.file.filename}`;
+    const fileUrl = `https://topical-epaper-backend.onrender.com/files/${req.file.filename}`;
 
     res.json({
         message: "File uploaded successfully",
