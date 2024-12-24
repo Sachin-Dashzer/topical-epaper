@@ -3,17 +3,12 @@
 import express, { urlencoded } from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser';
-import dotenv from 'dotenv'
 
-
-dotenv.config({ path: './.env' });
-
-console.log(process.env.CORS_ORIGIN)
 
 const app = express()
 
 app.use(cors({
-    origin: 'process.env.CORS_ORIGIN', 
+    origin: 'https://topical-epaper.vercel.app', 
     methods: ['GET', 'POST', 'PUT', 'DELETE'], 
     credentials: true, 
   }));
