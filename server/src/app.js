@@ -3,12 +3,15 @@
 import express, { urlencoded } from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser';
+import dotenv from 'dotenv'
+
+dotenv.config({path: './.env'})
 
 
 const app = express()
 
 app.use(cors({
-    origin: 'http://localhost:5173', 
+    origin: 'process.env.CORS_ORIGIN', 
     methods: ['GET', 'POST', 'PUT', 'DELETE'], 
     credentials: true, 
   }));
