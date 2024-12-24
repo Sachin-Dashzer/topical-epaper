@@ -7,9 +7,11 @@ const initialState = {
     isAuthenticated: false,
 };
 
+const baseUrl = "http://localhost:9000";
+
 // Login User
 const loginUser = createAsyncThunk("/auth/login", async (formData) => {
-    const response = await axios.post("http://localhost:9000/auth/login", formData, {
+    const response = await axios.post(`${baseUrl}/auth/login`, formData, {
         withCredentials: true,
     });
     return response.data;
@@ -18,7 +20,7 @@ const loginUser = createAsyncThunk("/auth/login", async (formData) => {
 // Register User
 const ResgisterUser = createAsyncThunk("/auth/register", async (formData) => {
     const response = await axios.post(
-        "http://localhost:9000/auth/register",
+        `${baseUrl}/auth/register`,
         formData,
         { withCredentials: true }
     );
@@ -28,7 +30,7 @@ const ResgisterUser = createAsyncThunk("/auth/register", async (formData) => {
 // Logout User
 const logoutUser = createAsyncThunk("/auth/logout", async () => {
     const response = await axios.post(
-        "http://localhost:9000/auth/logout",
+        `${baseUrl}/auth/logout`,
         {},
         {
             withCredentials: true,
@@ -41,7 +43,7 @@ const logoutUser = createAsyncThunk("/auth/logout", async () => {
 
 const updateUser = createAsyncThunk("/auth/update", async (formData) => {
     const response = await axios.put(
-        "http://localhost:9000/auth/update",
+        `${baseUrl}/auth/update`,
         formData,
         {
             withCredentials: true,
@@ -54,7 +56,7 @@ const updateUser = createAsyncThunk("/auth/update", async (formData) => {
 
 // Check Authentication
 const checkAuthentication = createAsyncThunk("/auth/check-auth", async () => {
-    const response = await axios.get("http://localhost:9000/auth/check-auth", {
+    const response = await axios.get(`${baseUrl}/auth/check-auth`, {
         withCredentials: true,
         headers: {
             "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
@@ -66,7 +68,7 @@ const checkAuthentication = createAsyncThunk("/auth/check-auth", async () => {
 // Delete User
 const deleteUser = createAsyncThunk("/auth/delete", async (id) => {
     const response = await axios.delete(
-        `http://localhost:9000/auth/delete-user/${id}`,
+        `${baseUrl}/auth/delete-user/${id}`,
         { withCredentials: true }
     );
     return response.data;

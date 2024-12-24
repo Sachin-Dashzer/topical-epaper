@@ -10,7 +10,6 @@ const layout = () => {
 
     const dispatch = useDispatch()
 
-    console.log(active)
 
     const logoutAdmin = () => {
         dispatch(logoutUser())

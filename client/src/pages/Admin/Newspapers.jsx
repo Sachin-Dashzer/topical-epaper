@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Table, Button, Container } from "react-bootstrap";
-import { deleteFile } from "../../store/fileStore/index.js"
+import { deleteFile , getFiles } from "../../store/fileStore/index.js"
+
 import Toaster from "../../components/ToasterMassage.jsx";
 
 
@@ -33,17 +33,10 @@ function Newspapers() {
 
 
   const getdata = async () => {
-
-    try {
-
-      const response = await axios.get('http://localhost:9000/admin/get-products', { withCredentials: true });
-      setNewspaper(response?.data?.data)
-
-    }
-    catch (error) {
-      console.log("error")
-    }
-
+      
+      dispatch(getFiles()).then((res) => {
+        setNewspaper(res?.payload?.data)
+      })        
   }
 
   useEffect(() => {
@@ -72,7 +65,7 @@ function Newspapers() {
 
   const handleDownload = (url) => {
     const fileUrl = url;
-    const fileName = "newspaper-file.pdf"; // Replace with the desired file name
+    const fileName = "newspaper-file.pdf"; 
 
     const anchor = document.createElement("a");
     anchor.href = fileUrl;

@@ -1,26 +1,23 @@
 import React, { useState , useEffect } from 'react'
 import ShortBanner from '../../components/ShortBanner'
-import UpdateImg from '../../assets/newspapers.jpg'
-import axios from 'axios'
+import { useDispatch } from 'react-redux';
+import { getFiles } from '../../store/fileStore'; 
+
 
 const Updates = () => {
 
 
-    const [newspaper, setNewspaper] = useState([])
+    const [newspaper, setNewspaper] = useState([]);
+    const dispatch = useDispatch();
 
 
-    const getdata = async () => {
 
-        try {
-
-            const response = await axios.get('http://localhost:9000/admin/get-products', { withCredentials: true });
-            setNewspaper(response?.data?.data)
-        }
-        catch (error) {
-            console.log("erroe")
-        }
-
-    }
+  const getdata = async () => {
+      
+      dispatch(getFiles()).then((res) => {
+        setNewspaper(res?.payload?.data)
+      })        
+  }
 
     useEffect(() => {
         getdata()

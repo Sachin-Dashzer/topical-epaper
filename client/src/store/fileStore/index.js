@@ -7,22 +7,32 @@ const initialState = {
     newspappers: [],
 
 }
+const baseUrl = "http://localhost:9000";
 
 
 
 
 export const registerFile = createAsyncThunk("/file/register", async (formData) => {
-    const response = await axios.post("http://localhost:9000/admin/add-product", formData, {
+    const response = await axios.post(`${baseUrl}/admin/add-product`, formData, {
         withCredentials: true,
     });
     return response.data;
 })
 
+export const getFiles = createAsyncThunk("/file/get-products", async (formData) => {
+    const response = await axios.get(`${baseUrl}/admin/get-products`, formData, {
+        withCredentials: true,
+    });
+    return response.data;
+})
+
+
+
 export const deleteFile = createAsyncThunk(
     "/files/deleteProduct",
     async (id) => {
       const result = await axios.delete(
-        `http://localhost:9000/admin/delete/${id}`
+        `${baseUrl}/admin/delete/${id}`
       );
   
       return result?.data;

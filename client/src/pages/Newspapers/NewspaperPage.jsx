@@ -1,37 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import ShortBanner from '../../components/ShortBanner';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getFiles } from '../../store/fileStore';
 
 const NewspaperPage = () => {
     const [newspaper, setNewspaper] = useState([]);
     const [currentId, setCurrentId] = useState(null);
     const [currentData, setCurrentData] = useState(null);
+    const dispatch = useDispatch();
 
     const { id } = useParams();
 
     const getdata = async () => {
-        try {
-            const response = await axios.get('http://localhost:9000/admin/get-products', { withCredentials: true });
-            const data = response?.data?.data || [];
+
+        dispatch(getFiles()).then((response) => {
+            console.log(response);
+
+            const data = response?.payload?.data || [];
 
             setNewspaper(data);
 
-            // Determine currentId
             const selectedId = id || (data.length > 0 ? data[0]._id : null);
             setCurrentId(selectedId);
 
-            // Find the current data based on the ID
             const selectedData = data.find(item => item._id === selectedId);
             setCurrentData(selectedData);
-        } catch (error) {
-            console.log(error);
-        }
+        })
     };
 
     useEffect(() => {
         getdata();
-    }, [id]); // Fetch data when `id` changes
+    }, [id]); 
 
     useEffect(() => {
         // Update `currentData` whenever `currentId` or `newspaper` changes
@@ -93,7 +93,7 @@ const NewspaperPage = () => {
                                 </h4>
 
                                 {newspaper
-                                    .filter((data) => data.category === 'newspaper') 
+                                    .filter((data) => data.category === 'newspaper')
                                     .map((data, index) => (
                                         <a key={index} className="d-block" href={`/news/${data._id}`}>
                                             <div className="smallBlock bg-light w-100 p-2 mt-4 shadow">

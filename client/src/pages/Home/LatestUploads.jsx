@@ -1,25 +1,26 @@
+import { useDispatch } from 'react-redux';
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import Slider from "react-slick";
+import { getFiles } from '../../store/fileStore';
+
 
 
 const LatestUploads = () => {
 
-    const [newspaper, setNewspaper] = useState([])
+    const [newspaper, setNewspaper] = useState([]);
+
+    const dispatch = useDispatch()
 
 
-    const getdata = async () => {
 
-        try {
 
-            const response = await axios.get('http://localhost:9000/admin/get-products', { withCredentials: true });
-            setNewspaper(response?.data?.data)
-        }
-        catch (error) {
-            console.log("erroe")
-        }
+  const getdata = async () => {
+      
+      dispatch(getFiles()).then((res) => {
+        setNewspaper(res?.payload?.data)
+      })        
+  }
 
-    }
 
     useEffect(() => {
         getdata()
