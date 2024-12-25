@@ -7,7 +7,7 @@ const initialState = {
     isAuthenticated: false,
 };
 
-const baseUrl = "https://topical-epaper-backend.onrender.com";
+const baseUrl = "http://localhost:9000";
 
 // Login User
 const loginUser = createAsyncThunk("/auth/login", async (formData) => {

@@ -7,7 +7,7 @@ const initialState = {
     newspappers: [],
 
 }
-const baseUrl = "https://topical-epaper-backend.onrender.com";
+const baseUrl = "http://localhost:9000";
 
 
 
