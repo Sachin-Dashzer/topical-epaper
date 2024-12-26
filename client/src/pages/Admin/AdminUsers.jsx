@@ -50,7 +50,7 @@ function AdminUsers() {
 
     try {
 
-      const response = await axios.get('https://api.pscupdates.com/auth/all-users', { withCredentials: true });
+      const response = await axios.get('http://localhost:9000/auth/all-users', { withCredentials: true });
       setUsers(response.data.data)
     }
     catch (error) {
