@@ -932,3 +932,58 @@ footer {
 td , th{
   padding: 10px 10px !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.imgDiv {
+  margin-bottom: 20px;
+}
+
+.error-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto; 
+}
+
+.textDiv {
+  max-width: 800px;
+  text-align: center;
+  padding: 10px;
+}
+
+.textDiv h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.textDiv .description {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 auto 20px auto;
+  padding: 0 10px;
+}
+
+.btn.continue-btn {
+  background-color: #ffc801;
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+

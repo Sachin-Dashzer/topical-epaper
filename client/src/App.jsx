@@ -13,6 +13,9 @@ import About from './pages/About/About';
 import Updates from './pages/Updates/Updates';
 import Contact from './pages/Contact/Contact';
 import NewspaperPage from './pages/Newspapers/NewspaperPage';
+import LinkGenerate from './pages/Newspapers/LinkGenerate';
+
+import NotFound from './pages/NotFound/NotFound';
 
 import AdminLayout from './components/AdminLayout';
 import NewspaperRegister from './pages/Admin/NewspaperRegister';
@@ -68,6 +71,7 @@ const App = () => {
           </Route>
           <Route path="updates" element={<Updates />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="download" element={<LinkGenerate />} />
         </Route>
 
         <Route path="/admin" element={<Navigate to="/admin/adminusers" replace />} />
@@ -89,6 +93,12 @@ const App = () => {
         <Route path="/login" element={<CheckAuth isAuthenticated={isAuthenticated} >
           <Login />
         </CheckAuth>} />
+
+
+        <Route path="*" element={<NotFound />} />
+
+
+
       </Routes>
     </Router>
   );

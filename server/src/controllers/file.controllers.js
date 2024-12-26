@@ -1,6 +1,7 @@
 import Product from "../models/newsPaper.model.js";
 
-
+import { unlinkSync, existsSync } from 'fs';
+import path from 'path';
 
 
 const addProduct = async (req, res) => {
@@ -44,38 +45,77 @@ const fetchAllProducts = async (req, res) => {
         console.error(e);
         res.send({
             success: false,
-            message: "Error occurred!",
+            massage: "Error occurred!",
         });
     }
 };
+
+
 
 
 const deleteProduct = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const product = await Product.findByIdAndDelete(id);
-
+        const product = await Product.findById(id);
         if (!product) {
-            return res.send({
+            return res.status(404).send({
                 success: false,
-                massage: "Product not found !",
+                massage: "Product not found!",
                 id
             });
         }
 
+
+        try {
+            if (product.fileUrl) {
+
+                const filePath = product.fileUrl.replace('http://localhost:9000', 'D:/topical-newpaper/server/public');
+                if (existsSync(filePath)) {
+                    unlinkSync(filePath);
+                } else {
+                    console.error(`File does not exist at path: ${filePath}`);
+                }
+            }
+
+            if (product.imgUrl) {
+                const imgPath = product.imgUrl.replace('http://localhost:9000', 'D:/topical-newpaper/server/public');
+                if (existsSync(imgPath)) {
+                    unlinkSync(imgPath);
+                } else {
+                    console.error(`Image does not exist at path: ${imgPath}`);
+                }
+            }
+        } catch (fileError) {
+            console.error("Error deleting file:", fileError);
+            return res.status(500).send({
+                success: false,
+                massage: "Error deleting product files!",
+            });
+        }
+
+        await Product.findByIdAndDelete(id);
+
         res.send({
             success: true,
-            massage: "Product deleted successfully !",
+            massage: "Product deleted successfully!",
         });
+
     } catch (e) {
-        console.log(e);
-        res.send({
+        console.error("Error:", e);
+        res.status(500).send({
             success: false,
-            massage: "Error occurred !",
+            massage: "Error occurred while deleting the product!",
         });
     }
 };
+
+
+
+
+
+
+
 
 export {
     addProduct,

@@ -258,7 +258,9 @@
     max-width: 100%;
     padding: 0 50px;
   }
-  .loginForm input , .loginForm button{
+
+  .loginForm input,
+  .loginForm button {
     padding: 8px;
   }
 
@@ -281,34 +283,39 @@
     z-index: 10;
   }
 
-  .activeSidebar{
+  .activeSidebar {
     transform: translateX(0) !important;
     transition: all 0.4s ease-in-out;
   }
-  .cancelsidebar{
+
+  .cancelsidebar {
     position: absolute;
     right: 20px;
     top: 25px;
     font-size: 25px;
     color: white;
   }
-  .registrationForm.shadow-lg , .newspaperNew.shadow{
+
+  .registrationForm.shadow-lg,
+  .newspaperNew.shadow {
     box-shadow: unset !important;
     background: transparent !important;
 
   }
 
-  .newHeading{
+  .newHeading {
     font-size: 24px;
   }
+
   .form-label {
     margin-bottom: 3px;
   }
 
   .form-control {
-  font-size: 14px;
+    font-size: 14px;
   }
-  .newBtns{
+
+  .newBtns {
     padding: 8px 12px;
     font-size: 10px !important;
   }
@@ -316,17 +323,35 @@
   .uploadImgNew {
     padding: 25px;
   }
-  .uploadImgNew label{
+
+  .uploadImgNew label {
 
     padding: 6px 20px;
     font-size: 13px;
 
-}
+  }
 
 
 
+  .textDiv h1 {
+    font-size: 1.5rem;
+  }
+
+  .textDiv .description {
+    font-size: 0.9rem;
+    width: 90%;
+  }
+
+  .btn.continue-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
 
 
+  .shortBanner-Content {
+
+    padding: 0 30px;
+  }
 
 
 
