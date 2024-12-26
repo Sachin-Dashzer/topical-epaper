@@ -69,9 +69,13 @@ const App = () => {
             <Route path=":id" element={<NewspaperPage />} />
 
           </Route>
+          <Route path="download" element={<LinkGenerate />} >
+
+            <Route path=":id" element={<LinkGenerate />} />
+
+          </Route>
           <Route path="updates" element={<Updates />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="download" element={<LinkGenerate />} />
         </Route>
 
         <Route path="/admin" element={<Navigate to="/admin/adminusers" replace />} />

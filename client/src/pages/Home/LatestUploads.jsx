@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import React, { useEffect, useState } from 'react'
 import Slider from "react-slick";
 import { getFiles } from '../../store/fileStore';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -10,16 +11,16 @@ const LatestUploads = () => {
     const [newspaper, setNewspaper] = useState([]);
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
 
 
+    const getdata = async () => {
 
-  const getdata = async () => {
-      
-      dispatch(getFiles()).then((res) => {
-        setNewspaper(res?.payload?.data)
-      })        
-  }
+        dispatch(getFiles()).then((res) => {
+            setNewspaper(res?.payload?.data)
+        })
+    }
 
 
     useEffect(() => {
@@ -27,6 +28,9 @@ const LatestUploads = () => {
     }, [])
 
 
+    const handleNavigate = (newId) => {
+        navigate('/news', { state: { id: newId } });
+    };
 
 
     var settings = {
@@ -91,9 +95,10 @@ const LatestUploads = () => {
                                                     <div className="uploadsDate">
                                                         <h3 className="title fontWeight700 text-capital text-center">{item.title}</h3>
                                                         <p className="mt-2 text-secondary fontWeight700 text-center">( {item.date} )</p>
-                                                        <a href={`/news/${item._id}`} className="mt-md-3 mt-2">
-                                                            View <span><i className="fa-solid fa-eye"></i></span>
-                                                        </a>
+                                                        <div onClick={() => handleNavigate(item._id)}
+                                                            className="mt-md-3 mt-2">
+                                                            View &nbsp; <span><i className="fa-solid fa-eye"></i></span>
+                                                        </div>
                                                         <a href={`/news/download/${item._id}`} className="mt-md-2 mt-1">
                                                             Download <span><i className="fa-solid fa-download"></i></span>
                                                         </a>

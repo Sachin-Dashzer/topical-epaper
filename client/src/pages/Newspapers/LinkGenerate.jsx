@@ -2,6 +2,8 @@ import React from 'react'
 import secondnews from "../../assets/secondnews.jpg";
 import ThirdIMG from "../../assets/ThirdIMG.jpg";
 import ShortBanner from '../../components/ShortBanner';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 
 
@@ -9,15 +11,43 @@ import ShortBanner from '../../components/ShortBanner';
 
 
 const LinkGenerate = () => {
+
+    const [Active, setActive] = useState(false)
+
+    const location = useLocation();
+    // const navigate = useNavigate();
+
+    const id = location.state?.id || null;
+
+
+
+    console.log(id)
+
+
+
+
+
+
+
     return (
         <>
 
-            <ShortBanner name="Download Newspaper" />
+            <ShortBanner name="Topical Epaper" />
 
 
             <section>
                 <div className='containerFull'>
-                    <div className="row">
+
+                    <div className='downloadBox text-center pb-4'>
+
+                        <p className='small_heading fontWeight400'>Click here to generate Link</p>
+
+                        <Button className='py-2 px-5 mt-2'>{(Active) ? "Generate Link" : "Scroll down and get link"}</Button>
+                    </div>
+
+
+
+                    <div className="row mt-5">
 
                         <div className="col-sm-6">
                             <h5 className=' heading fontWeight700 p-2 mb-1'>What is Topical E-paper</h5>
