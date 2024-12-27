@@ -47,7 +47,7 @@ const NewspaperPage = () => {
     const handleNavigate = (newId) => {
         navigate('/news', { state: { id: newId } });
     };
-
+  
     const handleDownload = (newId) => {
         navigate('/download', { state: { id: newId } });
     };
@@ -60,7 +60,7 @@ const NewspaperPage = () => {
                 <div className="newspaperBox">
                     <div className="row">
                         <div className="col-lg-8 px-md-4 pe-md-0 pt-4">
-                            <div className="newspaperDetails text-capital p-4">
+                            <div className="newspaperDetails text-capital p-md-4 p-1">
                                 <h1 className="large_heading fontWeight800 text-primary">
                                     {currentData ? currentData.title : 'Loading...'}
                                 </h1>

@@ -18,7 +18,7 @@ const layout = () => {
     return (
         <>
 
-            <div className="adminLayout bg-light">
+            <div className="adminLayout w-100 bg-light">
 
                 <div className="adminNavBar d-md-none w-100 text-white py-3 pe-4 ps-3 d-flex align-items-center justify-content-between">
                     <div className="logo">
@@ -49,13 +49,13 @@ const layout = () => {
 
                             <div className="d-flex flex-column p-4 pt-md-5 ">
 
-                                <div className="d-flex align-items-center mb-2 logo " >
+                                <a href='/' className="d-flex align-items-center mb-2 ps-3 logo " >
                                     <div className="d-flex justify-content-center align-items-center bg-dark rounded-circle" style={{ width: '40px', height: '40px' }}>
                                         <i className="fas fa-cloud text-white"></i>
                                     </div>
                                     <h1 className="heading ms-3 mb-0 text-white font-heading fontWeight900">Topical Epaper</h1>
 
-                                </div>
+                                </a>
 
 
                                 <div className="flex-grow-1 mt-2 p-md-4 px-2 pt-4">
@@ -111,7 +111,7 @@ const layout = () => {
                     </div>
 
 
-                    <div className='col-lg-9'>
+                    <div className='col-lg-9 px-4'>
                         <div className="d-flex align-items-center flex-column min-vh-100">
 
                             {/* <div className="adminHeader text-center py-4">

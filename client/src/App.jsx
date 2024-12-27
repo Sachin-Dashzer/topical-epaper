@@ -15,6 +15,8 @@ import Contact from './pages/Contact/Contact';
 import NewspaperPage from './pages/Newspapers/NewspaperPage';
 import LinkGenerate from './pages/Newspapers/LinkGenerate';
 
+import DownloadPage from './pages/Newspapers/DownloadPage';
+
 import NotFound from './pages/NotFound/NotFound';
 
 import AdminLayout from './components/AdminLayout';
@@ -98,6 +100,10 @@ const App = () => {
           <Login />
         </CheckAuth>} />
 
+
+        <Route path='/downloadpage' element={<DownloadPage />} >
+          <Route path=":id" element={<DownloadPage />} />
+        </Route>
 
         <Route path="*" element={<NotFound />} />
 
