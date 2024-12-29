@@ -51,3 +51,6 @@ uploads/
 # Local development settings
 .settings/
 *.local
+
+# Public files
+public/
