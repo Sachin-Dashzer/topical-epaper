@@ -23,7 +23,7 @@ const HeroBanner = () => {
 
           <div className="bannerBtns d-flex align-items-center justify-content-center ">
             <a href='/news' className="btnTheme mx-3 "><span className='text fontWeight400'>Read News</span></a>
-            <a href='https://t.me/topicalepaper' className="btnTheme mx-3 "><span className='text fontWeight400'>Join Telegram</span></a>
+            <a href='https://t.me/topicalepaper' target='_blank' className="btnTheme mx-3 "><span className='text fontWeight400'>Join Telegram</span></a>
           </div>
         </div>
 
