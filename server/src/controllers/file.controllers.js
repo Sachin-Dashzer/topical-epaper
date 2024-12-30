@@ -78,14 +78,6 @@ const deleteProduct = async (req, res) => {
                 }
             }
 
-            if (product.imgUrl) {
-                const imgPath = product.imgUrl.replace('https://api.pscupdates.com', '/var/www/topical-epaper/server/public');
-                if (existsSync(imgPath)) {
-                    unlinkSync(imgPath);
-                } else {
-                    console.error(`Image does not exist at path: ${imgPath}`);
-                }
-            }
         } catch (fileError) {
             console.error("Error deleting file:", fileError);
             return res.status(500).send({
