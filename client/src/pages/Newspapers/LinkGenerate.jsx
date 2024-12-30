@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import secondnews from "../../assets/secondnews.jpg";
 import ThirdIMG from "../../assets/ThirdIMG.jpg";
 import ShortBanner from '../../components/ShortBanner';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 
@@ -19,11 +19,12 @@ const LinkGenerate = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const Id = location.state?.id || null;
-
-    if (Id === null) {
-        navigate("/notfound");
-    }
+    const { id } = useParams(); 
+    useEffect(() => {
+        if (!id) {
+            navigate("/notfound");
+        }
+    }, [id, navigate]);
 
 
 
@@ -36,7 +37,7 @@ const LinkGenerate = () => {
     }
 
     const handleSecondClick = () => {
-        navigate('/downloadpage', { state: { id: Id } });
+        navigate('/downloadpage', { state: { id: id } });
     }
 
     useEffect(() => {

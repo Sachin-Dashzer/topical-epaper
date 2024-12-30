@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ShortBanner from '../../components/ShortBanner';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getFiles } from '../../store/fileStore';
 
@@ -13,7 +13,9 @@ const NewspaperPage = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const id = location.state?.id || null;
+    const { id } = useParams() || null;
+
+    // const id = location.state?.id || null;
 
     const getdata = async () => {
         dispatch(getFiles()).then((response) => {
@@ -44,13 +46,7 @@ const NewspaperPage = () => {
         }
     }, [currentId, newspaper]);
 
-    const handleNavigate = (newId) => {
-        navigate('/news', { state: { id: newId } });
-    };
   
-    const handleDownload = (newId) => {
-        navigate('/download', { state: { id: newId } });
-    };
 
     return (
         <>
@@ -60,7 +56,7 @@ const NewspaperPage = () => {
                 <div className="newspaperBox">
                     <div className="row">
                         <div className="col-lg-8 px-md-4 pe-md-0 pt-4">
-                            <div className="newspaperDetails text-capital p-md-4 p-1">
+                            <div className="newspaperDetails text-capital p-md-4 p-1" data-aos="fade-up">
                                 <h1 className="large_heading fontWeight800 text-primary">
                                     {currentData ? currentData.title : 'Loading...'}
                                 </h1>
@@ -83,12 +79,12 @@ const NewspaperPage = () => {
                                 <h3 className="small_heading fontWeight700 mt-md-5 mt-4">Short Description</h3>
                                 <p className="mt-md-3 mt-2 text">{currentData ? currentData.description : 'Loading...'}</p>
 
-                                <button
-                                    onClick={() => handleDownload(currentData._id)} // Fix: Use arrow function to avoid immediate invocation
+                                <a
+                                    href={`/download/${currentData?._id}`}
                                     className="btnTheme mt-md-4 mt-3"
                                 >
                                     <span>Download Now</span>
-                                </button>
+                                </a>
                             </div>
                         </div>
 
@@ -103,11 +99,12 @@ const NewspaperPage = () => {
 
                                 {newspaper
                                     .filter((data) => data.category === 'newspaper')
+                                    .slice(0 , 10)
                                     .map((data, index) => (
-                                        <div
+                                        <a
+                                            href={`/news/${data._id}`}
                                             key={index}
                                             className="d-block cursor-pointer"
-                                            onClick={() => handleNavigate(data._id)} // Fix: Correct use of function reference
                                         >
                                             <div className="smallBlock bg-light w-100 p-2 mt-4 shadow">
                                                 <div className="row">
@@ -135,7 +132,7 @@ const NewspaperPage = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     ))}
                             </div>
                         </div>

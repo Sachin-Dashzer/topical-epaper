@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { logoutUser } from '../store/authStore/index.js'
 import { useDispatch } from 'react-redux'
+import Logo from "../assets/logo.png"
+
 
 const layout = () => {
 
@@ -20,9 +22,11 @@ const layout = () => {
 
             <div className="adminLayout w-100 bg-light">
 
-                <div className="adminNavBar d-md-none w-100 text-white py-3 pe-4 ps-3 d-flex align-items-center justify-content-between">
+                <div className="adminNavBar d-md-none w-100 text-white pe-4 ps-3 d-flex align-items-center justify-content-between">
                     <div className="logo">
-                        <h1 className="heading fontWeight700 font-heading fontWeight900">Topical Epaper</h1>
+                        <h1 className="heading fontWeight700 font-heading fontWeight900">
+
+                            <a href="/" className='text-primary'><img src={Logo} alt="" /> Topical Epaper</a></h1>
                     </div>
 
                     <span>
@@ -50,28 +54,26 @@ const layout = () => {
                             <div className="d-flex flex-column p-4 pt-md-5 ">
 
                                 <a href='/' className="d-flex align-items-center mb-2 ps-3 logo " >
-                                    <div className="d-flex justify-content-center align-items-center bg-dark rounded-circle" style={{ width: '40px', height: '40px' }}>
-                                        <i className="fas fa-cloud text-white"></i>
-                                    </div>
-                                    <h1 className="heading ms-3 mb-0 text-white font-heading fontWeight900">Topical Epaper</h1>
+
+                                    <h1 className="heading mb-0 text-white font-heading fontWeight900"><img src={Logo} alt="" /> Topical Epaper</h1>
 
                                 </a>
 
 
-                                <div className="flex-grow-1 mt-2 p-md-4 px-2 pt-4">
+                                <div className="flex-grow-1 p-md-4 px-2 pt-4">
 
 
 
                                     <div className="adminLinks d-flex align-items-center cursor-pointer">
 
-                                        <NavLink onClick={()=>setActive(!active)} to="/admin/newspapers" className={({ isActive }) => (isActive ? 'active' : '')}>
+                                        <NavLink onClick={() => setActive(!active)} to="/admin/newspapers" className={({ isActive }) => (isActive ? 'active' : '')}>
                                             <i className="fas fa-folder-open me-2"></i>
                                             <span>Newspapers</span>
                                         </NavLink>
                                     </div>
                                     <div className="adminLinks d-flex align-items-center cursor-pointer">
 
-                                        <NavLink onClick={()=>setActive(!active)} to="/admin/add-newspaper" className={({ isActive }) => (isActive ? 'active' : '')}>
+                                        <NavLink onClick={() => setActive(!active)} to="/admin/add-newspaper" className={({ isActive }) => (isActive ? 'active' : '')}>
 
                                             <i className="fas fa-tasks me-2"></i>
                                             <span>Add Newspapers</span>
@@ -81,13 +83,13 @@ const layout = () => {
 
                                     <div className="adminLinks d-flex align-items-center cursor-pointer">
 
-                                        <NavLink onClick={()=>setActive(!active)} to="/admin/adminusers" className={({ isActive }) => (isActive ? 'active' : '')}>
+                                        <NavLink onClick={() => setActive(!active)} to="/admin/adminusers" className={({ isActive }) => (isActive ? 'active' : '')}>
                                             <i className="fa-solid fa-user"></i>                                            <span>AdminUser</span>
                                         </NavLink>
                                     </div>
                                     <div className="adminLinks d-flex align-items-center cursor-pointer">
 
-                                        <NavLink onClick={()=>setActive(!active)} to="/admin/add-adminusers" className={({ isActive }) => (isActive ? 'active' : '')}>
+                                        <NavLink onClick={() => setActive(!active)} to="/admin/add-adminusers" className={({ isActive }) => (isActive ? 'active' : '')}>
                                             <i className="fa-solid fa-user-plus"></i>
                                             <span>Add Adminusers</span>
                                         </NavLink>

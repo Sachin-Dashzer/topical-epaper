@@ -16,7 +16,7 @@ const Dashboard = () => {
     description: 'Our daily newspaper is your reliable source for staying informed about the latest happenings from around the world. Every edition is thoughtfully curated to bring you important headlines, in-depth stories, and detailed insights into current events, politics, business, sports, entertainment, and more. With a focus on accuracy and relevance, we strive to provide readers with a comprehensive view of the news that matters most. Whether you are catching up on global developments, exploring local stories, or diving into special features, our newspaper is designed to keep you updated, engaged, and inspired every single day.',
     author: 'Admin',
     category: 'newspaper',
-    imgUrl: '',
+    imgUrl: 'https://api.pscupdates.com/files/1735476638446.jpg',
     fileUrl: '',
     date: '',
   };
@@ -241,7 +241,6 @@ const Dashboard = () => {
                     name="image"
                     style={{ opacity: "0", width: "10px" }}
                     onChange={handleImageBrowse}
-                    required
                   />
                 </label>
                 {loading && <p>Uploading...</p>}

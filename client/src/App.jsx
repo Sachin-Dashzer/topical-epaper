@@ -65,7 +65,7 @@ const App = () => {
 
         <Route path="/" element={<PagesLayout />}>
           <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
+          <Route path="about-us" element={<About />} />
           <Route path="news" element={<NewspaperPage />} >
 
             <Route path=":id" element={<NewspaperPage />} />

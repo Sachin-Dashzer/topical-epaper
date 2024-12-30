@@ -8,7 +8,7 @@ const AboutDetails = () => {
     <>
 
       <section className='bg-light pt-md-5 AboutContainer'>
-        <div className="containerFull">
+        <div className="containerFull overflow-hidden">
           <div className="row align-items-center">
 
             <div className="col-lg-6">
@@ -24,7 +24,7 @@ const AboutDetails = () => {
                 <p className='title fontWeight300 mt-2'>
                   With a focus on simplicity and diversity, we aim to keep you informed, connected, and inspired—all in one place. Join us and rediscover the joy of reading newspapers, reimagined for the digital age!
                 </p>
-                <a href="#" className='btnTheme py-2 mt-3'><span>Contact us</span></a>
+                <a href="/contact" className='btnTheme py-2 mt-3'><span>Contact us</span></a>
               </div>
 
             </div>
@@ -76,7 +76,7 @@ const AboutDetails = () => {
           <div className="containerFull">
             <div className="row border-top border-bottom border-danger AboutSections">
               <div className="col-md-4 p-md-5 px-4 border-end border-danger">
-                <div className="text-center p-4">
+                <div className="text-center p-4" data-aos="zoom-in">
                   <div className="mb-md-4 mb-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@ const AboutDetails = () => {
                 </div>
               </div>
               <div className="col-md-4 p-md-5 px-4 border-end border-danger">
-                <div className="text-center p-4">
+                <div className="text-center p-4" data-aos="zoom-in">
                   <div className="mb-md-4 mb-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -112,7 +112,7 @@ const AboutDetails = () => {
                 </div>
               </div>
               <div className="col-md-4 p-md-5 px-4">
-                <div className="text-center p-4">
+                <div className="text-center p-4" data-aos="zoom-in">
                   <div className="mb-md-4 mb-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

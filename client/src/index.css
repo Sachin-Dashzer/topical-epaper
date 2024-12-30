@@ -62,12 +62,12 @@
   }
 
   .heroContent .large_heading {
-    font-size: 33px;
-    line-height: 44px;
+    font-size: 29px;
+    line-height: 39px;
   }
 
   .heroContent h3 {
-    font-size: 20px;
+    font-size: 16px;
     letter-spacing: 3px;
     word-spacing: 0px;
   }
@@ -99,6 +99,7 @@
 
   nav {
     padding: 10px 15px;
+    padding-bottom: 4px;
   }
 
   nav h1 {
@@ -118,13 +119,13 @@
   }
 
   .uploadsDate {
-    height: 137px;
+    height: 111px;
     bottom: 17px;
   }
 
   .sliderItems {
     width: 100%;
-    height: 220px;
+    height: 180px;
     margin-right: 20px;
     box-shadow: none !important;
 
@@ -170,6 +171,13 @@
 
   }
 
+  .uploadsDate .title{
+    font-size: 15px;
+  }
+  .uploadsDate p{
+    font-size: 12px;
+  }
+
   .callContainer {
     display: block;
     padding: 35px 15px;
@@ -182,8 +190,18 @@
   .callContainer img {
     width: 327px;
     height: 336px;
+    transform: scale(0.9);
   }
 
+  .logo img, .footerlogo img, .offcanvas-header img {
+    width: 53px;
+    height: 47px;
+}
+
+  .contactImgBox{
+    height: 288px !important;
+    object-fit: cover;
+  }
   .callContainer .large-heading {
     font-size: 26px;
     letter-spacing: 3px;
@@ -349,6 +367,7 @@
 
 
   .shortBanner-Content {
+    
 
     padding: 0 30px;
   }

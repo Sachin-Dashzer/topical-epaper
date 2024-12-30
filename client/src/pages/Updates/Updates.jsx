@@ -41,6 +41,7 @@ const Updates = () => {
                 <div className="containerFull">
 
                     {newspaper.filter((data) => data.category === 'others')
+                    .slice(0 , 8)
                         .map((item, index) => {
                             return (
 
@@ -56,7 +57,7 @@ const Updates = () => {
                                             <div className="updateContent mt-3 mt-md-0">
                                                 <h3 className="large_heading text-capital fontWeight700">{item.title}</h3>
                                                 <p className='text text-center mt-3 fontWeight400'>{item.description}</p>
-                                                <a href='#' className='btnTheme text-white py-2 px-4 text px-1 mt-4 mx-auto'><span>Download Now</span></a>
+                                                <a href={`/download/${item._id}`} className='btnTheme text-white py-2 px-4 text px-1 mt-4 mx-auto'><span>Download Now</span></a>
                                             </div>
                                         </div>
                                     </div>

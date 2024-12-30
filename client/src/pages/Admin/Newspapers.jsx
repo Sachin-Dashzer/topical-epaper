@@ -32,6 +32,8 @@ function Newspapers() {
 
 
 
+
+
   const getdata = async () => {
       
       dispatch(getFiles()).then((res) => {
