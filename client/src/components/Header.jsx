@@ -92,7 +92,7 @@ const Header = () => {
 
 
 
-{/* 
+            {/* 
             {showScrollTop && (
                 <button
                     className="scroll-to-top"
@@ -148,16 +148,11 @@ const Header = () => {
                 <div className="offcavas-footer bg-primary py-4 position-absolute w-100 bottom-0">
                     <ul className='d-flex gap-4 ps-4 pb-1 '>
                         <li>
-                            <a href="#" className='small_heading text-white'><i className="fa-brands fa-instagram"></i></a>
+                            <a href='https://t.me/topicalepaper' target="_blank" className='title text-white'><i className="fa-brands fa-telegram"></i></a>
                         </li>
+
                         <li>
-                            <a href="#" className='small_heading text-white'><i className="fa-brands fa-whatsapp"></i></a>
-                        </li>
-                        <li>
-                            <a href="#" className='small_heading text-white'><i className="fa-brands fa-x-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a href="#" className='small_heading text-white'><i className="fa-brands fa-telegram"></i></a>
+                            <a href='https://www.youtube.com/@skullrockgaming7865' target="_blank" className='title text-white'><i className="fa-brands fa-youtube"></i></a>
                         </li>
 
                     </ul>
