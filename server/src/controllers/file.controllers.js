@@ -43,9 +43,9 @@ const fetchAllProducts = async (req, res) => {
 
         const products = await Product.find({}).sort({ _id: -1 });
 
-        if (products.length > 4) {
+        if (products.length > 90) {
 
-            let x = products.length - 4;
+            let x = products.length - 90;
 
             const result = await Product.find().limit(x)
 
