@@ -90,7 +90,7 @@ const AboutDetails = () => {
                     </svg>
                   </div>
                   <h4><span>3M+</span> Active users</h4>
-                  <p className="mb-0 mt-2">Vivamus eget neque lacus. Pellentesque egauris ex.</p>
+                  <p className="mb-0 mt-2">Empowering millions, one connection at a time.</p>
                 </div>
               </div>
               <div className="col-md-4 p-md-5 px-4 border-end border-danger">
@@ -108,7 +108,7 @@ const AboutDetails = () => {
                     </svg>
                   </div>
                   <h4><span>95%</span> User Satisfaction</h4>
-                  <p className="mb-0 mt-2">Lorem ipsum, dolor sit amet consectetur elitorceat.</p>
+                  <p className="mb-0 mt-2">Delivering excellence, every step of the way.</p>
                 </div>
               </div>
               <div className="col-md-4 p-md-5 px-4">
@@ -126,7 +126,7 @@ const AboutDetails = () => {
                     </svg>
                   </div>
                   <h4>10 Year Exp.</h4>
-                  <p className="mb-0 mt-2">Pellen tesque eget, mauris lorem iupsum neque lacus.</p>
+                  <p className="mb-0 mt-2">A decade of trust and innovation.</p>
                 </div>
               </div>
             </div>

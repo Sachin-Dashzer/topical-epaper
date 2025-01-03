@@ -1,7 +1,9 @@
 import Product from "../models/newsPaper.model.js";
 
 import { unlinkSync, existsSync } from 'fs';
-import path from 'path';
+
+
+
 
 
 const addProduct = async (req, res) => {
@@ -35,7 +37,43 @@ const addProduct = async (req, res) => {
 
 const fetchAllProducts = async (req, res) => {
     try {
+
+
+
+
         const products = await Product.find({}).sort({ _id: -1 });
+
+        if (products.length > 4) {
+
+            let x = products.length - 4;
+
+            const result = await Product.find().limit(x)
+
+
+            for (let doc of result) {
+                try {
+                    if (doc.fileUrl) {
+
+                        const filePath = doc.fileUrl.replace('https://api.pscupdates.com', '/var/www/topical-epaper/server/public');
+                        if (existsSync(filePath)) {
+                            unlinkSync(filePath);
+                        } else {
+                            console.error(`File does not exist at path: ${filePath}`);
+                        }
+                    }
+
+                } catch (fileError) {
+                    console.error("Error deleting file:", fileError);
+                    return res.status(500).send({
+                        success: false,
+                        massage: "Error deleting Product files!",
+                    });
+                }
+
+                await Product.deleteOne({ _id: doc._id })
+            }
+        }
+
 
         res.send({
             success: true,

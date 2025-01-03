@@ -2,23 +2,22 @@ import React from "react";
 
 const testimonials = [
   {
-    text: "This product has changed my life for the better! Highly recommend it.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus laborum suscipit commodi, eum ducimus illum vero cupiditate consequatur similique dolores? Dolor, eaque vero laborum hic expedita quidem at itaque dolore? ",
+    text: "This website has become my go-to for downloading daily newspapers. It's fast, reliable, and incredibly user-friendly. Highly recommend it to all newspaper enthusiasts!",
     author: "John Doe",
   },
   {
-    text: "Five stars for amazing customer support and a great experience. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus laborum suscipit commodi, eum ducimus illum vero cupiditate consequatur similique dolores? Dolor, eaque vero laborum hic expedita quidem at itaque dolore?",
+    text: "Five stars for amazing service and easy access to all the newspapers I need. The variety and regular updates are impressive, and the downloading process is seamless.",
     author: "Mike Johnson",
   },
-
   {
-    text: "Excellent service and quality. I will definitely be back! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus laborum suscipit commodi, eum ducimus illum vero cupiditate consequatur similique dolores? Dolor, eaque vero laborum hic expedita quidem at itaque dolore?",
+    text: "As someone who loves staying updated, this website has been a lifesaver! The interface is intuitive, and I can download my favorite newspapers in just a few clicks.",
     author: "Jane Smith",
   },
   {
-    text: "Five stars for amazing customer support and a great experience. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus laborum suscipit commodi, eum ducimus illum vero cupiditate consequatur similique dolores? Dolor, eaque vero laborum hic expedita quidem at itaque dolore?",
-    author: "Mike Johnson",
+    text: "The best platform for daily newspapers! I love the wide range of publications available and how quickly they are updated. A must-use for anyone who loves to stay informed.",
+    author: "Emily Brown",
   },
-
+  
 ];
 
 const Textslider = () => {
@@ -26,7 +25,7 @@ const Textslider = () => {
     <section className="bg-light">
       <div className="container">
         <h1 className="text-center mb-md-5 mb-4 font-heading fontWeight700 text-primary ">Testimonials</h1>
-        <h4 className="text-center mb-4 text-decoration-underline">Google</h4>
+        <h4 className="text-center mb-4  text-decoration-underline">Google</h4>
 
         <div id="testimonialCarousel" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">

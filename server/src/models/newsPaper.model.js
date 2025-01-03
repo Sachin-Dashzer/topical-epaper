@@ -31,6 +31,11 @@ const newspaper = mongoose.Schema({
 })
 
 
+
+
+
+
+
 const Newspaper = mongoose.model("Newspaper", newspaper);
 
 

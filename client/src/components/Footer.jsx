@@ -71,9 +71,9 @@ const Footer = () => {
                             <div className="col-lg-4">
                                 <h5 className='text-primary fontWeight700 mb-md-3 mb-2 mt-4 mt-md-0 title font-Heading'>Contact</h5>
                                 <ul className='ms-1'>
-                                    <li className='mt-2 text fontWeight500'>
+                                    {/* <li className='mt-2 text fontWeight500'>
                                         <h6 className="text"><span className='fontWeight800 text-primary'>Address :</span> ipsum, dolor sit amet consectetur adipisicing elit.</h6>
-                                    </li>
+                                    </li> */}
                                     <li className='mt-3 text fontWeight500'>
                                         <h6 className="text"><span className='fontWeight800 text-primary'>Email :</span>  <a href="mailto:aavikthakur@gmail.com" className='text-black'>aavikthakur@gmail.com</a> </h6>
                                     </li>

@@ -16,11 +16,13 @@ const Contact = () => {
                         <div className="col-md-4 my-2 my-md-0">
                             <div className="border-0 gap-3 justify-content-center d-flex">
                                 <div className="card-icon" >
-                                    <i className="fas fa-map-marker-alt"></i>
+                                    <i className="fa-brands fa-telegram"></i>
                                 </div>
                                 <div className="card-body">
-                                    <h3 className='small_heading fontWeight700 text-primary mt-1 mb-1'>Address</h3>
-                                    <p>123 Street Name, City, England</p>
+                                    <h3 className='small_heading fontWeight700 text-primary mt-1 mb-1'>Telegram</h3>
+                                    <p>
+                                        <a href='https://t.me/topicalepaper' target="_blank" className='text-black'>Topical Epaper</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
