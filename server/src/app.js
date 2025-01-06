@@ -8,7 +8,8 @@ import cookieParser from 'cookie-parser';
 const app = express()
 
 app.use(cors({
-    origin: 'https://pscupdates.com', 
+    // origin: 'https://pscupdates.com', 
+    origin: 'http://localhost:5173', 
     methods: ['GET', 'POST', 'PUT', 'DELETE'], 
     credentials: true, 
   }));

@@ -95,7 +95,7 @@ const LinkGenerate = () => {
 
                         <div className="col-sm-6 ps-md-5 mt-4 mt-md-0 ">
                             <div className="shadow rounded-3 overflow-hidden">
-                                <img className='w-100 h-100' src={secondnews} alt="" />
+                                <img className='w-100 h-100' src={secondnews} loading="lazy" alt="" />
                             </div>
                         </div>
 
@@ -189,7 +189,7 @@ const LinkGenerate = () => {
 
                         <div className="col-sm-6 pe-5 ">
                             <div className="shadow rounded-3 overflow-hidden">
-                                <img className='w-100 h-100' src={ThirdIMG} alt="" />
+                                <img className='w-100 h-100' src={ThirdIMG} loading="lazy" alt="" />
                             </div>
                         </div>
 

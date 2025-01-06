@@ -26,7 +26,7 @@ const layout = () => {
                     <div className="logo">
                         <h1 className="heading fontWeight700 font-heading fontWeight900">
 
-                            <a href="/" className='text-primary'><img src={Logo} alt="" /> Topical Epaper</a></h1>
+                            <a href="/" className='text-primary'><img src={Logo} loading="lazy" alt="" /> Topical Epaper</a></h1>
                     </div>
 
                     <span>
@@ -55,7 +55,7 @@ const layout = () => {
 
                                 <a href='/' className="d-flex align-items-center mb-2 ps-3 logo " >
 
-                                    <h1 className="heading mb-0 text-white font-heading fontWeight900"><img src={Logo} alt="" /> Topical Epaper</h1>
+                                    <h1 className="heading mb-0 text-white font-heading fontWeight900"><img src={Logo} loading="lazy" alt="" /> Topical Epaper</h1>
 
                                 </a>
 

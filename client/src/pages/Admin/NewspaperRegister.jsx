@@ -52,7 +52,9 @@ const Dashboard = () => {
     data.append("file", selectedFile);
 
     try {
-      const response = await axios.post("https://api.pscupdates.com/admin/upload", data);
+      // const response = await axios.post("https://api.pscupdates.com/admin/upload", data);
+      const response = await axios.post("http://localhost:9000/admin/upload", data);
+
       if (response?.data?.fileUrl) {
         setfileData((prevData) => ({
           ...prevData,
@@ -77,7 +79,9 @@ const Dashboard = () => {
     data.append("file", selectedFile);
 
     try {
-      const response = await axios.post("https://api.pscupdates.com/admin/upload", data);
+      // const response = await axios.post("https://api.pscupdates.com/admin/upload", data);
+      const response = await axios.post("http://localhost:9000/admin/upload", data);
+
       if (response?.data?.fileUrl) {
         setfileData((prevData) => ({
           ...prevData,

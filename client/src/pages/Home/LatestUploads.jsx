@@ -86,16 +86,16 @@ const LatestUploads = () => {
                                             <div className="sliderItems shadow">
                                                 <div className="uploadsBox">
                                                     <div className="uploadImg">
-                                                        <img src={item.imgUrl} alt="" />
+                                                        <img src={item.imgUrl} loading="lazy" alt="" />
                                                     </div>
                                                     <div className="uploadsDate">
                                                         <h3 className="title fontWeight700 text-capital text-center">{item.title}</h3>
                                                         <p className="mt-1 text-secondary fontWeight700 text-center">( {item.date} )</p>
-                                                        <a href={`/news/${item._id}`}
+                                                        {/* <a href={`/news/${item._id}`}
                                                             className="mt-md-3 mt-2 text-white">
                                                             View &nbsp; <span><i className="fa-solid fa-eye"></i></span>
-                                                        </a>
-                                                        <a href={`/download/${item._id}`} className="mb-2 mt-1 text-white">
+                                                        </a> */}
+                                                        <a href={`/download/${item._id}`} className="mt-md-3 mt-2 text-white">
                                                             Download <span><i className="fa-solid fa-download"></i></span>
                                                         </a>
                                                     </div>

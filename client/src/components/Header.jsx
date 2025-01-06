@@ -44,7 +44,7 @@ const Header = () => {
 
                     <p className="font-heading text-center">Stay ahed with exclusive newspapers, right when you need them.</p>
                     <div className="navSocialLinks">
-                        <ul className='d-flex gap-4'>
+                        {/* <ul className='d-flex gap-4'>
                             <li>
                                 <a href='https://t.me/topicalepaper' target="_blank" className='title text-white'><i className="fa-brands fa-telegram"></i></a>
                             </li>
@@ -52,13 +52,13 @@ const Header = () => {
                             <li>
                                 <a href='https://www.youtube.com/@skullrockgaming7865' target="_blank" className='title text-white'><i className="fa-brands fa-youtube"></i></a>
                             </li>
-                        </ul>
+                        </ul> */}
                     </div>
                 </div>
                 <nav className='d-flex justify-content-between align-items-center'>
 
                     <div className="logo">
-                        <h1 className="large-heading font-heading fontWeight800"> <a href="/" className="text-white"><img src={Logo} alt="" />Topical Epapers</a></h1>
+                        <h1 className="large-heading font-heading fontWeight800"> <a href="/" className="text-white"><img src={Logo} loading="lazy" alt="" />Topical Epapers</a></h1>
                     </div>
                     <div className="navLinks">
 
@@ -73,7 +73,7 @@ const Header = () => {
                                 <NavLink to="/updates" className={({ isActive }) => (isActive ? 'active' : '')}>PSC News</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>PSC Blogs</NavLink>
+                                <NavLink to="/blog" className={""}>PSC Blogs</NavLink>
                             </li>
                             <li>
                                 <NavLink to="/about-us" className={({ isActive }) => (isActive ? 'active' : '')}>About</NavLink>
@@ -120,7 +120,7 @@ const Header = () => {
 
                 <div className="offcanvas-header">
                     <div className=" w-100 d-flex px-3 py-4 justify-content-between">
-                        <h1 className="heading font-heading "> <a href="#" className="text-light fontWeight800"><img src={Logo} alt="" /> Topical Epapers</a></h1>
+                        <h1 className="heading font-heading "> <a href="#" className="text-light fontWeight800"><img src={Logo} loading="lazy" alt="" /> Topical Epapers</a></h1>
 
                         <div className="sub_heading text-light pe-2" onClick={() => { setMenuBox(false) }}>
                             <i className="fa-solid fa-xmark"></i>
@@ -140,7 +140,7 @@ const Header = () => {
                             <NavLink onClick={() => { setMenuBox(false) }} to="/updates" className={'text-dark small_heading fontWeight700 mt-3'}>PSC News</NavLink>
                         </li>
                         <li>
-                            <NavLink onClick={() => { setMenuBox(false) }} to="/" className={'text-dark small_heading fontWeight700 mt-3'}>PSC Blogs</NavLink>
+                            <NavLink onClick={() => { setMenuBox(false) }} to="/" >PSC Blogs</NavLink>
                         </li>
                         <li>
                             <NavLink onClick={() => { setMenuBox(false) }} to="/about-us" className={'text-dark small_heading fontWeight700 mt-3'}>About</NavLink>

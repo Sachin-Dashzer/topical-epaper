@@ -1,144 +1,138 @@
-import React, { useState, useEffect } from 'react';
-import ShortBanner from '../../components/ShortBanner';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { getFiles } from '../../store/fileStore';
+import React, { useState, useEffect } from "react";
+import ShortBanner from "../../components/ShortBanner";
+import { useDispatch } from "react-redux";
+import { getFiles } from "../../store/fileStore";
 
 const NewspaperPage = () => {
     const [newspaper, setNewspaper] = useState([]);
-    const [currentId, setCurrentId] = useState(null);
-    const [currentData, setCurrentData] = useState(null);
+    const [activeMonth, setActiveMonth] = useState([]);
+    const [activeBox, setActiveBox] = useState(0);
+
     const dispatch = useDispatch();
 
-    const location = useLocation();
-    const navigate = useNavigate();
+    const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December",
+    ];
 
-    const { id } = useParams() || null;
-
-    // const id = location.state?.id || null;
+    const getMonthNames = (data) => {
+        return data.map((item) => {
+            const dateParts = item?.date?.split("-");
+            if (dateParts && dateParts.length > 1) {
+                const monthIndex = parseInt(dateParts[1], 10) - 1;
+                const monthName = monthNames[monthIndex];
+                return { ...item, monthName };
+            }
+            return { ...item, monthName: "Unknown" };
+        });
+    };
 
     const getdata = async () => {
-        dispatch(getFiles()).then((response) => {
+        try {
+            const response = await dispatch(getFiles());
             const data = response?.payload?.data || [];
+            const updatedData = getMonthNames(data);
+            console.log(updatedData)
 
-            setNewspaper(data);
+            const currentIndex = monthNames.findIndex((item) => item === updatedData[0].monthName);
 
-            const selectedId = id || (data.length > 0 ? data[0]._id : null);
-            setCurrentId(selectedId);
+            const indexes = [
+                currentIndex,
+                (currentIndex - 1 + monthNames.length) % monthNames.length,
+                (currentIndex - 2 + monthNames.length) % monthNames.length,
+            ];
 
-            const selectedData = data.find((item) => item._id === selectedId);
-            setCurrentData(selectedData);
-        });
+            setActiveMonth(indexes.map((index) => monthNames[index]));
+            setNewspaper(updatedData);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
     };
 
     useEffect(() => {
         getdata();
-    }, [id]);
+    }, []);
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [id]);
 
-    useEffect(() => {
-        if (currentId && newspaper.length > 0) {
-            const selectedData = newspaper.find((item) => item._id === currentId);
-            setCurrentData(selectedData);
+
+    const checkActive = (index) => {
+
+        if (activeBox === index) {
+            setActiveBox(null)
+            return;
         }
-    }, [currentId, newspaper]);
+        setActiveBox(index);
+    }
 
-  
+
+
+
+
+
+
+
 
     return (
         <>
-            <ShortBanner name="Latest Newspaper" />
+            <ShortBanner name="PSC Resources" />
 
-            <div className="w-100 px-3">
-                <div className="newspaperBox">
-                    <div className="row">
-                        <div className="col-lg-8 px-md-4 pe-md-0 pt-4">
-                            <div className="newspaperDetails text-capital p-md-4 p-1" data-aos="fade-up">
-                                <h1 className="large_heading fontWeight800 text-primary">
-                                    {currentData ? currentData.title : 'Loading...'}
-                                </h1>
+            <section className="w-100 px-3">
+                <div className="containerFull">
+                    {
+                        activeMonth.map((item, index) => {
+                            return (
+                                <div className={`monthBox ${(activeBox === index) ? "active" : ''}`} onClick={() => checkActive(index)} key={index}>
 
-                                <div className="d-flex gap-md-5 gap-4">
-                                    <p className="mt-3">
-                                        <span className="fontWeight700 text-primary">Published on: </span>
-                                        &nbsp; {currentData ? currentData.date : 'N/A'}
-                                    </p>
-                                    <p className="mt-3">
-                                        <span className="fontWeight700 text-primary">Published by: </span>
-                                        &nbsp; {currentData ? currentData.author : 'N/A'}
-                                    </p>
-                                </div>
+                                    <div className="monthHeader bg-light">
+                                        <h3 className="sub_heading fontWeight700 font-heading">{item}</h3>
+                                        <i className="fa-solid fa-angle-up small_heading"></i>
 
-                                <div className="newsImgBox shadow w-100 mt-md-4 mt-2">
-                                    {currentData && <img src={currentData.imgUrl} alt="" />}
-                                </div>
+                                    </div>
 
-                                <h3 className="small_heading fontWeight700 mt-md-5 mt-4">Short Description</h3>
-                                <p className="mt-md-3 mt-2 text">{currentData ? currentData.description : 'Loading...'}</p>
 
-                                <a
-                                    href={`/download/${currentData?._id}`}
-                                    className="btnTheme mt-md-4 mt-3"
-                                >
-                                    <span>Download Now</span>
-                                </a>
-                            </div>
-                        </div>
+                                    <div className="newspaperBox">
+                                        {
+                                            newspaper?.filter(newItem => newItem.monthName === item).length === 0 ? (
+                                                <p className=" w-100 px-5 pb-5 title">No newspapers available for {item}.</p>
+                                            ) : (
+                                                newspaper
+                                                    ?.filter(newItem => newItem.monthName === item)
+                                                    .map((newItem, index) => (
+                                                        <div key={index} className="newspaperBody">
 
-                        <div className="col-lg-4 h-full p-md-5 py-5 px-4">
-                            <div className="blockContainer w-full h-full">
-                                <h4
-                                    className="sub_heading text-center fontWeight700 mb-4"
-                                    style={{ textDecoration: 'underline' }}
-                                >
-                                    Related Uploads
-                                </h4>
-
-                                {newspaper
-                                    .filter((data) => data.category === 'newspaper')
-                                    .slice(0 , 10)
-                                    .map((data, index) => (
-                                        <a
-                                            href={`/news/${data._id}`}
-                                            key={index}
-                                            className="d-block cursor-pointer"
-                                        >
-                                            <div className="smallBlock bg-light w-100 p-2 mt-4 shadow">
-                                                <div className="row">
-                                                    <div className="col-5 smallImgBlock">
-                                                        <img src={data.imgUrl} alt="" className="object-fit-cover" />
-                                                    </div>
-                                                    <div className="col-7 py-2">
-                                                        <h3 className="title text-capital text-dark fontWeight700">
-                                                            {data.title}
-                                                        </h3>
-                                                        <div>
-                                                            <p className="mt-2">
-                                                                <span className="fontWeight700 text-primary">
-                                                                    Published on:
-                                                                </span>
-                                                                &nbsp; {data.date}
-                                                            </p>
-                                                            <p>
-                                                                <span className="fontWeight700 text-primary">
-                                                                    Published by:
-                                                                </span>
-                                                                &nbsp; {data.author}
-                                                            </p>
+                                                            <div className="w-100 px-3 pb-md-4 pb-3">
+                                                                <div className="sliderItems shadow">
+                                                                    <div className="uploadsBox">
+                                                                        <div className="uploadImg">
+                                                                            <img src={newItem.imgUrl} loading="lazy" alt={newItem.title} />
+                                                                        </div>
+                                                                        <div className="uploadsDate">
+                                                                            <h3 className="title fontWeight700 text-capitalize text-center">{newItem.title}</h3>
+                                                                            <p className="mt-1 text-secondary fontWeight700 text-center">({newItem.date})</p>
+                                                                            <a href={`/download/${newItem._id}`} className="mt-md-3 mt-2 text-white">
+                                                                                Download <span><i className="fa-solid fa-download"></i></span>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    ))}
-                            </div>
-                        </div>
-                    </div>
+                                                    ))
+                                            )
+                                        }
+                                    </div>
+
+
+
+                                </div>
+
+
+
+                            )
+                        })
+                    }
                 </div>
-            </div>
+            </section>
         </>
     );
 };

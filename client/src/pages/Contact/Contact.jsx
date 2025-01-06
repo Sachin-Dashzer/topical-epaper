@@ -8,7 +8,7 @@ const Contact = () => {
         <>
 
 
-            <ShortBanner name="Contact us" />
+            <ShortBanner name="Request us" />
 
             <section className="contact-icons bg-light">
                 <div className="container">

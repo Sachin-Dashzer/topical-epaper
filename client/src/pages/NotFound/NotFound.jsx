@@ -27,7 +27,7 @@ const NotFound = () => {
   return (
     <div className='container-fluid not-found-container'>
       <div className='imgDiv text-center'>
-        <img className='error-image' src={error} alt='Error' />
+        <img className='error-image' src={error} loading="lazy" alt='Error' />
       </div>
       <div className='textDiv text-center'>
         <h1>No Result Found</h1>

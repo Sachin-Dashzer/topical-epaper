@@ -62,10 +62,13 @@
   }
 
   .heroContent .large_heading {
-    font-size: 29px;
-    line-height: 39px;
+    font-size: 23px;
+    line-height: 38px;
   }
-
+  
+  .heroContent .btnTheme span, .btnTheme2 span {
+    font-size: 12px;
+  }
   .heroContent h3 {
     font-size: 16px;
     letter-spacing: 3px;
@@ -78,8 +81,8 @@
   }
 
   .bannerBtns {
-    flex-direction: column-reverse;
-    gap: 10px;
+    /* flex-direction: column-reverse; */
+    /* gap: 10px; */
     margin-top: 15px;
   }
 
@@ -215,7 +218,7 @@
     width: 28px;
     height: 28px;
     left: 2%;
-    top: 26%;
+    top: 2%;
     display: flex;
 
     font-size: 14px;

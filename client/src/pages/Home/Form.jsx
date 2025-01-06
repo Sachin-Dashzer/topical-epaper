@@ -9,7 +9,7 @@ const Form = () => {
                 <div className="col-md-6 d-flex flex-column justify-content-center px-md-5">
                     <div className="container px-md-5">
                         <div className='pb-5 pb-md-0' data-aos="fade-right">
-                            <h3 style={{textDecoration : 'underline'}} className="heading fontWeight700 text-primary font-heading mb-4 text-md-center mt-4">Request PSC Resources from Us </h3>
+                            <h3 style={{textDecoration : 'underline'}} className="sub_heading fontWeight700 text-primary font-heading mb-4 mb-md-5 text-md-center mt-4">Request PSC Resources from Us </h3>
 
                             <div>
                                 <form>
@@ -102,7 +102,7 @@ const Form = () => {
                         style={{ border: 0, width: "100%", height: "550px" }}
                         className='mb-4 contactImgBox'
                     >
-                        <img src={ContactImg} alt="" className='w-100 h-100 object-fit-cover' />
+                        <img src={ContactImg} loading="lazy" alt="" className='w-100 h-100 object-fit-cover' />
 
                     </div>
 

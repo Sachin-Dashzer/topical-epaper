@@ -16,7 +16,7 @@ const CallToAction = () => {
               </div>
               <div className='mt-2 mt-md-0'>
                 <figure>
-                  <img src={Telegram} alt="" />
+                  <img src={Telegram} loading="lazy" alt="" />
                 </figure>
               </div>
 

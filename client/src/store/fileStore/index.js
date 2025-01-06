@@ -7,7 +7,8 @@ const initialState = {
     newspappers: [],
 
 }
-const baseUrl = "https://api.pscupdates.com";
+// const baseUrl = "https://api.pscupdates.com";
+const baseUrl = "http://localhost:9000";
 
 
 
@@ -83,3 +84,4 @@ const fileslice = createSlice({
     }
 
 })
+

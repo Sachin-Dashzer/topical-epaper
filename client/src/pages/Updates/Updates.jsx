@@ -34,7 +34,7 @@ const Updates = () => {
     return (
         <>
 
-            <ShortBanner name="New Updates" />
+            <ShortBanner name="PSC News" />
 
 
             <section className="updates">
@@ -50,7 +50,7 @@ const Updates = () => {
                                     <div className="row">
                                         <div className="col-lg-6">
                                             <div className="updateImg">
-                                                <img src={item.imgUrl} alt="" />
+                                                <img src={item.imgUrl} loading="lazy" alt="" />
                                             </div>
                                         </div>
                                         <div className="col-lg-6">
