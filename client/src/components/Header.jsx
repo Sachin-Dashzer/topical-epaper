@@ -140,7 +140,7 @@ const Header = () => {
                             <NavLink onClick={() => { setMenuBox(false) }} to="/updates" className={'text-dark small_heading fontWeight700 mt-3'}>PSC News</NavLink>
                         </li>
                         <li>
-                            <NavLink onClick={() => { setMenuBox(false) }} to="/" >PSC Blogs</NavLink>
+                            <NavLink onClick={() => { setMenuBox(false) }} to="/" className={'text-dark small_heading fontWeight700 mt-3'} >PSC Blogs</NavLink>
                         </li>
                         <li>
                             <NavLink onClick={() => { setMenuBox(false) }} to="/about-us" className={'text-dark small_heading fontWeight700 mt-3'}>About</NavLink>

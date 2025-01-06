@@ -122,7 +122,7 @@
   }
 
   .uploadsDate {
-    height: 111px;
+    height: 85px;
     bottom: 17px;
   }
 
@@ -352,6 +352,21 @@
 
   }
 
+
+  .monthHeader{
+    padding: 12px 10px;
+    margin: 0 0 22px;
+  }
+  
+  .monthHeader .sub_heading{
+    font-size: 18px;
+  }
+  .newspaperBody{
+    grid-template-columns: 48% 48%;
+    gap: 4%;
+    padding: 10px;
+    padding-bottom: 15px;
+  }
 
 
   .textDiv h1 {

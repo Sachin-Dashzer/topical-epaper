@@ -32,9 +32,8 @@ const NewspaperPage = () => {
             const response = await dispatch(getFiles());
             const data = response?.payload?.data || [];
             const updatedData = getMonthNames(data);
-            console.log(updatedData)
 
-            const currentIndex = monthNames.findIndex((item) => item === updatedData[0].monthName);
+            const currentIndex = monthNames.findIndex((item) => item === updatedData[0]?.monthName);
 
             const indexes = [
                 currentIndex,
@@ -91,16 +90,15 @@ const NewspaperPage = () => {
 
 
                                     <div className="newspaperBox">
-                                        {
-                                            newspaper?.filter(newItem => newItem.monthName === item).length === 0 ? (
-                                                <p className=" w-100 px-5 pb-5 title">No newspapers available for {item}.</p>
-                                            ) : (
-                                                newspaper
-                                                    ?.filter(newItem => newItem.monthName === item)
-                                                    .map((newItem, index) => (
-                                                        <div key={index} className="newspaperBody">
-
-                                                            <div className="w-100 px-3 pb-md-4 pb-3">
+                                        <div className="newspaperBody">
+                                            {
+                                                newspaper?.filter(newItem => newItem.monthName === item).length === 0 ? (
+                                                    <p className="title">Nothing Here</p>
+                                                ) : (
+                                                    newspaper
+                                                        ?.filter(newItem => newItem.monthName === item)
+                                                        .map((newItem, index) => (
+                                                            <div key={index} className="w-100 px-3 pb-md-4 pb-3">
                                                                 <div className="sliderItems shadow">
                                                                     <div className="uploadsBox">
                                                                         <div className="uploadImg">
@@ -116,10 +114,10 @@ const NewspaperPage = () => {
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    ))
-                                            )
-                                        }
+                                                        ))
+                                                )
+                                            }
+                                        </div>
                                     </div>
 
 
