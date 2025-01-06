@@ -17,6 +17,11 @@ const loginUser = createAsyncThunk("/auth/login", async (formData) => {
     return response.data;
 });
 
+
+
+
+
+
 // Register User
 const ResgisterUser = createAsyncThunk("/auth/register", async (formData) => {
     const response = await axios.post(

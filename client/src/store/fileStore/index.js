@@ -22,6 +22,9 @@ export const registerFile = createAsyncThunk("/file/register", async (formData) 
     return response.data;
 })
 
+
+
+
 export const getFiles = createAsyncThunk("/file/get-products", async (formData) => {
     const response = await axios.get(`${baseUrl}/admin/get-products`, formData, {
         withCredentials: true,

@@ -42,7 +42,7 @@ const Header = () => {
             <header className={`stricky ${isSticky ? "stricky-fixed" : ""}`}>
                 <div className="topHeader py-md-1 w-100">
 
-                    <p className="font-heading text-center">Get Exclusive News papers. just in time</p>
+                    <p className="font-heading text-center">Stay ahed with exclusive newspapers, right when you need them.</p>
                     <div className="navSocialLinks">
                         <ul className='d-flex gap-4'>
                             <li>
@@ -67,16 +67,19 @@ const Header = () => {
                                 <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>Home</NavLink>
                             </li>
                             <li>
+                                <NavLink to="/news" className={({ isActive }) => (isActive ? 'active' : '')}>PSC Resources</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/updates" className={({ isActive }) => (isActive ? 'active' : '')}>PSC News</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>PSC Blogs</NavLink>
+                            </li>
+                            <li>
                                 <NavLink to="/about-us" className={({ isActive }) => (isActive ? 'active' : '')}>About</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/news" className={({ isActive }) => (isActive ? 'active' : '')}>Latest News</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/updates" className={({ isActive }) => (isActive ? 'active' : '')}>Updates</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')}>Contact us</NavLink>
+                                <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')}>Request us</NavLink>
                             </li>
                         </ul>
 
@@ -131,16 +134,19 @@ const Header = () => {
                             <NavLink onClick={() => { setMenuBox(false) }} to="/" className={'text-dark small_heading fontWeight700 mt-3'}>Home</NavLink>
                         </li>
                         <li>
+                            <NavLink onClick={() => { setMenuBox(false) }} to="/news" className={'text-dark small_heading fontWeight700 mt-3'}>PSC Resources</NavLink>
+                        </li>
+                        <li>
+                            <NavLink onClick={() => { setMenuBox(false) }} to="/updates" className={'text-dark small_heading fontWeight700 mt-3'}>PSC News</NavLink>
+                        </li>
+                        <li>
+                            <NavLink onClick={() => { setMenuBox(false) }} to="/" className={'text-dark small_heading fontWeight700 mt-3'}>PSC Blogs</NavLink>
+                        </li>
+                        <li>
                             <NavLink onClick={() => { setMenuBox(false) }} to="/about-us" className={'text-dark small_heading fontWeight700 mt-3'}>About</NavLink>
                         </li>
                         <li>
-                            <NavLink onClick={() => { setMenuBox(false) }} to="/news" className={'text-dark small_heading fontWeight700 mt-3'}>Latest News</NavLink>
-                        </li>
-                        <li>
-                            <NavLink onClick={() => { setMenuBox(false) }} to="/updates" className={'text-dark small_heading fontWeight700 mt-3'}>Updates</NavLink>
-                        </li>
-                        <li>
-                            <NavLink onClick={() => { setMenuBox(false) }} to="/contact" className={'text-dark small_heading fontWeight700 mt-3'}>Contact us</NavLink>
+                            <NavLink onClick={() => { setMenuBox(false) }} to="/contact" className={'text-dark small_heading fontWeight700 mt-3'}>Request us</NavLink>
                         </li>
                     </ul>
 

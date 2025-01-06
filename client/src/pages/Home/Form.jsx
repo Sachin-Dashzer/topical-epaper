@@ -9,7 +9,7 @@ const Form = () => {
                 <div className="col-md-6 d-flex flex-column justify-content-center px-md-5">
                     <div className="container px-md-5">
                         <div className='pb-5 pb-md-0' data-aos="fade-right">
-                            <h3 style={{textDecoration : 'underline'}} className="heading fontWeight700 text-primary font-heading mb-4 text-md-center mt-4">Get a Quote</h3>
+                            <h3 style={{textDecoration : 'underline'}} className="heading fontWeight700 text-primary font-heading mb-4 text-md-center mt-4">Request PSC Resources from Us </h3>
 
                             <div>
                                 <form>
@@ -42,7 +42,7 @@ const Form = () => {
                                         </div>
 
 
-                                        <div className="mb-md-3 mb-2 col-6">
+                                        <div className="mb-md-3 mb-2 col-12">
                                             <label htmlFor="email" className="form-label">
                                                 Email
                                             </label>
@@ -56,7 +56,7 @@ const Form = () => {
                                         </div>
 
 
-                                        <div className="mb-md-3 mb-2 col-6">
+                                        {/* <div className="mb-md-3 mb-2 col-6">
                                             <label htmlFor="date" className="form-label">
                                                 Date
                                             </label>
@@ -66,7 +66,7 @@ const Form = () => {
                                                 id="date"
                                                 required
                                             />
-                                        </div>
+                                        </div> */}
 
 
                                         <div className="mb-3 col-lg-12">

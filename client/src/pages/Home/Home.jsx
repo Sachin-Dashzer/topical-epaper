@@ -11,7 +11,7 @@ const Home = () => {
         <>
             <HeroBanner/>
             <LatestUploads />
-            <AboutDetails />
+            {/* <AboutDetails /> */}
             <CallToAction />
             <Textslider />
             <Form />

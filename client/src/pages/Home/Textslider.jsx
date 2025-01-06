@@ -2,22 +2,22 @@ import React from "react";
 
 const testimonials = [
   {
-    text: "This website has become my go-to for downloading daily newspapers. It's fast, reliable, and incredibly user-friendly. Highly recommend it to all newspaper enthusiasts!",
+    text: "Success is not Final , Failure is not Fatal ,  It is the Courage to ,Continue that counts",
     author: "John Doe",
   },
   {
-    text: "Five stars for amazing service and easy access to all the newspapers I need. The variety and regular updates are impressive, and the downloading process is seamless.",
+    text: "Success is not Final , Failure is not Fatal ,  It is the Courage to ,Continue that counts",
     author: "Mike Johnson",
   },
   {
-    text: "As someone who loves staying updated, this website has been a lifesaver! The interface is intuitive, and I can download my favorite newspapers in just a few clicks.",
+    text: "Success is not Final , Failure is not Fatal ,  It is the Courage to ,Continue that counts",
     author: "Jane Smith",
   },
   {
-    text: "The best platform for daily newspapers! I love the wide range of publications available and how quickly they are updated. A must-use for anyone who loves to stay informed.",
+    text: "Success is not Final , Failure is not Fatal ,  It is the Courage to ,Continue that counts",
     author: "Emily Brown",
   },
-  
+
 ];
 
 const Textslider = () => {

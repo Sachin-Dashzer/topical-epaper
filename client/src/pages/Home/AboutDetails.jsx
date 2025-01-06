@@ -72,7 +72,7 @@ const AboutDetails = () => {
 
 
 
-        <div className='mt-4'>
+        {/* <div className='mt-4'>
           <div className="containerFull">
             <div className="row border-top border-bottom border-danger AboutSections">
               <div className="col-md-4 p-md-5 px-4 border-end border-danger">
@@ -131,7 +131,7 @@ const AboutDetails = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
     </>
 
