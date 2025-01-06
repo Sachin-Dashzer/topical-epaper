@@ -54,8 +54,8 @@ const fetchAllProducts = async (req, res) => {
                 try {
                     if (doc.fileUrl) {
 
-                        // const filePath = doc.fileUrl.replace('https://api.pscupdates.com', '/var/www/topical-epaper/server/public');
-                        const filePath = doc.fileUrl.replace('http://localhost:9000', '/var/www/topical-epaper/server/public');
+                        const filePath = doc.fileUrl.replace('https://api.pscupdates.com', '/var/www/topical-epaper/server/public');
+                        // const filePath = doc.fileUrl.replace('http://localhost:9000', '/var/www/topical-epaper/server/public');
                         if (existsSync(filePath)) {
                             unlinkSync(filePath);
                         } else {
@@ -109,8 +109,8 @@ const deleteProduct = async (req, res) => {
         try {
             if (product.fileUrl) {
 
-                // const filePath = product.fileUrl.replace('https://api.pscupdates.com', '/var/www/topical-epaper/server/public');
-                const filePath = product.fileUrl.replace('http://localhost:9000', '/var/www/topical-epaper/server/public');
+                const filePath = product.fileUrl.replace('https://api.pscupdates.com', '/var/www/topical-epaper/server/public');
+                // const filePath = product.fileUrl.replace('http://localhost:9000', '/var/www/topical-epaper/server/public');
                 if (existsSync(filePath)) {
                     unlinkSync(filePath);
                 } else {
