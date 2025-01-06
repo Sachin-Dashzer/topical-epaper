@@ -80,9 +80,9 @@ const NewspaperPage = () => {
                     {
                         activeMonth.map((item, index) => {
                             return (
-                                <div className={`monthBox ${(activeBox === index) ? "active" : ''}`} onClick={() => checkActive(index)} key={index}>
+                                <div className={`monthBox ${(activeBox === index) ? "active" : ''}`}  key={index}>
 
-                                    <div className="monthHeader bg-light">
+                                    <div className="monthHeader bg-light" onClick={() => checkActive(index)}>
                                         <h3 className="sub_heading fontWeight700 font-heading">{item}</h3>
                                         <i className="fa-solid fa-angle-up small_heading"></i>
 
