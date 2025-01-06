@@ -98,7 +98,7 @@ const NewspaperPage = () => {
                                                     newspaper
                                                         ?.filter(newItem => newItem.monthName === item)
                                                         .map((newItem, index) => (
-                                                            <div key={index} className="w-100 px-3 pb-md-4 pb-3">
+                                                            <div key={index} className="w-100 px-1 px-md-3 pb-md-4 pb-3">
                                                                 <div className="sliderItems shadow">
                                                                     <div className="uploadsBox">
                                                                         <div className="uploadImg">
