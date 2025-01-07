@@ -1,7 +1,16 @@
 import React from 'react'
 import video from '../../assets/banner-video.mp4'
+import LazyLoad from "react-lazyload";
+import poster from '../../assets/call-to-aciton.jpg'
+
 
 const HeroBanner = () => {
+
+
+
+
+
+
   return (
 
     <div className='heroBanner '>
@@ -11,8 +20,14 @@ const HeroBanner = () => {
 
         <div className="heroVideo">
           <div className="video">
+            <LazyLoad className='w-100 h-100' offset={100}>
+              <video autoPlay muted loop poster={poster} preload="none">
+                <source src={video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </LazyLoad>
 
-            <video src={video} autoPlay muted loop></video>
+            {/* <video src={video} autoPlay muted loop></video> */}
           </div>
         </div>
 

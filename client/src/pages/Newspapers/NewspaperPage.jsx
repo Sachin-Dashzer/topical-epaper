@@ -64,13 +64,6 @@ const NewspaperPage = () => {
     }
 
 
-
-
-
-
-
-
-
     return (
         <>
             <ShortBanner name="PSC Resources" />

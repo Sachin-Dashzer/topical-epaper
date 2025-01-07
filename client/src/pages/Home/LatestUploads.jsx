@@ -115,6 +115,15 @@ const LatestUploads = () => {
 
                 </div>
 
+                <div className="container text-center activeLinkBox">
+
+                    <h3 className="heading fontWeight700">6th january 2025</h3>
+
+                    <button className='py-2 w-100 bg-blue my-md-4 mt-4'>The Hindu</button>
+                    <button className='py-2 w-100 bg-blue mt-md-2 mt-3'>Indian Express</button>
+
+                </div>
+
             </section>
 
 
