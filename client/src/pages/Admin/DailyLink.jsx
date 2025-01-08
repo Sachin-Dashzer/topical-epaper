@@ -41,7 +41,7 @@ const DailyLink = () => {
 
         try {
 
-            const response = await axios.post("https://pscupdates.com/admin/update-link", fileData);
+            const response = await axios.post("https://api.pscupdates.com/admin/update-link", fileData);
             // const response = await axios.post("http://localhost:9000/admin/update-link", fileData);
 
             console.log(response.data)
