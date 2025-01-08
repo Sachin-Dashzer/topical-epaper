@@ -7,8 +7,8 @@ const initialState = {
     isAuthenticated: false,
 };
 
-// const baseUrl = "https://api.pscupdates.com";
-const baseUrl = "http://localhost:9000";
+const baseUrl = "https://api.pscupdates.com";
+// const baseUrl = "http://localhost:9000";
 
 // Login User
 const loginUser = createAsyncThunk("/auth/login", async (formData) => {

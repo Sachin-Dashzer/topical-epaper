@@ -24,6 +24,7 @@ import NewspaperRegister from './pages/Admin/NewspaperRegister';
 import AdminNewspapers from './pages/Admin/Newspapers';
 import AddadminUsers from './pages/Admin/AddadminUsers';
 import AdminUsers from './pages/Admin/AdminUsers';
+import DailyLink from './pages/Admin/DailyLink';
 
 import { checkAuthentication } from './store/authStore';
 
@@ -93,6 +94,8 @@ const App = () => {
           <Route path="add-adminusers" element={<AddadminUsers />} />
           <Route path="add-newspaper" element={<NewspaperRegister />} />
           <Route path="newspapers" element={<AdminNewspapers />} />
+          <Route path="today-newspaper" element={<DailyLink />} />
+          
         </Route>
 
 

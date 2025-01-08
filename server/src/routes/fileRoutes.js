@@ -4,6 +4,8 @@ import {
     addProduct,
     fetchAllProducts,
     deleteProduct,
+    fetchDailyLink,
+    updateLink
 } from "../controllers/file.controllers.js";
 
 import { upload } from '../utils/claudinary.js'
@@ -16,8 +18,8 @@ router.post('/upload', upload.single('file'), (req, res) => {
         return res.status(400).send('No file uploaded');
     }
 
-    // const fileUrl = `https://api.pscupdates.com/files/${req.file.filename}`;
-    const fileUrl = `http://localhost:9000/files/${req.file.filename}`;
+    const fileUrl = `https://api.pscupdates.com/files/${req.file.filename}`;
+    // const fileUrl = `http://localhost:9000/files/${req.file.filename}`;
 
     res.json({
         message: "File uploaded successfully",
@@ -27,6 +29,8 @@ router.post('/upload', upload.single('file'), (req, res) => {
 
 router.post("/add-product", addProduct);
 router.get("/get-products", fetchAllProducts);
+router.get("/get-link", fetchDailyLink);
+router.post("/update-link", updateLink);
 router.delete("/delete/:id", deleteProduct);
 
 

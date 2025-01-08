@@ -1159,11 +1159,19 @@ td , th{
 .activeLinkBox{
 
   padding: 50px;
+  margin-top: 20px;
 }
-.activeLinkBox button{
+.activeLinkBox a{
   border: none;
   background: rgb(34, 6, 60);
   color: white;
   border-radius: 5px;
   font-size: 16px;
+}
+.formbox{
+  width: 75%;
+  border-radius: 5px;
+}
+.formbox button{
+  width: 25%;
 }

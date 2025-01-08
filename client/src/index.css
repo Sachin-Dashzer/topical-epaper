@@ -133,7 +133,14 @@
     box-shadow: none !important;
 
   }
-
+  .formbox{
+    width: 100%;
+    
+  }
+  .formbox button{
+    width: 40%;
+    font-size: 13px;
+  }
   .sliderItems:hover .uploadsDate {
     bottom: 0;
   }

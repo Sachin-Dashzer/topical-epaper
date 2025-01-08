@@ -1,6 +1,9 @@
 import Product from "../models/newsPaper.model.js";
+import DailyLInk from "../models/dailyLink.js";
 
 import { unlinkSync, existsSync } from 'fs';
+import { asyncHandler } from "../utils/asyncHandler.js";
+
 
 
 
@@ -54,8 +57,8 @@ const fetchAllProducts = async (req, res) => {
                 try {
                     if (doc.fileUrl) {
 
-                        // const filePath = doc.fileUrl.replace('https://api.pscupdates.com', '/var/www/topical-epaper/server/public');
-                        const filePath = doc.fileUrl.replace('http://localhost:9000', '/var/www/topical-epaper/server/public');
+                        const filePath = doc.fileUrl.replace('https://api.pscupdates.com', '/var/www/topical-epaper/server/public');
+                        // const filePath = doc.fileUrl.replace('http://localhost:9000', '/var/www/topical-epaper/server/public');
                         if (existsSync(filePath)) {
                             unlinkSync(filePath);
                         } else {
@@ -109,8 +112,8 @@ const deleteProduct = async (req, res) => {
         try {
             if (product.fileUrl) {
 
-                // const filePath = product.fileUrl.replace('https://api.pscupdates.com', '/var/www/topical-epaper/server/public');
-                const filePath = product.fileUrl.replace('http://localhost:9000', '/var/www/topical-epaper/server/public');
+                const filePath = product.fileUrl.replace('https://api.pscupdates.com', '/var/www/topical-epaper/server/public');
+                // const filePath = product.fileUrl.replace('http://localhost:9000', '/var/www/topical-epaper/server/public');
                 if (existsSync(filePath)) {
                     unlinkSync(filePath);
                 } else {
@@ -145,7 +148,51 @@ const deleteProduct = async (req, res) => {
 
 
 
+const fetchDailyLink = asyncHandler(async (req, res) => {
 
+    const data = await DailyLInk.find({});
+
+    res.send({
+        success: true,
+        data: data
+    })
+
+});
+
+const updateLink = asyncHandler(async (req, res) => {
+    const { date, firstName, firstLink, secondLink, secondName } = req.body;
+
+
+
+    if ([date, firstName, firstLink, secondLink, secondName].some((item) => typeof item !== 'string' || item.trim() === '')) {
+        return res.status(400).send({
+            success: false,
+            message: "All fields are required!"
+        });
+    }
+
+    const user = await DailyLInk.findById("677e66380e8e6f5f4132fbf5");
+    if (!user) {
+        return res.status(404).send({
+            success: false,
+            message: "User not found!"
+        });
+    }
+
+    user.date = date;
+    user.firstLink = firstLink;
+    user.firstBtn = firstName; 
+    user.secondLink = secondLink;
+    user.secondBtn = secondName; 
+
+    await user.save();
+
+    // Respond with success
+    res.status(200).send({
+        success: true,
+        message: "Link updated successfully!",
+    });
+});
 
 
 
@@ -153,4 +200,6 @@ export {
     addProduct,
     fetchAllProducts,
     deleteProduct,
+    fetchDailyLink,
+    updateLink
 };

@@ -80,11 +80,21 @@ const layout = () => {
                                         </NavLink>
                                     </div>
 
+                                    <div className="adminLinks d-flex align-items-center cursor-pointer">
+
+                                        <NavLink onClick={() => setActive(!active)} to="/admin/today-newspaper" className={({ isActive }) => (isActive ? 'active' : '')}>
+
+                                            <i className="fas fa-tasks me-2"></i>
+                                            <span>Today's Newspaper</span>
+                                        </NavLink>
+                                    </div>
+
 
                                     <div className="adminLinks d-flex align-items-center cursor-pointer">
 
                                         <NavLink onClick={() => setActive(!active)} to="/admin/adminusers" className={({ isActive }) => (isActive ? 'active' : '')}>
-                                            <i className="fa-solid fa-user"></i>                                            <span>AdminUser</span>
+                                            <i className="fa-solid fa-user"></i>   
+                                            <span>AdminUser</span>
                                         </NavLink>
                                     </div>
                                     <div className="adminLinks d-flex align-items-center cursor-pointer">

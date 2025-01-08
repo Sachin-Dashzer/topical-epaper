@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import secondnews from "../../assets/secondnews.jpg";
+import secondnews from "../../assets/new.png";
 import ThirdIMG from "../../assets/ThirdIMG.jpg";
 import ShortBanner from '../../components/ShortBanner';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
@@ -95,7 +95,7 @@ const LinkGenerate = () => {
 
                         <div className="col-sm-6 ps-md-5 mt-4 mt-md-0 ">
                             <div className="shadow rounded-3 overflow-hidden">
-                                <img className='w-100 h-100' src={secondnews} loading="lazy" alt="" />
+                                <img style={{objectFit : "cover", height: "480px"}} className='w-100' src={secondnews} loading="lazy" alt="" />
                             </div>
                         </div>
 

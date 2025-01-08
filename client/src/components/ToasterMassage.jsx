@@ -22,7 +22,7 @@ const Toaster = ({ success, message, show, onClose }) => {
           !success ? "bg-primary text-white" : "bg-secondary"
         } ${show ? "activeToaster" : "deactiveToaster"}`}
       >
-        <div className="w-100 p-3 px-4 pe-5 relative">
+        <div className="w-100 p-md-3 -2 px-4 pe-md-5 pe-3 relative">
           <p className="text fontWeight700">{message}</p>
           <div className="cancelIcon" onClick={() => setActive(false)}>
             <i className="fa-solid fa-xmark"></i>
