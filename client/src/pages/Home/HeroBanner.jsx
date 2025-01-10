@@ -20,14 +20,7 @@ const HeroBanner = () => {
 
         <div className="heroVideo">
           <div className="video">
-            {/* <LazyLoad className='w-100 h-100' offset={100}>
-              <video autoPlay muted loop poster={poster} preload="none">
-                <source src={video} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </LazyLoad> */}
-            <img src={poster} alt="" />
-            {/* <video src={video} autoPlay muted loop></video> */}
+           
           </div>
         </div>
 
