@@ -25,7 +25,7 @@ const Textslider = () => {
     <section className="bg-light">
       <div className="container">
         <h1 className="text-center mb-md-4 mb-4 font-heading fontWeight700 text-primary ">Testimonials</h1>
-        <h4 className="text-center mb-4  text-decoration-underline">Google</h4>
+        {/* <h4 className="text-center mb-4  text-decoration-underline">Google</h4> */}
 
         <div id="testimonialCarousel" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">

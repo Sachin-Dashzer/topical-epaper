@@ -92,10 +92,10 @@ const Footer = () => {
                                         <h6 className="text"><span className='fontWeight800 text-primary'>Address :</span> Sagar , Madhya Pardesh.</h6>
                                     </li>
                                     <li className='mt-3 text fontWeight500'>
-                                        <h6 className="text"><span className='fontWeight800 text-primary'>Email :</span>  <a href="mailto:aavikthakur@gmail.com" className='text-black'>aavikthakur@gmail.com</a> </h6>
+                                        <h6 className="text"><span className='fontWeight800 text-primary'>Email :</span>  <a href="mailto:thakuraavik@gmail.com" className='text-black'>thakuraavik@gmail.com</a> </h6>
                                     </li>
                                     <li className='mt-2 text fontWeight500'>
-                                        <h6 className="text"><span className='fontWeight800 text-primary'>Phone :</span>&nbsp; <a href="tel:+917974066478" className='text-black'> +91 79740 66478 </a></h6>
+                                        <h6 className="text"><span className='fontWeight800 text-primary'>Phone :</span>&nbsp; <a href="" className='text-black'> </a></h6>
 
                                     </li>
                                 </ul>
@@ -110,7 +110,7 @@ const Footer = () => {
                 </div>
                 <div className="text-end">
                     {/* <div className="d-flex gap-md-4 gap-2 justify-content-end">
-                        <a href='https://t.me/topicalepaper' target="_blank" className='title text-white'><i className="fa-brands fa-telegram"></i></a>
+                        <a href='https://t.me/topicaleepaper' target="_blank" className='title text-white'><i className="fa-brands fa-telegram"></i></a>
                         <a href='https://www.youtube.com/@skullrockgaming7865' target="_blank" className='title text-white'><i className="fa-brands fa-youtube"></i></a>
 
                     </div> */}

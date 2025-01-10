@@ -46,7 +46,7 @@ const Header = () => {
                     <div className="navSocialLinks">
                         {/* <ul className='d-flex gap-4'>
                             <li>
-                                <a href='https://t.me/topicalepaper' target="_blank" className='title text-white'><i className="fa-brands fa-telegram"></i></a>
+                                <a href='https://t.me/topicaleepaper' target="_blank" className='title text-white'><i className="fa-brands fa-telegram"></i></a>
                             </li>
 
                             <li>
@@ -154,7 +154,7 @@ const Header = () => {
                 <div className="offcavas-footer bg-primary py-4 position-absolute w-100 bottom-0">
                     <ul className='d-flex gap-4 ps-4 pb-1 '>
                         <li>
-                            <a href='https://t.me/topicalepaper' target="_blank" className='title text-white'><i className="fa-brands fa-telegram"></i></a>
+                            <a href='https://t.me/topicaleepaper' target="_blank" className='title text-white'><i className="fa-brands fa-telegram"></i></a>
                         </li>
 
                         <li>

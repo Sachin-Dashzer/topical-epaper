@@ -20,13 +20,13 @@ const HeroBanner = () => {
 
         <div className="heroVideo">
           <div className="video">
-            <LazyLoad className='w-100 h-100' offset={100}>
+            {/* <LazyLoad className='w-100 h-100' offset={100}>
               <video autoPlay muted loop poster={poster} preload="none">
                 <source src={video} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-            </LazyLoad>
-
+            </LazyLoad> */}
+            <img src={poster} alt="" />
             {/* <video src={video} autoPlay muted loop></video> */}
           </div>
         </div>
@@ -38,7 +38,7 @@ const HeroBanner = () => {
 
           <div className="bannerBtns d-flex align-items-center justify-content-center ">
             <a href='/news' className="btnTheme mx-md-3 "><span className='text fontWeight400'>PSC Resources</span></a>
-            <a href='https://t.me/topicalepaper' target='_blank' className="btnTheme mx-3 "><span className='text fontWeight400'>Join Telegram</span></a>
+            <a href='https://t.me/topicaleepaper ' target='_blank' className="btnTheme mx-3 "><span className='text fontWeight400'>Join Telegram</span></a>
           </div>
         </div>
 

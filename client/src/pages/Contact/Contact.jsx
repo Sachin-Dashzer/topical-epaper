@@ -21,7 +21,7 @@ const Contact = () => {
                                 <div className="card-body">
                                     <h3 className='small_heading fontWeight700 text-primary mt-1 mb-1'>Telegram</h3>
                                     <p>
-                                        <a href='https://t.me/topicalepaper' target="_blank" className='text-black'>Topical Epaper</a>
+                                        <a href='https://t.me/topicaleepaper' target="_blank" className='text-black'>Topical Epaper</a>
                                     </p>
                                 </div>
                             </div>
