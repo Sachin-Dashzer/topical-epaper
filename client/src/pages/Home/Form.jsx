@@ -1,5 +1,5 @@
 import React from 'react';
-import ContactImg from '../../assets/contactImg.jpg'
+import ContactImg from '../../assets/contactImg.webp'
 
 const Form = () => {
     return (

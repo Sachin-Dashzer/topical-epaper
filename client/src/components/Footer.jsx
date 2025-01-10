@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { getFiles } from '../store/fileStore';
-import Logo from "../assets/logo.png"
+import Logo from "../assets/logo.webp"
 import { NavLink } from 'react-router-dom';
 
 const Footer = () => {

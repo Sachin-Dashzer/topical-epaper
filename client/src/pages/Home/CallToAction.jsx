@@ -1,5 +1,5 @@
 import React from 'react'
-import Telegram from '../../assets/telegram2.png'
+import Telegram from '../../assets/telegram2.webp'
 
 const CallToAction = () => {
   return (

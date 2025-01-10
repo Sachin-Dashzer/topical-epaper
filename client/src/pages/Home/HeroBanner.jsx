@@ -1,7 +1,7 @@
 import React from 'react'
-import video from '../../assets/banner-video.mp4'
-import LazyLoad from "react-lazyload";
-import poster from '../../assets/call-to-aciton.jpg'
+// import video from '../../assets/banner-video.mp4'
+// import LazyLoad from "react-lazyload";
+import poster from '../../assets/call-to-aciton.webp'
 
 
 const HeroBanner = () => {
@@ -20,7 +20,7 @@ const HeroBanner = () => {
 
         <div className="heroVideo">
           <div className="video">
-           
+           <img src={poster} loading='lazy' alt="" />
           </div>
         </div>
 

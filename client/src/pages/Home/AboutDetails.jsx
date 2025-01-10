@@ -1,7 +1,7 @@
 import React from 'react'
-import About1 from '../../assets/about-1.jpg'
-import About2 from '../../assets/about-2.jpg'
-import About3 from '../../assets/about-3.jpg'
+import About1 from '../../assets/about-1.webp'
+import About2 from '../../assets/about-2.webp'
+import About3 from '../../assets/about-3.webp'
 
 const AboutDetails = () => {
   return (

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
-import error from '../../assets/error.jpg';
+import error from '../../assets/error.webp';
 
 const NotFound = () => {
 

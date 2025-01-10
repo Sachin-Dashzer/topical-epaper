@@ -124,7 +124,7 @@ const LatestUploads = () => {
                                         <div className="sliderItems shadow">
                                             <div className="uploadsBox">
                                                 <div className="uploadImg">
-                                                    <img src="/path-to-placeholder-image.jpg" loading="lazy" alt="No Newspaper Available" />
+                                                    <img src="/path-to-placeholder-image.webp" loading="lazy" alt="No Newspaper Available" />
                                                 </div>
                                                 <div className="uploadsDate">
                                                     <h3 className="title fontWeight700 text-capital text-center">No Newspaper Available</h3>
@@ -137,7 +137,7 @@ const LatestUploads = () => {
                                         <div className="sliderItems shadow">
                                             <div className="uploadsBox">
                                                 <div className="uploadImg">
-                                                    <img src="/path-to-placeholder-image.jpg" loading="lazy" alt="No Newspaper Available" />
+                                                    <img src="/path-to-placeholder-image.webp" loading="lazy" alt="No Newspaper Available" />
                                                 </div>
                                                 <div className="uploadsDate">
                                                     <h3 className="title fontWeight700 text-capital text-center">No Newspaper Available</h3>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import secondnews from "../../assets/new.png";
-import ThirdIMG from "../../assets/ThirdIMG.jpg";
+import secondnews from "../../assets/new.webp";
+import ThirdIMG from "../../assets/ThirdIMG.webp";
 import ShortBanner from '../../components/ShortBanner';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Button } from 'react-bootstrap';

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import Logo from "../assets/logo.png"
+import Logo from "../assets/logo.webp"
 import AOS from "aos";
 import "aos/dist/aos.css";
 
