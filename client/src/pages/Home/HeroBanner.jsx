@@ -20,7 +20,7 @@ const HeroBanner = () => {
 
         <div className="heroVideo">
           <div className="video">
-           <img src={poster} loading='lazy' alt="" />
+           {/* <img src={poster} loading='lazy' alt="" /> */}
           </div>
         </div>
 
