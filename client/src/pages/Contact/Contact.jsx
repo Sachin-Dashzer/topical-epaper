@@ -8,7 +8,7 @@ const Contact = () => {
         <>
 
 
-            <ShortBanner name="Request us" />
+            <ShortBanner name="Contact us" />
 
             <section className="contact-icons bg-light">
                 <div className="container">
@@ -32,8 +32,10 @@ const Contact = () => {
                                     <i className="fas fa-phone"></i>
                                 </div>
                                 <div className="card-body">
-                                    <h3 className='small_heading fontWeight700 text-primary mt-1 mb-1'>Phone</h3>
-                                    <p> <a href="tel:+917974066478" className='text-black'> +91 79740 66478 </a></p>
+                                <h3 className='small_heading fontWeight700 text-primary mt-1 mb-1'>WhatsApp</h3>
+                                    <p>
+                                        <a href='https://whatsapp.com/channel/0029VamePKH3QxRxg46zeW35' target="_blank" className='text-black'>Topical Epaper</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>

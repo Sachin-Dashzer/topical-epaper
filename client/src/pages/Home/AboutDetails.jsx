@@ -20,10 +20,10 @@ const AboutDetails = () => {
                   <span className="text-primary">daily newspapers!</span>
                 </h2>
                 <p className='title fontWeight300'>
-                  We bring you a wide variety of newspapers—local, national, and international—updated daily, so you never miss a headline. Whether you’re passionate about current events or simply enjoy the charm of a good read, our platform offers a seamless and accessible experience.
+                "It all began when my brother and I noticed our sister, an MPPSC aspirant, spending her hard-earned money on newspapers. When we suggested switching to online newspapers, she, being less tech-savvy, found it difficult to access everything in one place. That’s when we decided to create a Telegram community to help students like her find newspapers easily.
                 </p>
                 <p className='title fontWeight300 mt-2'>
-                  With a focus on simplicity and diversity, we aim to keep you informed, connected, and inspired—all in one place. Join us and rediscover the joy of reading newspapers, reimagined for the digital age!
+                As the community grew, we started sharing magazines, books, and other valuable resources. Eventually, with the little earnings we made, we decided to build a website to make things even more convenient. And here we are today!"
                 </p>
                 <a href="/contact" className='btnTheme py-2 mt-3'><span>Contact us</span></a>
               </div>

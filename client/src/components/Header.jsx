@@ -44,7 +44,7 @@ const Header = () => {
 
                     <p className="font-heading text-center">Stay ahed with exclusive newspapers, right when you need them.</p>
                     <div className="navSocialLinks">
-                        {/* <ul className='d-flex gap-4'>
+                        <ul className='d-flex gap-4'>
                             <li>
                                 <a href='https://t.me/topicaleepaper' target="_blank" className='title text-white'><i className="fa-brands fa-telegram"></i></a>
                             </li>
@@ -52,7 +52,10 @@ const Header = () => {
                             <li>
                                 <a href='https://www.youtube.com/@skullrockgaming7865' target="_blank" className='title text-white'><i className="fa-brands fa-youtube"></i></a>
                             </li>
-                        </ul> */}
+                            <li>
+                            <a href='https://whatsapp.com/channel/0029VamePKH3QxRxg46zeW35' target="_blank" className='title text-white'><i class="fa-brands fa-whatsapp"></i></a>
+                        </li>
+                        </ul>
                     </div>
                 </div>
                 <nav className='d-flex justify-content-between align-items-center'>
@@ -79,7 +82,7 @@ const Header = () => {
                                 <NavLink to="/about-us" className={({ isActive }) => (isActive ? 'active' : '')}>About</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')}>Request us</NavLink>
+                                <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')}>Contact us</NavLink>
                             </li>
                         </ul>
 
@@ -160,6 +163,10 @@ const Header = () => {
                         <li>
                             <a href='https://www.youtube.com/@skullrockgaming7865' target="_blank" className='title text-white'><i className="fa-brands fa-youtube"></i></a>
                         </li>
+                        <li>
+                            <a href='https://whatsapp.com/channel/0029VamePKH3QxRxg46zeW35' target="_blank" className='title text-white'><i class="fa-brands fa-whatsapp"></i></a>
+                        </li>
+
 
                     </ul>
                 </div>
