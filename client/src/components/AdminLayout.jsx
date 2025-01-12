@@ -4,6 +4,7 @@ import { NavLink, Outlet } from 'react-router-dom'
 import { logoutUser } from '../store/authStore/index.js'
 import { useDispatch } from 'react-redux'
 import Logo from "../assets/logo.png"
+import Logo2 from "../assets/logo.webp"
 
 
 const layout = () => {
@@ -26,7 +27,16 @@ const layout = () => {
                     <div className="logo">
                         <h1 className="heading fontWeight700 font-heading fontWeight900">
 
-                            <a href="/" className='text-primary'><img src={Logo} loading="lazy" alt="" /> Topical Epaper</a></h1>
+                            <a href="/" className='text-primary'>
+
+                                <picture>
+                                    <source srcset={Logo2} type="image/webp" />
+                                    <img src={Logo} loading="lazy" alt="" width="70" height="70"/>
+                                </picture>
+
+
+
+                                Topical Epaper</a></h1>
                     </div>
 
                     <span>
@@ -93,7 +103,7 @@ const layout = () => {
                                     <div className="adminLinks d-flex align-items-center cursor-pointer">
 
                                         <NavLink onClick={() => setActive(!active)} to="/admin/adminusers" className={({ isActive }) => (isActive ? 'active' : '')}>
-                                            <i className="fa-solid fa-user"></i>   
+                                            <i className="fa-solid fa-user"></i>
                                             <span>AdminUser</span>
                                         </NavLink>
                                     </div>

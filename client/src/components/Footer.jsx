@@ -21,7 +21,7 @@ const Footer = () => {
     }
 
 
-    
+
 
 
     useEffect(() => {
@@ -36,7 +36,11 @@ const Footer = () => {
                 <div className="row">
                     <div className="col-md-4">
                         <div className="footerlogo">
-                            <h1 className='text-primary fontWeight900 mb-md-3 mb-2 '><a href="/" className='text-primary'><img src={Logo} loading="lazy" alt="" /> Topical-Epaper</a></h1>
+                            <h1 className='text-primary fontWeight900 mb-md-3 mb-2 '><a href="/" className='text-primary'>
+
+                                <img src={Logo} loading="lazy" alt="" />
+
+                                Topical-Epaper</a></h1>
                             <p>"It all began when my brother and I noticed our sister, an MPPSC aspirant, spending her hard-earned money on newspapers. When we suggested switching to online newspapers, she, being less tech-savvy, found it difficult to access everything in one place. That’s when we decided to create a Telegram community to help students like her find newspapers easily. As the community grew, we started sharing magazines, books, and other valuable resources. Eventually, with the little earnings we made, we decided to build a website to make things even more convenient. And here we are today!".</p>
                         </div>
                     </div>
