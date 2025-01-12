@@ -34,7 +34,7 @@ const Footer = () => {
         <footer className='w-100'>
             <div className="containerFull py-5">
                 <div className="row">
-                    <div className="col-md-4">
+                    <div className="col-md-6">
                         <div className="footerlogo">
                             <h1 className='text-primary fontWeight900 mb-md-3 mb-2 '><a href="/" className='text-primary'>
 
@@ -44,7 +44,7 @@ const Footer = () => {
                             <p>"It all began when my brother and I noticed our sister, an MPPSC aspirant, spending her hard-earned money on newspapers. When we suggested switching to online newspapers, she, being less tech-savvy, found it difficult to access everything in one place. That’s when we decided to create a Telegram community to help students like her find newspapers easily. As the community grew, we started sharing magazines, books, and other valuable resources. Eventually, with the little earnings we made, we decided to build a website to make things even more convenient. And here we are today!".</p>
                         </div>
                     </div>
-                    <div className="col-sm-7 offset-lg-1">
+                    <div className="col-md-6">
                         <div className="row">
                             <div className="col-lg-4 col-6">
                                 <h5 className='text-primary fontWeight700 mb-md-3 mb-2 mt-4 mt-md-0 title font-Heading'>Hot Links</h5>
@@ -70,7 +70,7 @@ const Footer = () => {
                                 </ul>
 
                             </div>
-                            <div className="col-lg-4 col-6">
+                            <div className="col-lg-3 col-6">
                                 <h5 className='text-primary fontWeight700 mb-md-3 mb-2 mt-4 mt-md-0 title font-Heading'>Newspapers</h5>
                                 <ul className='ms-1'>
 
@@ -89,7 +89,7 @@ const Footer = () => {
 
                                 </ul>
                             </div>
-                            <div className="col-lg-4">
+                            <div className="col-lg-5">
                                 <h5 className='text-primary fontWeight700 mb-md-3 mb-2 mt-4 mt-md-0 title font-Heading'>Contact</h5>
                                 <ul className='ms-1'>
                                     <li className='mt-2 text fontWeight500'>
