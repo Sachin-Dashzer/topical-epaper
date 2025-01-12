@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { logoutUser } from '../store/authStore/index.js'
 import { useDispatch } from 'react-redux'
-import Logo from "../assets/logo.webp"
+import Logo from "../assets/logo.png"
 
 
 const layout = () => {
