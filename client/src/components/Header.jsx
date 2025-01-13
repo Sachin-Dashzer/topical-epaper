@@ -1,148 +1,202 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo, lazy, Suspense } from "react";
 import { NavLink } from "react-router-dom";
-import Logo from "../assets/logo.png";
-import AOS from "aos";
+
+// Lazy load AOS for better initial load performance
+const AOS = lazy(() => import('aos'));
 import "aos/dist/aos.css";
 
-const Header = () => {
-    const [isSticky, setIsSticky] = useState(false);
-    const [menuBox, setMenuBox] = useState(false);
+// Import image with explicit width and height
+const Logo = new URL('../assets/logo.png', import.meta.url).href;
 
-    useEffect(() => {
-        AOS.init();
-        window.addEventListener("load", () => AOS.refresh());
+const SocialLinks = memo(({ className = '' }) => (
+  <ul className={`d-flex gap-4 ${className}`}>
+    <li>
+      <a href='https://t.me/topicaleepaper' target="_blank" rel="noopener noreferrer" className='title text-white'>
+        <i className="fa-brands fa-telegram"></i>
+      </a>
+    </li>
+    <li>
+      <a href='https://www.youtube.com/@skullrockgaming7865' target="_blank" rel="noopener noreferrer" className='title text-white'>
+        <i className="fa-brands fa-youtube"></i>
+      </a>
+    </li>
+    <li>
+      <a href='https://whatsapp.com/channel/0029VamePKH3QxRxg46zeW35' target="_blank" rel="noopener noreferrer" className='title text-white'>
+        <i className="fa-brands fa-whatsapp"></i>
+      </a>
+    </li>
+  </ul>
+));
 
-        const handleScroll = () => {
-            const scrollTop = window.scrollY;
-            setIsSticky(scrollTop > 100);
-        };
+SocialLinks.displayName = 'SocialLinks';
 
-        window.addEventListener("scroll", handleScroll);
+const Header = memo(() => {
+  const [isSticky, setIsSticky] = useState(false);
+  const [menuBox, setMenuBox] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+  useEffect(() => {
+    // Debounce scroll handler for better performance
+    let timeoutId = null;
+    
+    const handleScroll = () => {
+      if (timeoutId) {
+        window.cancelAnimationFrame(timeoutId);
+      }
 
-    return (
-        <div>
-            <header className={`stricky ${isSticky ? "stricky-fixed" : ""}`}>
-                <div className="topHeader py-1 w-100">
-                    <p className="font-heading text-center">
-                        Stay ahead with exclusive newspapers, right when you need them.
-                    </p>
-                </div>
-                <nav className="d-flex justify-content-between align-items-center">
-                    <div className="logo">
-                        <h1 className="large-heading">
-                            <a href="/" className="text-white">
-                                <img
-                                    src={Logo}
-                                    alt="Logo"
-                                    loading="eager"
-                                    decoding="async"
-                                    width="120"
-                                    height="60"
-                                />
-                                Topical Epapers
-                            </a>
-                        </h1>
-                    </div>
-                    <button
-                        onClick={() => setMenuBox(!menuBox)}
-                        className="d-md-none small_heading border-0 bg-transparent"
-                    >
-                        <i className="fa-solid fa-bars"></i>
-                    </button>
-                </nav>
+      timeoutId = window.requestAnimationFrame(() => {
+        const scrollPos = 100;
+        const scrollTop = window.scrollY;
 
-                {menuBox && (
-                    <div className="offCanvasBox bg-light shadow">
-                        <div className="offcanvas-header">
-                            <div className="w-100 d-flex px-3 py-4 justify-content-between">
-                                <h1 className="heading font-heading">
-                                    <a href="/" className="text-dark fontWeight800">
-                                        <img
-                                            src={Logo}
-                                            alt="Logo"
-                                            loading="lazy"
-                                            width="100"
-                                            height="50"
-                                        />
-                                        Topical Epapers
-                                    </a>
-                                </h1>
-                                <button
-                                    className="sub_heading border-0 bg-transparent"
-                                    onClick={() => setMenuBox(false)}
-                                >
-                                    <i className="fa-solid fa-xmark"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div className="offcanvas-body">
-                            <ul className="py-4 px-4">
-                                <li>
-                                    <NavLink
-                                        onClick={() => setMenuBox(false)}
-                                        to="/"
-                                        className="text-dark small_heading fontWeight700 mt-3"
-                                    >
-                                        Home
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink
-                                        onClick={() => setMenuBox(false)}
-                                        to="/news"
-                                        className="text-dark small_heading fontWeight700 mt-3"
-                                    >
-                                        PSC Resources
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink
-                                        onClick={() => setMenuBox(false)}
-                                        to="/updates"
-                                        className="text-dark small_heading fontWeight700 mt-3"
-                                    >
-                                        PSC News
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink
-                                        onClick={() => setMenuBox(false)}
-                                        to="/blog"
-                                        className="text-dark small_heading fontWeight700 mt-3"
-                                    >
-                                        PSC Blogs
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink
-                                        onClick={() => setMenuBox(false)}
-                                        to="/about-us"
-                                        className="text-dark small_heading fontWeight700 mt-3"
-                                    >
-                                        About
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink
-                                        onClick={() => setMenuBox(false)}
-                                        to="/contact"
-                                        className="text-dark small_heading fontWeight700 mt-3"
-                                    >
-                                        Contact us
-                                    </NavLink>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                )}
-            </header>
+        setIsSticky(scrollTop > scrollPos);
+        setShowScrollTop(scrollTop > scrollPos);
+      });
+    };
+
+    // Initialize AOS with reduced motion preference check
+    const initAOS = async () => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      
+      if (!prefersReducedMotion) {
+        try {
+          const AOSModule = await import('aos');
+          AOSModule.init({
+            once: true, // Initialize animations only once
+            disable: 'mobile' // Disable on mobile for better performance
+          });
+        } catch (error) {
+          console.error('AOS failed to load:', error);
+        }
+      }
+    };
+
+    initAOS();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (timeoutId) {
+        window.cancelAnimationFrame(timeoutId);
+      }
+    };
+  }, []);
+
+  const toggleMenu = () => setMenuBox(prev => !prev);
+
+  const closeMenu = () => setMenuBox(false);
+
+  return (
+    <div>
+      <header className={`stricky ${isSticky ? "stricky-fixed" : ""}`}>
+        <div className="topHeader py-md-1 w-100">
+          <p className="font-heading text-center">
+            Stay ahead with exclusive newspapers, right when you need them.
+          </p>
+          <div className="navSocialLinks">
+            <SocialLinks />
+          </div>
         </div>
-    );
-};
+        
+        <nav className='d-flex justify-content-between align-items-center'>
+          <div className="logo">
+            <h3 className="large-heading font-heading fontWeight800">
+              <a href="/" className="text-white">
+                <img 
+                  src={Logo} 
+                  loading="lazy" 
+                  alt="Topical Epapers Logo"
+                  width="150" 
+                  height="50"
+                  decoding="async"
+                />
+                Topical Epapers
+              </a>
+            </h3>
+          </div>
 
+          <div className="navLinks">
+            <ul className='d-md-flex d-none gap-5'>
+              {[
+                { to: "/", text: "Home" },
+                { to: "/news", text: "PSC Resources" },
+                { to: "/updates", text: "PSC News" },
+                { to: "/blog", text: "PSC Blogs" },
+                { to: "/about-us", text: "About" },
+                { to: "/contact", text: "Contact us" }
+              ].map(({ to, text }) => (
+                <li key={to}>
+                  <NavLink 
+                    to={to} 
+                    className={({ isActive }) => isActive ? 'active' : ''}
+                  >
+                    {text}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+
+            <div onClick={toggleMenu} className="small_heading d-md-none">
+              <i className="fa-solid fa-bars"></i>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <div className={`${menuBox ? '' : 'active'} offCanvasBox bg-light shadow`}>
+        <div className="offcanvas-header">
+          <div className="w-100 d-flex px-3 py-4 justify-content-between">
+            <h4 className="small_heading font-heading">
+              <a href="/" className="text-light fontWeight800">
+                <img 
+                  src={Logo} 
+                  loading="lazy" 
+                  alt="Topical Epapers Logo"
+                  width="150" 
+                  height="50"
+                  decoding="async"
+                />
+                Topical Epapers
+              </a>
+            </h4>
+            <div 
+              className="sub_heading text-light pe-2" 
+              onClick={closeMenu}
+            >
+              <i className="fa-solid fa-xmark"></i>
+            </div>
+          </div>
+        </div>
+
+        <div className="offcanvas-body">
+          <ul className='py-4 px-4'>
+            {[
+              { to: "/", text: "Home" },
+              { to: "/news", text: "PSC Resources" },
+              { to: "/updates", text: "PSC News" },
+              { to: "/blog", text: "PSC Blogs" },
+              { to: "/about-us", text: "About" },
+              { to: "/contact", text: "Request us" }
+            ].map(({ to, text }) => (
+              <li key={to}>
+                <NavLink
+                  onClick={closeMenu}
+                  to={to}
+                  className='text-dark small_heading fontWeight700 mt-3'
+                >
+                  {text}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="offcavas-footer bg-primary py-4 position-absolute w-100 bottom-0">
+          <SocialLinks className="ps-4 pb-1" />
+        </div>
+      </div>
+    </div>
+  );
+});
+
+Header.displayName = 'Header';
 export default Header;

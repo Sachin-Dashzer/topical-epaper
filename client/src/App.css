@@ -1,4 +1,3 @@
-
 body {
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
@@ -457,9 +456,12 @@ section {
 .logo h1,
 .footerlogo h1,
 .offcanvas-header h1 {
-  
+
   font-family: "Dancing Script", serif;
-  
+
+}
+.logo a{
+  color: var(--primary-color) !important;
 }
 
 .logo img,
@@ -927,7 +929,7 @@ footer {
   background: #ffffff;
 }
 
-.uploadImgNew label{
+.uploadImgNew label {
   display: inline-block;
   padding: 8px 30px;
   background: #000;
@@ -938,7 +940,8 @@ footer {
   text-align: center;
 }
 
-td , th{
+td,
+th {
   padding: 10px 10px !important;
 }
 
@@ -967,7 +970,7 @@ td , th{
 .error-image {
   width: 100%;
   max-width: 400px;
-  height: auto; 
+  height: auto;
 }
 
 .textDiv {
@@ -995,13 +998,14 @@ td , th{
   font-weight: bold;
   cursor: pointer;
 }
-.downloadBox{
+
+.downloadBox {
   letter-spacing: 2px;
   word-spacing: 3px;
 }
 
 
-/* From Uiverse.io by abrahamcalsin */ 
+/* From Uiverse.io by abrahamcalsin */
 .dot-spinner {
   --uib-size: 2.8rem;
   --uib-speed: .9s;
@@ -1094,6 +1098,7 @@ td , th{
 }
 
 @keyframes pulse0112 {
+
   0%,
   100% {
     transform: scale(0);
@@ -1107,12 +1112,12 @@ td , th{
 }
 
 
-.DownloadNewBox{
+.DownloadNewBox {
   width: 75%;
 }
 
 
-.monthHeader{
+.monthHeader {
   /* border-bottom: 1px solid black; */
   padding: 15px 35px;
   margin: 40px 0;
@@ -1121,21 +1126,22 @@ td , th{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
+
 }
-.monthHeader i{
+
+.monthHeader i {
   transform: rotate(180deg);
 }
 
-.newspaperBox{
+.newspaperBox {
   height: 0px;
   overflow: hidden;
   transition: all 0.4s ease-in-out;
 }
 
-.newspaperBody{
+.newspaperBody {
   display: grid;
-  
+
   grid-template-columns: 19% 19% 19% 19% 19%;
   grid-gap: 2%;
 
@@ -1144,29 +1150,99 @@ td , th{
   transition: all 0.4s ease-in-out;
 }
 
-.monthBox.active .newspaperBox{
+.monthBox.active .newspaperBox {
   height: fit-content;
 }
-.monthBox.active .monthHeader i{
+
+.monthBox.active .monthHeader i {
   transform: rotate(0deg);
 }
 
-.activeLinkBox{
+.activeLinkBox {
 
   padding: 50px;
   margin-top: 20px;
 }
-.activeLinkBox a{
+
+.activeLinkBox a {
   border: none;
   background: rgb(34, 6, 60);
   color: white;
   border-radius: 5px;
   font-size: 16px;
 }
-.formbox{
+
+.formbox {
   width: 75%;
   border-radius: 5px;
 }
-.formbox button{
+
+.formbox button {
   width: 25%;
 }
+
+
+.heroBanner {
+  /* Use hardware acceleration */
+  transform: translateZ(0);
+  will-change: transform;
+
+  /* Optimize mobile height */
+  min-height: 80vh;
+  height: auto;
+}
+
+.btnTheme {
+  /* Add touch target size for mobile */
+  min-height: 44px;
+  padding: 0.75rem 1.5rem;
+
+  /* Add touch feedback */
+  transition: transform 0.2s;
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Add reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .btnTheme {
+    transition: none;
+  }
+}
+
+
+
+.heroBanner {
+  content-visibility: auto;
+  contain: content;
+}
+
+.heroContent {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.stricky {
+  contain: layout style;
+  will-change: transform;
+}
+
+.offCanvasBox {
+  contain: content;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
+

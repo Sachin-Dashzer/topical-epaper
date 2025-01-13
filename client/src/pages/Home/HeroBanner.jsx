@@ -1,53 +1,73 @@
-import React from "react";
-import poster from "../../assets/call-to-aciton.webp";
+// HeroBanner.jsx
+import React, { memo, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const HeroBanner = () => {
+// Prefetch component content
+const prefetchContent = () => {
+  // Vite's way of prefetching
+  const newsLink = document.createElement('link');
+  newsLink.rel = 'prefetch';
+  newsLink.href = '/news';
+  newsLink.as = 'document';
+  document.head.appendChild(newsLink);
+};
+
+const HeroBanner = memo(() => {
+  useEffect(() => {
+    // Implement prefetching after component mounts
+    prefetchContent();
+    
+    // Add font display swap
+    const style = document.createElement('style');
+    style.textContent = `
+      @font-face {
+        font-family: 'YourFontName';
+        font-display: swap;
+      }
+    `;
+    document.head.appendChild(style);
+  }, []);
+
   return (
-    <div className="heroBanner">
+    <section className="heroBanner p-0 bg-dark">
       <div className="heroBox">
-        {/* Optimized the video placeholder to lazy load */}
-        <div className="heroVideo">
-          <div className="video">
-            <img
-              src={poster}
-              loading="lazy"
-              alt="Hero Banner Placeholder"
-              width="100%"
-              height="auto"
-              style={{ display: "block" }}
-            />
-          </div>
-        </div>
-
         <div
-          className="heroContent pt-5 pt-md-0 px-3"
-          data-aos-delay="300"
-          data-aos="fade-up"
+          className="heroContent px-3 text-center"
         >
-          <h1 className="large_heading fontWeight800">
-            "Fuel your preparation with the <br />
-            <span className="text-primary">PSC Newspapers</span>, <br />
-            Magazines and PSC related News <br />
-            <span className="text-primary"> – all in one place.</span>"
-          </h1>
-
-          <div className="bannerBtns d-flex align-items-center justify-content-center">
-            <a href="/news" className="btnTheme mx-md-3">
+          <h2 className="large_heading fontWeight800 mb-4">
+            Fuel your preparation with the{' '}
+            <br />
+            <span className="text-primary">PSC Newspapers</span>,{' '}
+            <br />
+            <span className=" my-2">
+              Magazines and PSC related News
+            </span>
+            <span className="text-primary d-block">
+              – all in one place.
+            </span>
+          </h2>
+          <div className="bannerBtns d-flex align-items-center justify-content-center flex-wrap gap-3">
+            <Link 
+              to="/news" 
+              className="btnTheme"
+            >
               <span className="text fontWeight400">PSC Resources</span>
-            </a>
+            </Link>
             <a
               href="https://t.me/topicaleepaper"
               target="_blank"
               rel="noopener noreferrer"
-              className="btnTheme mx-3"
+              className="btnTheme"
             >
               <span className="text fontWeight400">Join Telegram</span>
             </a>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
-};
+});
 
+HeroBanner.displayName = 'HeroBanner';
 export default HeroBanner;
+
