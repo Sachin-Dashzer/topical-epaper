@@ -1,67 +1,66 @@
-import React, { memo } from "react";
+// HeroBanner.jsx
+import React, { memo, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-// Preload critical content
-const HERO_CONTENT = {
-  main: "Fuel your preparation with the",
-  highlight1: "PSC Newspapers",
-  middle: "Magazines and PSC related News",
-  highlight2: "– all in one place"
+// Prefetch component content
+const prefetchContent = () => {
+  // Vite's way of prefetching
+  const newsLink = document.createElement('link');
+  newsLink.rel = 'prefetch';
+  newsLink.href = '/news';
+  newsLink.as = 'document';
+  document.head.appendChild(newsLink);
 };
 
-// Separate styled components for better performance and maintainability
-const ButtonBase = memo(({ children, ...props }) => (
-  <Link
-    {...props}
-    className="inline-block px-6 py-3 bg-primary text-white rounded font-medium hover:bg-primary-dark transition-colors duration-200"
-  >
-    {children}
-  </Link>
-));
-
-ButtonBase.displayName = 'ButtonBase';
-
-// Memoized button components to prevent unnecessary re-renders
-const PSCButton = memo(() => (
-  <ButtonBase to="/news">PSC Resources</ButtonBase>
-));
-
-PSCButton.displayName = 'PSCButton';
-
-const TelegramButton = memo(() => (
-  <ButtonBase
-    as="a"
-    href="https://t.me/topicaleepaper"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Join Telegram
-  </ButtonBase>
-));
-
-TelegramButton.displayName = 'TelegramButton';
-
 const HeroBanner = memo(() => {
-  return (
-    <section className="bg-dark">
-      <div className="max-w-7xl mx-auto px-4 py-8 md:py-12 lg:py-16">
-        <div className="text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-6">
-            <span className="block mb-2">{HERO_CONTENT.main}</span>
-            <span className="block text-primary mb-2">
-              {HERO_CONTENT.highlight1}
-            </span>
-            <span className="block mb-2 text-2xl md:text-3xl lg:text-4xl">
-              {HERO_CONTENT.middle}
-            </span>
-            <span className="block text-primary text-2xl md:text-3xl lg:text-4xl">
-              {HERO_CONTENT.highlight2}
-            </span>
-          </h1>
+  useEffect(() => {
+    // Implement prefetching after component mounts
+    prefetchContent();
+    
+    // Add font display swap
+    const style = document.createElement('style');
+    style.textContent = `
+      @font-face {
+        font-family: 'YourFontName';
+        font-display: swap;
+      }
+    `;
+    document.head.appendChild(style);
+  }, []);
 
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <PSCButton />
-            <TelegramButton />
+  return (
+    <section className="heroBanner p-0 bg-dark">
+      <div className="heroBox">
+        <div
+          className="heroContent px-3 text-center"
+        >
+          <span className="heading fontWeight800 mb-4">
+            Fuel your preparation with the{' '}
+            <br />
+            <span className="text-primary">PSC Newspapers</span>,{' '}
+            <br />
+            <span className=" my-2">
+              Magazines and PSC related News
+            </span>
+            <span className="text-primary d-block">
+              – all in one place.
+            </span>
+          </span>
+          <div className="bannerBtns d-flex align-items-center justify-content-center flex-wrap gap-3">
+            <Link 
+              to="/news" 
+              className="btnTheme"
+            >
+              <span className="text fontWeight400">PSC Resources</span>
+            </Link>
+            <a
+              href="https://t.me/topicaleepaper"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btnTheme"
+            >
+              <span className="text fontWeight400">Join Telegram</span>
+            </a>
           </div>
         </div>
       </div>
@@ -70,15 +69,5 @@ const HeroBanner = memo(() => {
 });
 
 HeroBanner.displayName = 'HeroBanner';
-
-// Preload CSS variables
-const style = document.createElement('style');
-style.textContent = `
-  :root {
-    --primary: #007bff;
-    --primary-dark: #0056b3;
-  }
-`;
-document.head.appendChild(style);
-
 export default HeroBanner;
+
