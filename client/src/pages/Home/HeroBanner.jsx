@@ -34,7 +34,7 @@ const HeroBanner = memo(() => {
         <div
           className="heroContent px-3 text-center"
         >
-          <h2 className="large_heading fontWeight800 mb-4">
+          <span className="heading fontWeight800 mb-4">
             Fuel your preparation with the{' '}
             <br />
             <span className="text-primary">PSC Newspapers</span>,{' '}
@@ -45,7 +45,7 @@ const HeroBanner = memo(() => {
             <span className="text-primary d-block">
               – all in one place.
             </span>
-          </h2>
+          </span>
           <div className="bannerBtns d-flex align-items-center justify-content-center flex-wrap gap-3">
             <Link 
               to="/news" 
