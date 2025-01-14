@@ -1,5 +1,12 @@
 import React from 'react'
-import HeroBanner from './HeroBanner'
+
+
+import { Suspense, lazy } from 'react';
+const HeroBanner = lazy(() => import('./HeroBanner.jsx'));
+
+// In parent component
+
+
 import LatestUploads from './LatestUploads.jsx'
 import AboutDetails from './AboutDetails'
 import CallToAction from './CallToAction.jsx'
@@ -9,14 +16,16 @@ import Textslider from './Textslider.jsx'
 const Home = () => {
     return (
         <>
-            <HeroBanner/>
+            <Suspense fallback={<div className="hero-section" />}>
+                <HeroBanner />
+            </Suspense>
             <LatestUploads />
             {/* <AboutDetails /> */}
             <CallToAction />
             <Textslider />
             <Form />
-            
-            
+
+
 
         </>
 
