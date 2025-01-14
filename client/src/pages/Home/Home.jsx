@@ -2,7 +2,7 @@ import React from 'react'
 
 
 import { Suspense, lazy } from 'react';
-const HeroBanner = lazy(() => import('./'));
+const HeroBanner = lazy(() => import('./HeroBanner.jsx'));
 
 // In parent component
 
