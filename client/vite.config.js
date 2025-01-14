@@ -13,34 +13,25 @@ export default defineConfig({
     }),
   ],
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          // Separate vendor chunks
-          if (id.includes('node_modules')) {
-            return 'vendor';
-          }
-        }
-      }
-    },
-    cssCodeSplit: false, // Bundle all CSS into a single file
     minify: 'terser',
     terserOptions: {
       compress: {
         drop_console: true,
-        drop_debugger: true
-      }
-    }
-  },
-  optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom']
-  },
-
-  server: {
-
-    headers: {
-      'Cache-Control': 'public, max-age=31536000',
+        drop_debugger: true,
+      },
     },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+        },
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
+      },
+    },
+  },
+  server: {
     hmr: {
       overlay: true,
     },

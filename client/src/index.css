@@ -69,10 +69,11 @@
   .heroContent .btnTheme span, .btnTheme2 span {
     font-size: 12px;
   }
-  .heroContent .heading {
-    font-size: 14px;
-    line-height: 35px;
-}
+  .heroContent h3 {
+    font-size: 16px;
+    letter-spacing: 3px;
+    word-spacing: 0px;
+  }
 
   .btnTheme span,
   .btnTheme2 span {
