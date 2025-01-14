@@ -9,91 +9,59 @@ const HERO_CONTENT = {
   highlight2: "– all in one place"
 };
 
+// Separate styled components for better performance and maintainability
+const ButtonBase = memo(({ children, ...props }) => (
+  <Link
+    {...props}
+    className="inline-block px-6 py-3 bg-primary text-white rounded font-medium hover:bg-primary-dark transition-colors duration-200"
+  >
+    {children}
+  </Link>
+));
+
+ButtonBase.displayName = 'ButtonBase';
+
+// Memoized button components to prevent unnecessary re-renders
+const PSCButton = memo(() => (
+  <ButtonBase to="/news">PSC Resources</ButtonBase>
+));
+
+PSCButton.displayName = 'PSCButton';
+
+const TelegramButton = memo(() => (
+  <ButtonBase
+    as="a"
+    href="https://t.me/topicaleepaper"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Join Telegram
+  </ButtonBase>
+));
+
+TelegramButton.displayName = 'TelegramButton';
+
 const HeroBanner = memo(() => {
   return (
-    <section className="heroBanner p-0 bg-dark">
-      <div className="heroBox">
-        <div
-          className="heroContent px-3 text-center"
-          style={{
-            // Inline critical styles for faster render
-            maxWidth: '1200px',
-            margin: '0 auto',
-            padding: '2rem 1rem'
-          }}
-        >
-          {/* Changed to h1 for better SEO and priority loading */}
-          <h1 
-            className="heading fontWeight800 mb-4"
-            style={{
-              // Inline critical styles
-              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-              lineHeight: 1.2,
-              marginBottom: '1.5rem',
-              // System font stack for faster initial render
-              fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif'
-            }}
-          >
-            {HERO_CONTENT.main}
-            <br />
-            <span 
-              className="text-primary"
-              style={{ display: 'inline-block', marginTop: '0.5rem' }}
-            >
+    <section className="bg-dark">
+      <div className="max-w-7xl mx-auto px-4 py-8 md:py-12 lg:py-16">
+        <div className="text-center">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-6">
+            <span className="block mb-2">{HERO_CONTENT.main}</span>
+            <span className="block text-primary mb-2">
               {HERO_CONTENT.highlight1}
             </span>
-            <br />
-            <span 
-              style={{ display: 'block', margin: '0.5rem 0' }}
-            >
+            <span className="block mb-2 text-2xl md:text-3xl lg:text-4xl">
               {HERO_CONTENT.middle}
             </span>
-            <span 
-              className="text-primary"
-              style={{ display: 'block' }}
-            >
+            <span className="block text-primary text-2xl md:text-3xl lg:text-4xl">
               {HERO_CONTENT.highlight2}
             </span>
           </h1>
 
-          <div 
-            className="bannerBtns d-flex align-items-center justify-content-center flex-wrap"
-            style={{ gap: '1rem' }}
-          >
-            <Link 
-              to="/news" 
-              className="btnTheme"
-              style={{
-                // Inline critical button styles
-                display: 'inline-block',
-                padding: '0.75rem 1.5rem',
-                backgroundColor: 'var(--primary)',
-                color: 'white',
-                borderRadius: '4px',
-                textDecoration: 'none',
-                fontWeight: 500
-              }}
-            >
-              PSC Resources
-            </Link>
-            <a
-              href="https://t.me/topicaleepaper"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btnTheme"
-              style={{
-                // Inline critical button styles
-                display: 'inline-block',
-                padding: '0.75rem 1.5rem',
-                backgroundColor: 'var(--primary)',
-                color: 'white',
-                borderRadius: '4px',
-                textDecoration: 'none',
-                fontWeight: 500
-              }}
-            >
-              Join Telegram
-            </a>
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            <PSCButton />
+            <TelegramButton />
           </div>
         </div>
       </div>
@@ -102,5 +70,15 @@ const HeroBanner = memo(() => {
 });
 
 HeroBanner.displayName = 'HeroBanner';
+
+// Preload CSS variables
+const style = document.createElement('style');
+style.textContent = `
+  :root {
+    --primary: #007bff;
+    --primary-dark: #0056b3;
+  }
+`;
+document.head.appendChild(style);
 
 export default HeroBanner;
