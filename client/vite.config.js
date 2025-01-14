@@ -32,6 +32,10 @@ export default defineConfig({
     },
   },
   server: {
+
+    headers: {
+      'Cache-Control': 'public, max-age=31536000',
+    },
     hmr: {
       overlay: true,
     },

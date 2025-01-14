@@ -1,65 +1,98 @@
-// HeroBanner.jsx
-import React, { memo, useEffect } from "react";
+import React, { memo } from "react";
 import { Link } from "react-router-dom";
 
-// Prefetch component content
-const prefetchContent = () => {
-  // Vite's way of prefetching
-  const newsLink = document.createElement('link');
-  newsLink.rel = 'prefetch';
-  newsLink.href = '/news';
-  newsLink.as = 'document';
-  document.head.appendChild(newsLink);
+// Preload critical content
+const HERO_CONTENT = {
+  main: "Fuel your preparation with the",
+  highlight1: "PSC Newspapers",
+  middle: "Magazines and PSC related News",
+  highlight2: "– all in one place"
 };
 
 const HeroBanner = memo(() => {
-  useEffect(() => {
-    // Implement prefetching after component mounts
-    prefetchContent();
-    
-    // Add font display swap
-    const style = document.createElement('style');
-    style.textContent = `
-      @font-face {
-        font-family: 'YourFontName';
-        font-display: swap;
-      }
-    `;
-    document.head.appendChild(style);
-  }, []);
-
   return (
     <section className="heroBanner p-0 bg-dark">
       <div className="heroBox">
         <div
           className="heroContent px-3 text-center"
+          style={{
+            // Inline critical styles for faster render
+            maxWidth: '1200px',
+            margin: '0 auto',
+            padding: '2rem 1rem'
+          }}
         >
-          <span className="heading fontWeight800 mb-4">
-            Fuel your preparation with the{' '}
+          {/* Changed to h1 for better SEO and priority loading */}
+          <h1 
+            className="heading fontWeight800 mb-4"
+            style={{
+              // Inline critical styles
+              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+              lineHeight: 1.2,
+              marginBottom: '1.5rem',
+              // System font stack for faster initial render
+              fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif'
+            }}
+          >
+            {HERO_CONTENT.main}
             <br />
-            <span className="text-primary">PSC Newspapers</span>,{' '}
+            <span 
+              className="text-primary"
+              style={{ display: 'inline-block', marginTop: '0.5rem' }}
+            >
+              {HERO_CONTENT.highlight1}
+            </span>
             <br />
-            <span className=" my-2">
-              Magazines and PSC related News
+            <span 
+              style={{ display: 'block', margin: '0.5rem 0' }}
+            >
+              {HERO_CONTENT.middle}
             </span>
-            <span className="text-primary d-block">
-              – all in one place.
+            <span 
+              className="text-primary"
+              style={{ display: 'block' }}
+            >
+              {HERO_CONTENT.highlight2}
             </span>
-          </span>
-          <div className="bannerBtns d-flex align-items-center justify-content-center flex-wrap gap-3">
+          </h1>
+
+          <div 
+            className="bannerBtns d-flex align-items-center justify-content-center flex-wrap"
+            style={{ gap: '1rem' }}
+          >
             <Link 
               to="/news" 
               className="btnTheme"
+              style={{
+                // Inline critical button styles
+                display: 'inline-block',
+                padding: '0.75rem 1.5rem',
+                backgroundColor: 'var(--primary)',
+                color: 'white',
+                borderRadius: '4px',
+                textDecoration: 'none',
+                fontWeight: 500
+              }}
             >
-              <span className="text fontWeight400">PSC Resources</span>
+              PSC Resources
             </Link>
             <a
               href="https://t.me/topicaleepaper"
               target="_blank"
               rel="noopener noreferrer"
               className="btnTheme"
+              style={{
+                // Inline critical button styles
+                display: 'inline-block',
+                padding: '0.75rem 1.5rem',
+                backgroundColor: 'var(--primary)',
+                color: 'white',
+                borderRadius: '4px',
+                textDecoration: 'none',
+                fontWeight: 500
+              }}
             >
-              <span className="text fontWeight400">Join Telegram</span>
+              Join Telegram
             </a>
           </div>
         </div>
@@ -69,5 +102,5 @@ const HeroBanner = memo(() => {
 });
 
 HeroBanner.displayName = 'HeroBanner';
-export default HeroBanner;
 
+export default HeroBanner;
