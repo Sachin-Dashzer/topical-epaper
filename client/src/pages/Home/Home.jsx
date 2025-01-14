@@ -1,10 +1,5 @@
 import React from 'react'
-
-
-
-// In parent component
-
-
+import HeroBanner from './HeroBanner'
 import LatestUploads from './LatestUploads.jsx'
 import AboutDetails from './AboutDetails'
 import CallToAction from './CallToAction.jsx'
@@ -14,14 +9,14 @@ import Textslider from './Textslider.jsx'
 const Home = () => {
     return (
         <>
-                <HeroBanner />
+            <HeroBanner/>
             <LatestUploads />
             {/* <AboutDetails /> */}
             <CallToAction />
             <Textslider />
             <Form />
-
-
+            
+            
 
         </>
 
