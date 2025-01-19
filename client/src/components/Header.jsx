@@ -120,7 +120,7 @@ const Header = memo(() => {
                 { to: "/", text: "Home" },
                 { to: "/news", text: "PSC Resources" },
                 { to: "/updates", text: "PSC News" },
-                { to: "/blog", text: "PSC Blogs" },
+                // { to: "/blog", text: "PSC Blogs" },
                 { to: "/about-us", text: "About" },
                 { to: "/contact", text: "Contact us" }
               ].map(({ to, text }) => (
