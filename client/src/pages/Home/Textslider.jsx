@@ -2,19 +2,19 @@ import React from "react";
 
 const testimonials = [
   {
-    text: "Success is not Final , Failure is not Fatal ,  It is the Courage to ,Continue that counts",
+    text: "Success is not Final , Failure is not Fatal ,  It is the Courage to Continue that counts",
     author: "John Doe",
   },
   {
-    text: "Success is not Final , Failure is not Fatal ,  It is the Courage to ,Continue that counts",
+    text: "Success is not Final , Failure is not Fatal ,  It is the Courage to Continue that counts",
     author: "Mike Johnson",
   },
   {
-    text: "Success is not Final , Failure is not Fatal ,  It is the Courage to ,Continue that counts",
+    text: "Success is not Final , Failure is not Fatal ,  It is the Courage to Continue that counts",
     author: "Jane Smith",
   },
   {
-    text: "Success is not Final , Failure is not Fatal ,  It is the Courage to ,Continue that counts",
+    text: "Success is not Final , Failure is not Fatal ,  It is the Courage to Continue that counts",
     author: "Emily Brown",
   },
 
@@ -37,7 +37,7 @@ const Textslider = () => {
                 <div className="d-flex justify-content-center">
                   <div className="w-75 text-center">
                     <p className="fs-5 fst-italic">"{testimonial.text}"</p>
-                    <h5 className="mt-3 title font-heading fontWeight700">- {testimonial.author}</h5>
+                    {/* <h5 className="mt-3 title font-heading fontWeight700">- {testimonial.author}</h5> */}
                   </div>
                 </div>
               </div>

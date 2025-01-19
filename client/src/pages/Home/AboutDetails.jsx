@@ -15,7 +15,7 @@ const AboutDetails = () => {
             <div className="col-lg-6">
               <div className="mb-3 py-md-5 pe-md-5">
                 <h2 className="mb-2 font-heading heading fontWeight700">
-                  Welcome to ,{' '}
+                  Welcome to {' '}
                   <span className="text-primary">Topical Newspapers</span> <br /> your one-stop destination for{' '}
                   <span className="text-primary">daily newspapers!</span>
                 </h2>
