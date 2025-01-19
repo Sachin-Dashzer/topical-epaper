@@ -10,7 +10,7 @@ const CallToAction = () => {
             <div className='callContainer'>
 
               <div>
-                <h1 className="large-heading font-heading fontWeight700">Stay Informed with 3M+ Readers on Telegram!</h1>
+                <h1 className="large-heading font-heading fontWeight700">Stay Informed with 35k + Readers on Telegram!</h1>
                 <p className='title mt-3'>Love news? So do 3 million others! Join our Telegram channel for quick access to the latest updates and daily newspapers.</p>
                 <a href='https://t.me/topicaleepaper' target='_blank' className="btnTheme text mt-3 py-2 "> <span> Join now</span></a>
               </div>
