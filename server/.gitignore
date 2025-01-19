@@ -54,3 +54,6 @@ uploads/
 
 # Public files
 public/
+
+# Ensure ads.txt is not ignored
+!ads.txt
