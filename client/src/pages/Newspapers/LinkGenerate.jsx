@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import secondnews from "../../assets/new.webp";
-import ThirdIMG from "../../assets/ThirdIMG.webp";
+import ThirdIMG from "../../assets/newaboutimg.jpg";
 import ShortBanner from '../../components/ShortBanner';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
@@ -193,7 +193,7 @@ const LinkGenerate = () => {
                             </div>
                         </div>
 
-                        <div className="col-sm-6 mt-4 mt-md-0">
+                        <div className="col-sm-6 mt-4 mt-md-3">
                             <h5 className='heading mb-1'>What is Topical E-paper</h5>
                             <p className='text mt-3'>Topical E-paper signifies a type of electronic paper (E-paper) technology tailored for uses where displays convey information pertinent to specific topics or contexts, including news, ads, signage, or interactive displays. In contrast to conventional paper, E-paper simulates the look of standard ink on a sheet, providing excellent readability in different lighting situations, even in strong sunlight. This technology requires little energy as it only uses power when the display content alters, resulting in high efficiency for devices such as e-readers, price labels, or outdoor signs. </p>
                             <p className='mt-2 text'> Topical E-paper solutions frequently connect with real-time data systems, allowing for immediate and smooth updates that reflect current information.only uses power when the display content alters, resulting in high efficiency for devices such as e-readers, price labels, or outdoor signs. Topical E-paper solutions frequently connect with real-time data systems, allowing for immediate and smooth updates that reflect current information. Its adaptability.</p>

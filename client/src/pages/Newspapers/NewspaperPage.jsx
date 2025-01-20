@@ -73,7 +73,7 @@ const NewspaperPage = () => {
                     {
                         activeMonth.map((item, index) => {
                             return (
-                                <div className={`monthBox ${(activeBox === index) ? "active" : ''}`}  key={index}>
+                                <div className={`monthBox ${(activeBox === index) ? "active" : ''}`} key={index}>
 
                                     <div className="monthHeader bg-light" onClick={() => checkActive(index)}>
                                         <h3 className="sub_heading fontWeight700 font-heading">{item}</h3>
@@ -83,7 +83,7 @@ const NewspaperPage = () => {
 
 
                                     <div className="newspaperBox">
-                                        <div className="newspaperBody">
+                                        {/* <div className="newspaperBody">
                                             {
                                                 newspaper?.filter(newItem => newItem.monthName === item).length === 0 ? (
                                                     <p className="title">Nothing Here</p>
@@ -110,7 +110,24 @@ const NewspaperPage = () => {
                                                         ))
                                                 )
                                             }
-                                        </div>
+                                        </div> */}
+
+
+                                        <ul className="px-5 row pb-5">
+                                            {
+                                                newspaper?.filter(newItem => newItem.monthName === item).length === 0 ? (
+                                                    <p className="title">Nothing Here</p>
+                                                ) : (
+                                                    newspaper
+                                                        ?.filter(newItem => newItem.monthName === item)
+                                                        .map((newItem, index) => (
+
+                                                            <li key={index} className="col-lg-2 my-4 fontWeight900"><a href={`/download/${newItem._id}`} >{newItem.date}</a></li>
+                                                        ))
+                                                )
+                                            }
+
+                                        </ul>
                                     </div>
 
 
